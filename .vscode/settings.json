@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "walldefence.sln"
+    "dotnet.defaultSolution": "WallDefence.sln",
+    "dotnet.preferCSharpExtension": true
 }

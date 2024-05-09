@@ -37,7 +37,7 @@ public class CraftManual : MonoBehaviour
         go_Preview = Instantiate(craft_tower[_slotNumber].go_PreviewPrefab, reticlePosition, Quaternion.identity);
         go_Prefab = craft_tower[_slotNumber].go_prefab;
 
-        UIController.Instance.CloseGameMenu();
+        UIController.Instance.OnCrafting();
         isPreviewActivated = true;
     }
 
@@ -79,7 +79,7 @@ public class CraftManual : MonoBehaviour
             rayInteractor.TryGetHitInfo(out reticlePosition, out _, out _, out _);
             Instantiate(go_Prefab, reticlePosition, go_Preview.transform.rotation);
             Destroy(go_Preview);
-            UIController.Instance.OpenCrafting();
+            UIController.Instance.OffCrafting();
             isPreviewActivated = false;
             go_Preview = null;
             go_Prefab = null;
@@ -91,7 +91,7 @@ public class CraftManual : MonoBehaviour
         if (isPreviewActivated)
             Destroy(go_Preview);
 
-        UIController.Instance.OpenCrafting();
+        UIController.Instance.OffCrafting();
         isPreviewActivated = false;
 
         go_Preview = null;

@@ -6,14 +6,18 @@ using UnityEngine.InputSystem;
 public class UIController : Singleton<UIController>
 {
     public InputActionProperty menuButtonAction;
+    public InputActionProperty primaryButtonAction;
     public InputActionProperty secondaryButtonAction;
     public GameObject m_pauseCanvas;
-    public GameObject m_GameMenuCanvas;
-    public GameObject m_inventoryBase;
-    public GameObject m_craftingBase;
+    public GameObject m_CraftingCanvas;
+    public GameObject m_swapper;
+    public GameObject m_RightHand;
     public Transform m_UIPos;
+    GameObject m_Quick;
 
-    private bool isOpenGameMenu = false;
+    private bool isOpenMenu = false;
+    private bool isOpenCrafting = false;
+    private bool isOpenQuick = false;
 
     void Start()
     {
@@ -22,63 +26,98 @@ public class UIController : Singleton<UIController>
 
     void Update()
     {
-        if(menuButtonAction.action.WasPerformedThisFrame())
+        if(menuButtonAction.action.WasPerformedThisFrame() && isOpenCrafting != true && isOpenQuick != true)
         {
-            Debug.Log("M");
-            m_pauseCanvas.SetActive(!m_pauseCanvas.activeSelf);
-            m_pauseCanvas.transform.position = m_UIPos.position;
-        }
-
-        if(secondaryButtonAction.action.WasPerformedThisFrame())
-        {
-            if(isOpenGameMenu == false)
+            if(isOpenMenu == false)
             {
-                OpenIventory();
+                OpenMenu();
             }
             else
             {
-                CloseGameMenu();
+                CloseMenu();
             }
         }
+
+        if(primaryButtonAction.action.WasPerformedThisFrame() && isOpenMenu != true && isOpenQuick != true)
+        {       
+            if(isOpenCrafting == false)
+            {
+                OpenCrafting();
+            }
+            else
+            {
+                CloseCrafting();
+            }
+        }
+
+        if(secondaryButtonAction.action.WasPerformedThisFrame() && isOpenMenu != true && isOpenCrafting != true)
+        {
+            if(isOpenQuick == false)
+            {
+                OpenQuick();
+            }
+            else
+            {
+                CloseQuick();
+            }
+        }
+
+
     }
 
-    public void ChangeGameMenu(int i)
-    {
-        if(i == 0)
-        {
-            m_inventoryBase.SetActive(true);
-            m_craftingBase.SetActive(false);
-        }
-        else if(i == 1)
-        {
-            m_inventoryBase.SetActive(false);
-            m_craftingBase.SetActive(true);
-        }
-    }
-
-    public void OpenIventory()
+    public void OpenMenu()
     {
         HandController.Instance.SetUIController();
-        m_GameMenuCanvas.SetActive(true);
-        ChangeGameMenu(0);
-        m_GameMenuCanvas.transform.position = m_UIPos.position;
-        isOpenGameMenu = true;
+        m_pauseCanvas.SetActive(true);
+        m_pauseCanvas.transform.position = m_UIPos.position;
+        isOpenMenu = true;
+    }
+
+    public void CloseMenu()
+    {
+        HandController.Instance.SetGrabController();
+        m_pauseCanvas.SetActive(false);
+        isOpenMenu = false;       
     }
 
     public void OpenCrafting()
     {
         HandController.Instance.SetUIController();
-        m_GameMenuCanvas.SetActive(true);
-        ChangeGameMenu(1);
-        m_GameMenuCanvas.transform.position = m_UIPos.position;
-        isOpenGameMenu = true;
+        m_CraftingCanvas.SetActive(true);
+        m_CraftingCanvas.transform.position = m_UIPos.position;
+        isOpenCrafting = true;
     }
 
-    public void CloseGameMenu()
+    public void CloseCrafting()
     {
         HandController.Instance.SetGrabController();
-        m_GameMenuCanvas.SetActive(false);
-        isOpenGameMenu = false;
+        m_CraftingCanvas.SetActive(false);
+        isOpenCrafting = false;
     }
 
+    // 크래프팅 중
+    public void OnCrafting()
+    {
+        m_CraftingCanvas.SetActive(false);
+    }
+
+    // 크래프팅 종료
+    public void OffCrafting()
+    {
+        m_CraftingCanvas.transform.position = m_UIPos.position;
+        m_CraftingCanvas.SetActive(true);
+    }
+
+    public void OpenQuick()
+    {   
+        HandController.Instance.SetBareHands();
+        m_Quick = Instantiate(m_swapper, m_RightHand.transform.position, m_RightHand.transform.rotation);
+        isOpenQuick = true;
+    }
+
+    public void CloseQuick()
+    {
+        Destroy(m_Quick);
+        isOpenQuick = false;
+    } 
 }

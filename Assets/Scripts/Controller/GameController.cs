@@ -5,31 +5,46 @@ using UnityEngine;
 
 public class GameController : Singleton<GameController>
 {
-    public WeaponItemData aa;
-    public ResourceItemData bb;
-    public Item axe;
-    public Item wood;
+    public ResourceItemData wood;
+    public ResourceItemData stone;
+    public ResourceItemData iron;
+    public MeleeWeaponItemData sword;
+    public ToolItemData hammer;
+
     [SerializeField]
-    private Inventory theInventory;
+    private ResourceDatabase rdb;
+
+    private QuickSlotsDatabase qdb;
 
     // Start is called before the first frame update
     void Start()
     {
-        axe = new WeaponItem(aa);
-        wood = new ResourceItem(bb);
-
+        rdb = ResourceDatabase.Instance;
+        qdb = QuickSlotsDatabase.Instance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if(Input.GetKeyDown("f"))
-        // {
-        //     theInventory.AcquireItem(axe);
-        // }
-        // if(Input.GetKeyDown("g"))
-        // {
-        //     theInventory.AcquireItem(wood);
-        // }
+        if(Input.GetKeyDown("f"))
+        {
+            rdb.AddItem((ResourceItem)wood.CreateItem());
+        }
+        if(Input.GetKeyDown("g"))
+        {
+            rdb.AddItem((ResourceItem)stone.CreateItem());
+        }
+        if(Input.GetKeyDown("h"))
+        {
+            rdb.AddItem((ResourceItem)iron.CreateItem());
+        }
+        if(Input.GetKeyDown("v"))
+        {
+            qdb.setQuickslots(0,(MeleeWeaponItem)sword.CreateItem());
+        }
+        if(Input.GetKeyDown("b"))
+        {
+            qdb.setQuickslots(1,(ToolItem)hammer.CreateItem());
+        }
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2300157385504846968}
   m_Layer: 0
-  m_Name: attathPos
+  m_Name: attachPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 4502563068608609570}
   - component: {fileID: 7133005534156075391}
   - component: {fileID: 7524961852527391917}
+  - component: {fileID: 6619090466923951561}
+  - component: {fileID: -6894291149114110093}
   m_Layer: 0
   m_Name: Sword_01
   m_TagString: Untagged
@@ -61,7 +63,7 @@ Transform:
   m_GameObject: {fileID: 7668562084462482593}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.6, z: 5.769}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -318,3 +320,29 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &6619090466923951561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668562084462482593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9021d35acb15e044eb1770ad871a1be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  attachPos: {fileID: 1622423372209755536}
+--- !u!114 &-6894291149114110093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668562084462482593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c5dd72c4ab3654b933f1cdd25d9ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
