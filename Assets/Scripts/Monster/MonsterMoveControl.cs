@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrcChiefManager : MonoBehaviour
+public class MonsterMoveControl : MonoBehaviour
 {
     Vector3 m_velocity;
     Vector3 m_gravityMovement;
     public CharacterController m_OrcController;
     public Transform m_groundCheck;
-    public Animator animator;
     public float m_radius = 0.04f;
     public LayerMask m_groundMask;
     bool m_isGrounded;
@@ -32,16 +31,5 @@ public class OrcChiefManager : MonoBehaviour
         m_OrcController.Move(m_gravityMovement);
         
     }
-    void OnTriggerEnter(Collider other) {
-        Debug.Log("트리거 작동");
-        if(other.gameObject.layer == LayerMask.NameToLayer("Wall"))
-        {
-            animator.SetBool("IsAttack", true);
-            Debug.Log("레이어 제대로 읽음");
-        }
-        if(other.gameObject.layer == LayerMask.NameToLayer("Arrow"))
-        {
-            Debug.Log("오크가 화살에 맞았다.");
-        }
-    }
 }
+
