@@ -13,6 +13,7 @@ TagManager:
   - Water
   - UI
   - Right Hand
+<<<<<<< Updated upstream
   - 
   - 
   - 
@@ -20,6 +21,15 @@ TagManager:
   - 
   - 
   - 
+=======
+  - Arrow
+  - MonsterAttackRange
+  - Monster
+  - Wall
+  - MonsterWeapon
+  - Tower
+  - TowerAttackRange
+>>>>>>> Stashed changes
   - 
   - 
   - 
