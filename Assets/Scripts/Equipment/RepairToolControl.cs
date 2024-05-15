@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeWeaponControl : MonoBehaviour
+public class RepairToolControl : MonoBehaviour
 {
-    public float damage;
+
+    public float value;
     public float magnitude; // 속도의 크기
 
     private Vector3 previousPosition;
@@ -12,9 +13,10 @@ public class MeleeWeaponControl : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
+    // Update is called once per frame
     void Update()
     {
         // 현재 위치 계산
@@ -30,8 +32,9 @@ public class MeleeWeaponControl : MonoBehaviour
         previousPosition = currentPosition;
 
         magnitude = velocity.magnitude;
-
-        //Debug.Log(magnitude);
     }
 
+    // 벽이나 타워 수리
+    // value값 필요 ( 얼마나 수리될지 )
+    // 속도값 계산 필요
 }

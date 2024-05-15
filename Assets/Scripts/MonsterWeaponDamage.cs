@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class MonsterWeaponDamage : MonoBehaviour
 {
-    public int m_damage;
+    public float m_damage;
 }

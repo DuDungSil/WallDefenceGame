@@ -9,6 +9,7 @@ public class GameController : Singleton<GameController>
     public ResourceItemData stone;
     public ResourceItemData iron;
     public MeleeWeaponItemData sword;
+    public RangedWeaponItemData staff;
     public ToolItemData hammer;
 
     [SerializeField]
@@ -45,6 +46,10 @@ public class GameController : Singleton<GameController>
         if(Input.GetKeyDown("b"))
         {
             qdb.setQuickslots(1,(ToolItem)hammer.CreateItem());
+        }
+        if(Input.GetKeyDown("n"))
+        {
+            qdb.setQuickslots(2,(RangedWeaponItem)staff.CreateItem());
         }
     }
 }

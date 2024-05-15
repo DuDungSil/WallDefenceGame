@@ -19,7 +19,7 @@ public class SwicherSlot : MonoBehaviour
 
         if(equipitem != null)
         {
-            GameObject displayItem = Instantiate(equipitem.prefab, gameObject.transform.position, Quaternion.identity);
+            GameObject displayItem = Instantiate(equipitem.EquipPrefab, gameObject.transform.position, Quaternion.identity);
             DisableAllComponentsExceptMesh(displayItem);
             displayItem.transform.parent = gameObject.transform;
             displayItem.transform.localScale = new Vector3(1f, 1f, 1f);

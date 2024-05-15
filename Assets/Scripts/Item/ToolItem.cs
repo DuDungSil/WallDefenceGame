@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ToolItem : EquipmentItem
 {
-    public ToolItemData weaponData { get; private set; }
+    public ToolItemData toolData { get; private set; }
     public ToolItem(ToolItemData data) : base(data) 
     { 
-        weaponData = data;
+        toolData = data;
     }
-    public float Value => weaponData.Value;
+    public float Value => toolData.Value;
 }

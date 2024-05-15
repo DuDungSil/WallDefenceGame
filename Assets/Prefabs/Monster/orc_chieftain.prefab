@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 287780167968222745}
   - component: {fileID: 287780167969189081}
   - component: {fileID: 3043084536958191284}
+  - component: {fileID: 5085958473564945933}
   m_Layer: 11
   m_Name: axe_orc_chieftain
   m_TagString: Untagged
@@ -105,6 +106,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.13502577, y: 0.80206954, z: 1.0713724}
   m_Center: {x: 0.017469252, y: 1.0238053, z: 0.0017180642}
+--- !u!114 &5085958473564945933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287780167967191577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a32737d77d7cb4e8fab707febe0f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_damage: 4
 --- !u!1 &1243220068332649832
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +170,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 1.7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &9186661187622792284
 GameObject:
@@ -2017,8 +2031,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9222033505249894238}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.39896327, z: -0, w: 0.9169669}
-  m_LocalPosition: {x: 50.085415, y: -65.247696, z: -13.551099}
+  m_LocalRotation: {x: -0, y: 0.20625143, z: -0, w: 0.97849905}
+  m_LocalPosition: {x: 50.46, y: -65.09, z: -17.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2032,7 +2046,7 @@ Transform:
   - {fileID: 3296710787132015872}
   - {fileID: 1824794515246232862}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -47.027, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 23.806, z: 0}
 --- !u!95 &9222033505259285720
 Animator:
   serializedVersion: 5
@@ -2046,7 +2060,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d5243b8dd3e3bf640a8cbcfb81edaa35, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -2138,6 +2152,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  deathTime: 100
+  attackTime: 2
+  nexusPosition: {x: 18, y: -65.27, z: -2}
   m_animator: {fileID: 9222033505259285720}
   m_armor: 6
 --- !u!1 &9222033505249894240

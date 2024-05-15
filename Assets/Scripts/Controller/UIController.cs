@@ -17,6 +17,7 @@ public class UIController : Singleton<UIController>
 
     private bool isOpenMenu = false;
     private bool isOpenCrafting = false;
+    private bool isOnCrafting = false;
     private bool isOpenQuick = false;
 
     void Start()
@@ -46,7 +47,10 @@ public class UIController : Singleton<UIController>
             }
             else
             {
-                CloseCrafting();
+                if(isOnCrafting == false)
+                {
+                    CloseCrafting();
+                }
             }
         }
 
@@ -99,6 +103,7 @@ public class UIController : Singleton<UIController>
     public void OnCrafting()
     {
         m_CraftingCanvas.SetActive(false);
+        isOnCrafting = true;
     }
 
     // 크래프팅 종료
@@ -106,6 +111,7 @@ public class UIController : Singleton<UIController>
     {
         m_CraftingCanvas.transform.position = m_UIPos.position;
         m_CraftingCanvas.SetActive(true);
+        isOnCrafting = false;
     }
 
     public void OpenQuick()

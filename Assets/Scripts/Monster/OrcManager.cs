@@ -4,41 +4,68 @@ using UnityEngine;
 
 public abstract class OrcManager : MonsterManager
 {
-    public int m_armor;
-    public override void TakeDamage(int damage)
+    private bool meleeAtackActivate = true;
+    public float m_armor;
+    public override void TakeDamage(float damage)
     {
         if(m_armor < damage) // 방어력이 데미지보다 큰경우는 제외
         {
-            Hp = Hp - damage + m_armor;
-            if(Hp < 0)
+            if(!IsDeath)
             {
-                StartCoroutine(Death());
+                Hp = Hp - damage + m_armor;
+                if(Hp < 0)
+                {
+                    IsDeath = true;
+                    StartCoroutine(Death());
+                }
             }
         }
     }
     public override void OnTriggerEnter(Collider other) {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        if(other.gameObject.layer == LayerMask.NameToLayer("Wall")) //벽 레이어와 부딪혔을 경우 (보통 AttackRange가 부딪힘)
         {
-            m_animator.SetBool("IsAttack", true);
-            WallManager wallManager = other.GetComponent<WallManager>();
-            if(wallManager != null)
+            if(!coroutineStarted) //코루틴 실행중이면 안함
             {
-                if(wallManager.Hp < 0)
-                {
-                    m_animator.SetBool("IsAttack", false);
-                }
+                Vector3 wallPosition = other.transform.position; 
+                transform.LookAt(wallPosition); //벽 혹은 타워를 바라보도록 몬스터 회전
+                m_animator.SetBool("IsAttack", true); //공격 애니메이션 작동
+                encounteredWallOrTower = other.gameObject; // 트리거가 발동된 벽 혹은 타워를 wallOrTower에 저장
+                //structureManager = encounteredWallOrTower.GetComponent<StructureManager>();
+                StartCoroutine(Attacking()); //공격 코루틴 실행
+                coroutineStarted = true;
             }
         }
-        if(other.gameObject.layer == LayerMask.NameToLayer("Arrow"))
+        if(other.gameObject.layer == LayerMask.NameToLayer("Arrow")) // 오크가 플레이어의 weapon에 피격당하는 경우
         {
-            Debug.Log("오크가 화살에 맞았다.");
-            WeaponDamage weaponDamage = other.GetComponent<WeaponDamage>(); // 플레이어의 무기 데미지를 받아오는것.
-            if(weaponDamage != null)
+            ProjectileControl projectileControl = other.GetComponentInChildren<ProjectileControl>(); // 플레이어의 무기 데미지를 받아오는과정
+            if(projectileControl != null)
             {
-                int damage = weaponDamage.m_damage;
+                float damage = projectileControl.m_damage;
                 TakeDamage(damage);
-                Debug.Log("currentHp : " + Hp);
+            }
+            else
+            {
+                Debug.Log("projectileControl is null");
             }
         }
+        if(other.gameObject.layer == LayerMask.NameToLayer("AllyMeeleWeapon") && meleeAtackActivate )
+        {
+            meleeAtackActivate = false;
+            Debug.Log("오크가 근접 공격 당함");
+            float damage = other.GetComponent<MeleeWeaponControl>().damage; // 플레이어의 무기 데미지를 받아오는것.
+            float magnitude = other.GetComponent<MeleeWeaponControl>().magnitude;
+            if(magnitude > 0.5f)
+            {
+                TakeDamage(damage);
+                Debug.Log(magnitude);
+                Debug.Log(Hp);
+                StartCoroutine(MeleeAtackDelay());  
+            }       
+        }
+    }
+    IEnumerator MeleeAtackDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        meleeAtackActivate = true;
     }
 }

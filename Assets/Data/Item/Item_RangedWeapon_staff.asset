@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34282ddf83da6ad4d85c3b24261c6c6b, type: 3}
+  m_Name: Item_RangedWeapon_staff
+  m_EditorClassIdentifier: 
+  _id: 50
+  _name: staff
+  _tooltip: 
+  _iconSprite: {fileID: 0}
+  _dropItemPrefab: {fileID: 0}
+  _equipPrefab: {fileID: 5411511818954621936, guid: 0e244221cf3a26446bf79b0b04d56411, type: 3}
+  _quickSlotPrefab: {fileID: 112973880521976459, guid: da4edc9872a23fa449ca3ef2c5f8eab8, type: 3}
+  _damage: 20
+  _projectilePrefab: {fileID: 1974051730275897924, guid: 2b9064321e77f1d4c92ebc371bb24269, type: 3}
+  _range: 20
+  _projSpeed: 10
+  _shootDelay: 0.5

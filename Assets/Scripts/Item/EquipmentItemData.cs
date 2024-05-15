@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class EquipmentItemData : ItemData
 {
-    public GameObject Prefab => _prefab;
-    [SerializeField] private GameObject _prefab;
+    public GameObject EquipPrefab => _equipPrefab;
+    public GameObject QuickSlotPrefab => _quickSlotPrefab;
+    [SerializeField] private GameObject _equipPrefab;
+    [SerializeField] private GameObject _quickSlotPrefab;
 }

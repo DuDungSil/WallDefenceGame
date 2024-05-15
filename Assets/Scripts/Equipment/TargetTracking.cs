@@ -22,15 +22,22 @@ public class TargetTracking : MonoBehaviour
             // 추적
             if(attachPos != null)
             {
-                pos = attachPos.transform.localPosition;
+                // attachPos의 로컬 좌표
+                Vector3 fromOriginToObject = attachPos.transform.localPosition;
+
+                // 타겟의 rotation 값을 가져옵니다.
+                Quaternion rotation = Target.transform.rotation;
+
+                // 벡터를 회전시킵니다.
+                pos = rotation * fromOriginToObject;
+
             }
             else
             {
                 pos = Vector3.zero;
             }
-            gameObject.transform.position = Target.transform.position + pos;
             gameObject.transform.rotation = Target.transform.rotation;
-            Debug.Log(gameObject.transform.position);
+            gameObject.transform.position = Target.transform.position - pos;
        } 
     }
 }

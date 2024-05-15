@@ -6,7 +6,9 @@ public abstract class EquipmentItem : Item
 {
     public EquipmentItemData equipmentData { get; private set; }
 
-    public GameObject prefab => equipmentData.Prefab;
+    public GameObject EquipPrefab => equipmentData.EquipPrefab;
+
+    public GameObject QuickSlotPrefab => equipmentData.QuickSlotPrefab;
 
     public EquipmentItem(EquipmentItemData data) : base(data)
     {

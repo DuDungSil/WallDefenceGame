@@ -15,7 +15,9 @@ public class Craft
 public class CraftManual : MonoBehaviour
 {
     public InputActionProperty TriggerButtonAction; // 트리거 버튼 액션
-    public InputActionProperty GribButtonAction; // 그랩 버튼 액션
+    public InputActionProperty BbuttonAction; // b 버튼 액션
+    public InputActionProperty RightGribButtonAction; // 오른쪽 그랩 버튼 액션
+    public InputActionProperty LeftGribButtonAction; // 왼쪽 그랩 버튼 액션
 
     private bool isPreviewActivated = false; // 미리 보기 활성화 상태
 
@@ -51,12 +53,12 @@ public class CraftManual : MonoBehaviour
         if (isPreviewActivated && TriggerButtonAction.action.WasPerformedThisFrame())
             Build();
         
-        if (isPreviewActivated && GribButtonAction.action.WasPerformedThisFrame())
+        if (isPreviewActivated && BbuttonAction.action.WasPerformedThisFrame())
             Cancel();
 
-        if (isPreviewActivated && Input.GetKeyDown(KeyCode.Q))
+        if (isPreviewActivated && LeftGribButtonAction.action.WasPerformedThisFrame())
             go_Preview.transform.Rotate(0f, -30f, 0f);
-        else if (isPreviewActivated && Input.GetKeyDown(KeyCode.E))
+        else if (isPreviewActivated && RightGribButtonAction.action.WasPerformedThisFrame())
             go_Preview.transform.Rotate(0f, +30f, 0f);
 
     }
