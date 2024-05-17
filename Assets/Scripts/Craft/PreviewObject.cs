@@ -26,12 +26,10 @@ public class PreviewObject : MonoBehaviour
         if (colliderList.Count > 0)
         {
             SetColor(red);
-            Debug.Log('r');
         }
         else
         {
             SetColor(green);
-            Debug.Log('g');
         }
 
     }

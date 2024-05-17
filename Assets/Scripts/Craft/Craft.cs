@@ -4,45 +4,45 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
 using UnityEngine;
 
-[System.Serializable]
-public class Craft
+public class Craft : Singleton<Craft>
 {
-    public string craftName; // 이름
-    public GameObject go_prefab; // 실제 설치 될 프리팹
-    public GameObject go_PreviewPrefab; // 미리 보기 프리팹
-}
-
-public class CraftManual : MonoBehaviour
-{
+    // 인풋 시스템
     public InputActionProperty TriggerButtonAction; // 트리거 버튼 액션
     public InputActionProperty BbuttonAction; // b 버튼 액션
     public InputActionProperty RightGribButtonAction; // 오른쪽 그랩 버튼 액션
     public InputActionProperty LeftGribButtonAction; // 왼쪽 그랩 버튼 액션
-
-    private bool isPreviewActivated = false; // 미리 보기 활성화 상태
-
-    [SerializeField]
-    private Craft[] craft_tower;  // 타워 탭에 있는 슬롯들. 
-
-    private GameObject go_Preview; // 미리 보기 프리팹을 담을 변수
-    private GameObject go_Prefab; // 실제 생성될 프리팹을 담을 변수 
-
     [SerializeField]
     XRRayInteractor m_RayInteractor;
     public XRRayInteractor rayInteractor => m_RayInteractor;
- 
-    Vector3 reticlePosition;
 
-    public void SlotClick(int _slotNumber)
+    // 크래프팅 세팅 변수
+    private GameObject craft_Preview;
+    private GameObject craft_Prefab;
+    private ResourceItem[] needitem;
+    private int[] needitem_count;
+
+    // 제어 변수
+    private bool isPreviewActivated = false; // 미리 보기 활성화 상태
+    private GameObject go_Preview; // 미리 보기 프리팹을 담을 변수
+    private Vector3 reticlePosition; // 레이 위치
+
+    public void CraftButtonClick()
     {
         rayInteractor.TryGetHitInfo(out reticlePosition, out _, out _, out _);
-        go_Preview = Instantiate(craft_tower[_slotNumber].go_PreviewPrefab, reticlePosition, Quaternion.identity);
-        go_Prefab = craft_tower[_slotNumber].go_prefab;
+        go_Preview = Instantiate(craft_Preview, reticlePosition, Quaternion.identity);
 
         UIController.Instance.OnCrafting();
         isPreviewActivated = true;
     }
 
+    // 크레프트 세팅 함수 ( 미리보기 프리팹, 실제 생성 프리팹, 필요 아이템 배열, 필요 아이템 카운트 배열)
+    public void SetCraft(GameObject _craft_Prefab, GameObject _craft_Preview, ResourceItem[] _needitem, int[] _needitem_count)
+    {
+        craft_Prefab = _craft_Prefab;
+        craft_Preview = _craft_Preview;
+        needitem = _needitem;
+        needitem_count = _needitem_count;
+    }
 
     void Update()
     {
@@ -57,9 +57,9 @@ public class CraftManual : MonoBehaviour
             Cancel();
 
         if (isPreviewActivated && LeftGribButtonAction.action.WasPerformedThisFrame())
-            go_Preview.transform.Rotate(0f, -30f, 0f);
-        else if (isPreviewActivated && RightGribButtonAction.action.WasPerformedThisFrame())
             go_Preview.transform.Rotate(0f, +30f, 0f);
+        else if (isPreviewActivated && RightGribButtonAction.action.WasPerformedThisFrame())
+            go_Preview.transform.Rotate(0f, -30f, 0f);
 
     }
 
@@ -79,12 +79,14 @@ public class CraftManual : MonoBehaviour
         if(isPreviewActivated && go_Preview.GetComponent<PreviewObject>().isBuildable())
         {
             rayInteractor.TryGetHitInfo(out reticlePosition, out _, out _, out _);
-            Instantiate(go_Prefab, reticlePosition, go_Preview.transform.rotation);
+            Instantiate(craft_Prefab, reticlePosition, go_Preview.transform.rotation);
             Destroy(go_Preview);
             UIController.Instance.OffCrafting();
+            ResourceDatabase.Instance.DecreaseResource(needitem, needitem_count);
             isPreviewActivated = false;
             go_Preview = null;
-            go_Prefab = null;
+
+            craft_Prefab = null;
         }
     }
 
@@ -97,7 +99,8 @@ public class CraftManual : MonoBehaviour
         isPreviewActivated = false;
 
         go_Preview = null;
-        go_Prefab = null;
+        craft_Preview = null;
+        craft_Prefab = null;
 
     }
 }

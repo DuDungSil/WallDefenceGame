@@ -52,9 +52,30 @@ public class ResourceDatabase : Singleton<ResourceDatabase>
         OnItemChanged();
     }
 
+    public int getElementCount(Item _item)
+    {
+        int index = FindIndexByCondition(resources, resource => resource.Data.ID == _item.Data.ID);
+        if(index == -1)
+        {
+            return -1;
+        }
+        else
+        {
+            return resources[index].Amount;
+        }
+    }
+
+    public void DecreaseResource(ResourceItem[] needitem, int[] needitem_count)
+    {
+        for(int i = 0; i < needitem.Length; i++)
+        {
+            DeleteItem(needitem[i], needitem_count[i]);
+        }
+    }
+
     int FindIndexByCondition(List<ResourceItem> list, Predicate<ResourceItem> condition)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < resources.Count; i++)
         {
             if (condition(list[i]))
             {
