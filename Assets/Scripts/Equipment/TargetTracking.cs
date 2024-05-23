@@ -7,20 +7,31 @@ public class TargetTracking : MonoBehaviour
 
     public GameObject Target;
     public GameObject attachPos;
+    private Rigidbody rb;
 
-    private Vector3 pos;
 
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+
+    if (rb == null)
+    {
+        Debug.LogError("Rigidbody component is missing.");
+    }
     }
 
     void Update()
     {
-       if(Target != null)
-       {
+       
+    }
+
+    void FixedUpdate()
+    {
+        if (Target != null)
+        {
             // 추적
-            if(attachPos != null)
+            Vector3 pos;
+            if (attachPos != null)
             {
                 // attachPos의 로컬 좌표
                 Vector3 fromOriginToObject = attachPos.transform.localPosition;
@@ -30,14 +41,15 @@ public class TargetTracking : MonoBehaviour
 
                 // 벡터를 회전시킵니다.
                 pos = rotation * fromOriginToObject;
-
             }
             else
             {
                 pos = Vector3.zero;
             }
-            gameObject.transform.rotation = Target.transform.rotation;
-            gameObject.transform.position = Target.transform.position - pos;
-       } 
+
+            // Rigidbody를 사용하여 위치와 회전을 설정합니다.
+            rb.MovePosition(Target.transform.position - pos);
+            rb.MoveRotation(Target.transform.rotation);
+        }
     }
 }

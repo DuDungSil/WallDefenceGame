@@ -25,13 +25,22 @@ public class Craft : Singleton<Craft>
     private bool isPreviewActivated = false; // 미리 보기 활성화 상태
     private GameObject go_Preview; // 미리 보기 프리팹을 담을 변수
     private Vector3 reticlePosition; // 레이 위치
+    private Vector3 InitialRayPosition; // 레이 초기 위치
+    private bool isInitialRayPosition = false;
+
 
     public void CraftButtonClick()
     {
-        rayInteractor.TryGetHitInfo(out reticlePosition, out _, out _, out _);
-        go_Preview = Instantiate(craft_Preview, reticlePosition, Quaternion.identity);
-
         UIController.Instance.OnCrafting();
+        
+        // ui가 꺼진 후 손을 움직이지 않으면 레이 위치가 그대로
+        rayInteractor.TryGetHitInfo(out reticlePosition, out _, out _, out _);
+        InitialRayPosition = reticlePosition;
+        isInitialRayPosition = true;
+        go_Preview = Instantiate(craft_Preview, reticlePosition, Quaternion.identity);
+        go_Preview.SetActive(false);
+        
+        
         isPreviewActivated = true;
     }
 
@@ -66,16 +75,25 @@ public class Craft : Singleton<Craft>
     private void PreviewPositionUpdate()
     {
         rayInteractor.TryGetHitInfo(out reticlePosition, out _, out _, out _);
-        if (reticlePosition != Vector3.zero)
+        if (reticlePosition != InitialRayPosition) isInitialRayPosition = false;
+        if (reticlePosition != Vector3.zero && !isInitialRayPosition)
         {
             Vector3 _location = reticlePosition;
             go_Preview.transform.position = _location;
+            go_Preview.SetActive(true);
         }
+        else go_Preview.SetActive(false);
+        
         
     }
 
     private void Build()
     {
+        if(reticlePosition == Vector3.zero)
+        {
+            Cancel();
+        }
+
         if(isPreviewActivated && go_Preview.GetComponent<PreviewObject>().isBuildable())
         {
             rayInteractor.TryGetHitInfo(out reticlePosition, out _, out _, out _);

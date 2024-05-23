@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class EquipmentDatabase : Singleton<EquipmentDatabase>
 {
-    List<EquipmentItem> createdEquipments = new List<EquipmentItem>();
+    List<EquipmentItem> MeleeWeapons = new List<EquipmentItem>();
+    List<EquipmentItem> RangedWeapons = new List<EquipmentItem>();
 
     // Start is called before the first frame update
     void Start()
@@ -14,35 +15,43 @@ public class EquipmentDatabase : Singleton<EquipmentDatabase>
         
     }
 
-    public List<EquipmentItem> getDatabase()
+    public List<EquipmentItem> getDatabase(int i)
     {
-        return createdEquipments;
+        if(i == 0) return MeleeWeapons;
+        else if(i == 1) return RangedWeapons;
+        return null;
     }
 
     // 아이템 추가 함수
     //  처음 추가한 아이템이라면 아이템의 id를 보고 리스트를 재정렬
-    public void AddItem(EquipmentItem _item)
+    public void AddItem(EquipmentItem _item, int i)
     {
-        int index = FindIndexByCondition(createdEquipments, equipment => equipment.Data.ID == _item.Data.ID);
+        List<EquipmentItem> list = null;
+        if(i == 0) list = MeleeWeapons;
+        else if(i == 1) list =  RangedWeapons;
+        int index = FindIndexByCondition(list, equipment => equipment.Data.ID == _item.Data.ID);
         if(index == -1)
         {
-            createdEquipments.Add(_item);
-            createdEquipments = createdEquipments.OrderBy(x => x.Data.ID).ToList(); // id 순으로 재정렬
+            list.Add(_item);
+            list = list.OrderBy(x => x.Data.ID).ToList(); // id 순으로 재정렬
         }
         OnItemChanged();
     }
 
     // 아이템 삭제 함수
-    public void DeleteItem(Item _item)
+    public void DeleteItem(Item _item, int i)
     {
-        int index = FindIndexByCondition(createdEquipments, equipment => equipment.Data.ID == _item.Data.ID);
+        List<EquipmentItem> list = null;
+        if(i == 0) list = MeleeWeapons;
+        else if(i == 1) list =  RangedWeapons;
+        int index = FindIndexByCondition(list, equipment => equipment.Data.ID == _item.Data.ID);
         if(index == -1)
         {
             Debug.Log("없는 아이템을 제거하려고 시도하였음");
         }
         else
         {
-            createdEquipments.RemoveAt(index);
+            list.RemoveAt(index);
         }
         OnItemChanged();
     }

@@ -39,17 +39,6 @@ public class GameController : Singleton<GameController>
         {
             rdb.AddItem((ResourceItem)iron.CreateItem());
         }
-        if(Input.GetKeyDown("v"))
-        {
-            qdb.setQuickslots(0,(MeleeWeaponItem)sword.CreateItem());
-        }
-        if(Input.GetKeyDown("b"))
-        {
-            qdb.setQuickslots(1,(ToolItem)hammer.CreateItem());
-        }
-        if(Input.GetKeyDown("n"))
-        {
-            qdb.setQuickslots(2,(RangedWeaponItem)staff.CreateItem());
-        }
+        
     }
 }

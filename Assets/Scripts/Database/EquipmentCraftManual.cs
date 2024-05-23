@@ -1,26 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
-[System.Serializable]
-public class EquipmentBOM
+[CreateAssetMenu(fileName = "EquipmentBOM_", menuName = "New BOM/Equipment BOM")]
+public class EquipmentBOMData : ScriptableObject
 {
     public string craftName;
-    [HideInInspector] 
-    public EquipmentItem item;
     public EquipmentItemData itemdata;
-    [HideInInspector] 
-    public ResourceItem[] craftNeedItems;  // 필요한 아이템
     public ResourceItemData[] craftNeedItemDatas; 
     public int[] craftNeedItemCount; // 필요한 아이템의 개수
+}
+
+[System.Serializable]
+public class EquipmentBOM 
+{
+    public EquipmentBOMData Data;
+
+    [HideInInspector] 
+    public EquipmentItem item;
+    [HideInInspector] 
+    public ResourceItem[] craftNeedItems;  // 필요한 아이템
+
+    [HideInInspector] 
+    public bool isCrafted = false;
+
 
     public void Init()
     {
-        item = (EquipmentItem)itemdata.CreateItem();
-        craftNeedItems = new ResourceItem[craftNeedItemDatas.Length];
-        for(int i = 0; i < craftNeedItemDatas.Length; i++)
+        item = (EquipmentItem)Data.itemdata.CreateItem();
+        craftNeedItems = new ResourceItem[Data.craftNeedItemDatas.Length];
+        for(int i = 0; i < Data.craftNeedItemDatas.Length; i++)
         {
-            craftNeedItems[i] = (ResourceItem)craftNeedItemDatas[i].CreateItem();
+            craftNeedItems[i] = (ResourceItem)Data.craftNeedItemDatas[i].CreateItem();
         }
     }
 
@@ -45,14 +58,33 @@ public class EquipmentCraftManual : Singleton<EquipmentCraftManual>
         return rangedweapon_Manual;
     }
 
-    // Start is called before the first frame update
+    public void MoveElementToEnd(EquipmentBOM element, int manualIndex)
+    {
+        EquipmentBOM[] Manual = null;
+        if(manualIndex == 0) Manual = meleeweapon_Manual;
+        else if(manualIndex == 1) Manual = rangedweapon_Manual;
+
+        if (Manual == null || Manual.Length == 0)
+            return; // 배열이 비어있거나 null인 경우 처리하지 않음
+
+        int index = Array.IndexOf(Manual, element);
+
+        EquipmentBOM firstElement = Manual[index]; // 요소 저장
+        
+        for (int i = index; i < Manual.Length - 1; i++)
+        {
+            Manual[i] = Manual[i + 1]; // 모든 요소를 한 칸 앞으로 이동
+        }
+
+        Manual[Manual.Length - 1] = firstElement; // 마지막 자리에 첫 번째 요소 배치
+    }
+
     void Start()
     {
         foreach(var bom in  meleeweapon_Manual) bom.Init();
         foreach(var bom in  rangedweapon_Manual) bom.Init();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

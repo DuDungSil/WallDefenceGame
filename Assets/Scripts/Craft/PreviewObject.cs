@@ -36,16 +36,22 @@ public class PreviewObject : MonoBehaviour
 
     private void SetColor(Material mat)
     {
-        foreach(Transform tf_Child in this.transform)
+        foreach (Transform tf_Child in this.transform)
         {
-            Material [] newMaterials = new Material[tf_Child.GetComponent<Renderer>().materials.Length];
-
-            for (int i = 0; i < newMaterials.Length; i++)
+            Renderer renderer = tf_Child.GetComponent<Renderer>();
+            
+            if (renderer != null)
             {
-                newMaterials[i] = mat;
-            }
+                Material[] newMaterials = new Material[renderer.materials.Length];
 
-            tf_Child.GetComponent<Renderer>().materials = newMaterials;
+                for (int i = 0; i < newMaterials.Length; i++)
+                {
+                    newMaterials[i] = mat;
+                }
+
+                renderer.materials = newMaterials;
+            }
+            // renderer가 null인 경우에는 아무 작업도 하지 않습니다.
         }
     }
 

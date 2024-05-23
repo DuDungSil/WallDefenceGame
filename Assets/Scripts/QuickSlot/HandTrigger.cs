@@ -18,6 +18,7 @@ public class HandTrigger : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
+        Debug.Log("A"); // 왜 안터짐 ㅅㅂ
         if(collision.transform.CompareTag("RightHand"))
         {
             UIController.Instance.CloseQuick();

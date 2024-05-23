@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: EquipmentBOM_bb
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentBOMData
+  craftName: bb
+  itemdata: {fileID: 11400000, guid: d316e9c0661e004498b78823730e35fb, type: 2}
+  craftNeedItemDatas:
+  - {fileID: 11400000, guid: 9dc714b865597ad4db540bda53dbe809, type: 2}
+  craftNeedItemCount: 01000000
