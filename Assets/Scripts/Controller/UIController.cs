@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,12 +11,14 @@ public class UIController : Singleton<UIController>
     public InputActionProperty Xbutton;
     public InputActionProperty Bbutton;
     public InputActionProperty Abutton;
+    
     public GameObject m_pauseCanvas;
     public GameObject m_CraftingCanvas;
     public GameObject m_SettingCanvas;
     public GameObject m_InteractionMenuCanvas;
     public GameObject m_swapper;
     public GameObject m_RightHand;
+    public Transform m_mainCamera;
     public Transform m_UIPos;
     GameObject m_Quick;
 
@@ -106,8 +109,7 @@ public class UIController : Singleton<UIController>
     {
         HandController.Instance.DeleteEquipObject();
         HandController.Instance.SetUIController();
-        m_pauseCanvas.SetActive(true);
-        m_pauseCanvas.transform.position = m_UIPos.position;
+        DisplayUI(m_pauseCanvas);
         isOpenMenu = true;
     }
 
@@ -122,8 +124,7 @@ public class UIController : Singleton<UIController>
     {
         HandController.Instance.DeleteEquipObject();
         HandController.Instance.SetUIController();
-        m_CraftingCanvas.SetActive(true);
-        m_CraftingCanvas.transform.position = m_UIPos.position;
+        DisplayUI(m_CraftingCanvas);
         isOpenCrafting = true;
     }
 
@@ -144,8 +145,7 @@ public class UIController : Singleton<UIController>
     // 크래프팅 종료
     public void OffCrafting()
     {
-        m_CraftingCanvas.transform.position = m_UIPos.position;
-        m_CraftingCanvas.SetActive(true);
+        DisplayUI(m_CraftingCanvas);
         isOnCrafting = false;
     }
 
@@ -153,8 +153,7 @@ public class UIController : Singleton<UIController>
     {
         HandController.Instance.DeleteEquipObject();
         HandController.Instance.SetUIController();
-        m_SettingCanvas.SetActive(true);
-        m_SettingCanvas.transform.position = m_UIPos.position;
+        DisplayUI(m_SettingCanvas);
         isOpenSetting = true;
     }
 
@@ -192,5 +191,24 @@ public class UIController : Singleton<UIController>
         HandController.Instance.SetGrabController();
         m_InteractionMenuCanvas.SetActive(false);
         isOpenInteraction = false;
+    }
+
+    public void DisplayUI(GameObject canvas)
+    {
+        // 회전량
+        Vector3 direction = m_mainCamera.position - m_UIPos.position; // 플레이어와 UI의 방향 벡터 계산
+        direction.y = 0; // Y축 회전을 고정
+        direction = -direction;
+        Quaternion rotation = Quaternion.LookRotation(direction); // 방향 벡터를 회전으로 변환
+
+        // y축 이동
+        RectTransform rectTransform = canvas.GetComponent<RectTransform>();
+        Vector3 pos = m_UIPos.position;
+        float newy = Mathf.Max(m_UIPos.position.y, m_mainCamera.position.y + rectTransform.rect.height * rectTransform.localScale.y / 2 );
+        pos.y = newy;
+
+        canvas.SetActive(true);
+        canvas.transform.rotation = rotation;
+        canvas.transform.position = pos;
     }
 }

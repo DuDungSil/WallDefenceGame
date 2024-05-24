@@ -10,7 +10,6 @@ public class HandController : Singleton<HandController>
     public GameObject LeftGrabController;
     public GameObject RightGrabController;
     public XRInteractionManager interactionManager;
-    public GameObject RightHand;
     private EquipmentItem equipItem;
     private GameObject equipObj;
 
@@ -67,7 +66,7 @@ public class HandController : Singleton<HandController>
         equipItem = QuickSlotsDatabase.Instance.getQuickslotsItem(index);
         equipObj = Instantiate(equipItem.EquipPrefab, gameObject.transform.position, gameObject.transform.rotation);
         
-        interactionManager.SelectEnter(RightHand.GetComponent<XRDirectInteractor>(), equipObj.GetComponent<XRGrabInteractable>());
+        interactionManager.SelectEnter(RightGrabController.GetComponent<XRDirectInteractor>(), equipObj.GetComponent<XRGrabInteractable>());
 
         if(equipItem is MeleeWeaponItem)
         {

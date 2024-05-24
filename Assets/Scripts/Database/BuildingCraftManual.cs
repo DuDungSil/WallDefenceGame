@@ -2,24 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class BuildingBOM
+[CreateAssetMenu(fileName = "BuildingBOM_", menuName = "New BOM/Building BOM")]
+public class BuildingBOMData : ScriptableObject
 {
     public string craftName;
     public Sprite buildingImage;
     public GameObject prefab; // 실제 설치 될 프리팹
     public GameObject PreviewPrefab; // 미리 보기 프리팹
+    public ResourceItemData[] craftNeedItemDatas; 
+    public int[] craftNeedItemCount;
+}
+
+[System.Serializable]
+public class BuildingBOM
+{
+    public BuildingBOMData Data;
+
     [HideInInspector] 
     public ResourceItem[] craftNeedItems;  // 필요한 아이템
-    public ResourceItemData[] craftNeedItemDatas; 
-    public int[] craftNeedItemCount; // 필요한 아이템의 개수
 
     public void Init()
     {
-        craftNeedItems = new ResourceItem[craftNeedItemDatas.Length];
-        for(int i = 0; i < craftNeedItemDatas.Length; i++)
+        craftNeedItems = new ResourceItem[Data.craftNeedItemDatas.Length];
+        for(int i = 0; i < Data.craftNeedItemDatas.Length; i++)
         {
-            craftNeedItems[i] = (ResourceItem)craftNeedItemDatas[i].CreateItem();
+            craftNeedItems[i] = (ResourceItem)Data.craftNeedItemDatas[i].CreateItem();
         }
     }
 }

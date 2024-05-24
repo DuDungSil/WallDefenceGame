@@ -72,8 +72,6 @@ public class EquipCraftSlot : MonoBehaviour
     }
 
 
-    // 한번 만들었던 건 업그레이드로 버튼 교체
-
     public void craftButtonClick()
     {
 

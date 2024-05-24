@@ -82,12 +82,12 @@ public class BuildingCraftSlot : MonoBehaviour
 
     public void setItem(BuildingBOM bom)
     {
-        Image.sprite = bom.buildingImage;
-        text_Name.text = bom.craftName;
-        craft_prefab = bom.prefab;
-        craft_preview = bom.PreviewPrefab;
+        Image.sprite = bom.Data.buildingImage;
+        text_Name.text = bom.Data.craftName;
+        craft_prefab = bom.Data.prefab;
+        craft_preview = bom.Data.PreviewPrefab;
         needitem = bom.craftNeedItems;
-        needitem_count = bom.craftNeedItemCount;
+        needitem_count = bom.Data.craftNeedItemCount;
         MaterialSlotsUpdate();
     }
 }
