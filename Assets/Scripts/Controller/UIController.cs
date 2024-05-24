@@ -9,9 +9,11 @@ public class UIController : Singleton<UIController>
     public InputActionProperty Ybutton;
     public InputActionProperty Xbutton;
     public InputActionProperty Bbutton;
+    public InputActionProperty Abutton;
     public GameObject m_pauseCanvas;
     public GameObject m_CraftingCanvas;
     public GameObject m_SettingCanvas;
+    public GameObject m_InteractionMenuCanvas;
     public GameObject m_swapper;
     public GameObject m_RightHand;
     public Transform m_UIPos;
@@ -22,6 +24,8 @@ public class UIController : Singleton<UIController>
     private bool isOnCrafting = false;
     private bool isOpenSetting = false;
     private bool isOpenQuick = false;
+    private bool isOpenInteraction = false;
+    private bool isCollisionToInteractionObject = false;
 
     void Start()
     {
@@ -30,7 +34,7 @@ public class UIController : Singleton<UIController>
 
     void Update()
     {
-        if(menuButtonAction.action.WasPerformedThisFrame() && !isOpenCrafting&& !isOpenQuick&& !isOpenSetting)
+        if(menuButtonAction.action.WasPerformedThisFrame() && !isOpenCrafting&& !isOpenQuick&& !isOpenSetting && !isOpenInteraction)
         {
             if(isOpenMenu == false)
             {
@@ -42,7 +46,7 @@ public class UIController : Singleton<UIController>
             }
         }
 
-        if(Ybutton.action.WasPerformedThisFrame() && !isOpenMenu && !isOpenQuick && !isOpenSetting)
+        if(Ybutton.action.WasPerformedThisFrame() && !isOpenMenu && !isOpenQuick && !isOpenSetting && !isOpenInteraction)
         {       
             if(isOpenCrafting == false)
             {
@@ -57,7 +61,7 @@ public class UIController : Singleton<UIController>
             }
         }
 
-        if(Xbutton.action.WasPerformedThisFrame() && !isOpenMenu && !isOpenCrafting && !isOpenQuick)
+        if(Xbutton.action.WasPerformedThisFrame() && !isOpenMenu && !isOpenCrafting && !isOpenQuick && !isOpenInteraction)
         {
             if(isOpenSetting == false)
             {
@@ -69,7 +73,7 @@ public class UIController : Singleton<UIController>
             }
         }
 
-        if(Bbutton.action.WasPerformedThisFrame() && !isOpenMenu && !isOpenCrafting && !isOpenSetting)
+        if(Bbutton.action.WasPerformedThisFrame() && !isOpenMenu && !isOpenCrafting && !isOpenSetting && !isOpenInteraction)
         {
             if(isOpenQuick == false)
             {
@@ -80,6 +84,18 @@ public class UIController : Singleton<UIController>
                 CloseQuick();
             }
         }
+        if(Abutton.action.WasPerformedThisFrame() && !isOpenMenu && !isOpenCrafting && !isOpenSetting && !isOpenQuick)
+        {
+            if(isOpenInteraction == false)
+            {
+                OpenInteraction();
+            }
+            else
+            {
+                CloseInteraction();
+            }
+        }
+        
         
 
 
@@ -88,7 +104,7 @@ public class UIController : Singleton<UIController>
 
     public void OpenMenu()
     {
-        HandController.Instance.SetBareHands();
+        HandController.Instance.DeleteEquipObject();
         HandController.Instance.SetUIController();
         m_pauseCanvas.SetActive(true);
         m_pauseCanvas.transform.position = m_UIPos.position;
@@ -104,7 +120,7 @@ public class UIController : Singleton<UIController>
 
     public void OpenCrafting()
     {
-        HandController.Instance.SetBareHands();
+        HandController.Instance.DeleteEquipObject();
         HandController.Instance.SetUIController();
         m_CraftingCanvas.SetActive(true);
         m_CraftingCanvas.transform.position = m_UIPos.position;
@@ -135,10 +151,10 @@ public class UIController : Singleton<UIController>
 
     public void OpenSetting()
     {
-        HandController.Instance.SetBareHands();
+        HandController.Instance.DeleteEquipObject();
         HandController.Instance.SetUIController();
         m_SettingCanvas.SetActive(true);
-        m_CraftingCanvas.transform.position = m_UIPos.position;
+        m_SettingCanvas.transform.position = m_UIPos.position;
         isOpenSetting = true;
     }
 
@@ -151,7 +167,7 @@ public class UIController : Singleton<UIController>
 
     public void OpenQuick()
     {   
-        HandController.Instance.SetBareHands();
+        HandController.Instance.DeleteEquipObject();
         m_Quick = Instantiate(m_swapper, m_RightHand.transform.position, m_RightHand.transform.rotation);
         isOpenQuick = true;
     }
@@ -162,5 +178,19 @@ public class UIController : Singleton<UIController>
         isOpenQuick = false;
     } 
 
+    public void OpenInteraction()
+    {
+        HandController.Instance.DeleteEquipObject();
+        HandController.Instance.SetUIController();
+        m_InteractionMenuCanvas.SetActive(true);
+        //m_InteractionMenuCanvas.transform.position = m_UIPos.position;
+        isOpenInteraction = true;
+    }
 
+    public void CloseInteraction()
+    {
+        HandController.Instance.SetGrabController();
+        m_InteractionMenuCanvas.SetActive(false);
+        isOpenInteraction = false;
+    }
 }

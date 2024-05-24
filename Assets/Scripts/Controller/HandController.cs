@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandController : Singleton<HandController>
 {
@@ -8,11 +9,14 @@ public class HandController : Singleton<HandController>
     public GameObject RightUIController;
     public GameObject LeftGrabController;
     public GameObject RightGrabController;
-    public GameObject FixedRightHand;
+    public XRInteractionManager interactionManager;
+    public GameObject RightHand;
+    private EquipmentItem equipItem;
+    private GameObject equipObj;
+
 
     bool isUIController = false;
     bool isGrabController = true;
-    bool isFixedHand = false;
 
     public void SetUIController()
     {
@@ -37,19 +41,51 @@ public class HandController : Singleton<HandController>
     // 장비 장착
     public void SetRightHandEquipment(int index)
     {
-        RightGrabController.SetActive(false);
-        FixedRightHand.SetActive(true);
-        FixedRightHand.GetComponent<FixedRightHandControl>().setEquipment(index);
-        isFixedHand = true;
+        DeleteEquipObject();
+        setEquipment(index);
     }
 
-    // 맨손 변경
-    public void SetBareHands()
+    // 소환했던 장비 오브젝트 삭 제
+    public void DeleteEquipObject()
     {
-        if(isFixedHand == true) RightGrabController.transform.position = FixedRightHand.transform.position;
-        RightGrabController.SetActive(true);
-        FixedRightHand.SetActive(false);
-        isFixedHand = false;
+        if(equipObj != null)
+        {
+            Destroy(equipObj);
+        }
     }
 
+
+    public void setEquipment(int index)
+    {
+        // 원래 장비 삭제
+        if(equipObj != null)
+        {
+            Destroy(equipObj);
+        }
+
+        //퀵슬롯 데이터베이스에서 인덱스의 장비를 소환, 장비 그랩
+        equipItem = QuickSlotsDatabase.Instance.getQuickslotsItem(index);
+        equipObj = Instantiate(equipItem.EquipPrefab, gameObject.transform.position, gameObject.transform.rotation);
+        
+        interactionManager.SelectEnter(RightHand.GetComponent<XRDirectInteractor>(), equipObj.GetComponent<XRGrabInteractable>());
+
+        if(equipItem is MeleeWeaponItem)
+        {
+            equipObj.GetComponent<MeleeWeaponControl>().damage = ((MeleeWeaponItem)equipItem).weaponData.Damage;
+        }
+
+        if(equipItem is RangedWeaponItem)
+        {
+            equipObj.GetComponent<RangedWeaponControl>().projectilePrefab = ((RangedWeaponItem)equipItem).rangeWeaponData.ProjectilePrefab;
+            equipObj.GetComponent<RangedWeaponControl>().damage = ((RangedWeaponItem)equipItem).weaponData.Damage;
+            equipObj.GetComponent<RangedWeaponControl>().range = ((RangedWeaponItem)equipItem).rangeWeaponData.Range;
+            equipObj.GetComponent<RangedWeaponControl>().m_speed = ((RangedWeaponItem)equipItem).rangeWeaponData.ProjSpeed;
+            equipObj.GetComponent<RangedWeaponControl>().shootDelay = ((RangedWeaponItem)equipItem).rangeWeaponData.ShootDelay;
+        } 
+
+        if(equipItem is ToolItem)
+        {
+            equipObj.GetComponent<RepairToolControl>().value = ((ToolItem)equipItem).toolData.Value;
+        }    
+    }
 }
