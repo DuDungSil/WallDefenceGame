@@ -7,7 +7,7 @@ public class PreviewObject : MonoBehaviour
     private List<Collider> colliderList = new List<Collider>(); // 충돌한 오브젝트들 저장할 리스트
 
     [SerializeField]
-    private int layerGround; // 지형 레이어 (무시하게 할 것)
+    private int layerGround = 3; // 지형 레이어 (무시하게 할 것)
     private const int IGNORE_RAYCAST_LAYER = 2;  // ignore_raycast (무시하게 할 것)
 
     [SerializeField]
@@ -34,12 +34,13 @@ public class PreviewObject : MonoBehaviour
 
     }
 
-    private void SetColor(Material mat)
+    private void SetColorRecursive(Transform parent, Material mat)
     {
-        foreach (Transform tf_Child in this.transform)
+        // 부모의 자식들을 모두 순회합니다.
+        foreach (Transform tf_Child in parent)
         {
             Renderer renderer = tf_Child.GetComponent<Renderer>();
-            
+
             if (renderer != null)
             {
                 Material[] newMaterials = new Material[renderer.materials.Length];
@@ -51,8 +52,18 @@ public class PreviewObject : MonoBehaviour
 
                 renderer.materials = newMaterials;
             }
-            // renderer가 null인 경우에는 아무 작업도 하지 않습니다.
+
+            // 하위 오브젝트가 있으면 재귀적으로 호출하여 그 하위 오브젝트의 자식들도 모두 순회합니다.
+            if (tf_Child.childCount > 0)
+            {
+                SetColorRecursive(tf_Child, mat);
+            }
         }
+    }
+
+    private void SetColor(Material mat)
+    {
+        SetColorRecursive(this.transform, mat);
     }
 
     private void OnTriggerEnter(Collider other)

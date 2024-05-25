@@ -12,13 +12,13 @@ TagManager:
   - Terrain
   - Water
   - UI
-  - Right Hand
+  - PreviewObj
   - Arrow
   - MonsterAttackRange
   - Monster
-  - Wall
+  - Structure
   - MonsterWeapon
-  - Tower
+  - 
   - TowerAttackRange
   - 
   - 
