@@ -12,4 +12,8 @@ public class WallManager : StructureManager
             TakeDamage(monsterWeaponDamage.m_damage);
         }
     }
+    public void temp()
+    {
+        Debug.Log("hi");
+    }
 }

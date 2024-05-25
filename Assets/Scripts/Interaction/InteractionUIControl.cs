@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class InteractionUIControl : MonoBehaviour
 {
@@ -18,12 +19,25 @@ public class InteractionUIControl : MonoBehaviour
         //BuildingInteraction();
     }
 
-    public void BuildingInteraction()
+    public void BuildingInteraction(BaseInteractionEventArgs args)
     {
-        defaultImage.SetActive(false);
-        AssignUnitMenu.SetActive(true);
-        DestroyMenu.SetActive(true);
-        UpgradeMenu.SetActive(true);
+        if (args is SelectEnterEventArgs selectArgs)
+        {
+            var selectedObject = selectArgs.interactableObject; //selectedObject.transform.gameObject 형식으로 게임오브젝트로서 사용하면 됨
+            StructureManager structureManager = selectedObject.transform.gameObject.GetComponent<StructureManager>();
+            defaultImage.SetActive(false);
+            AssignUnitMenu.SetActive(true);
+            DestroyMenu.SetActive(true);
+            UpgradeMenu.SetActive(true);
+            if(structureManager.isAssigned) // structure에 이미 유닛이 할당되어 있을 때
+            {
+                AssignUnitMenu.GetComponent<AssignUnitMenu>().alreadyAssign(structureManager);
+            }
+            else
+            {
+                AssignUnitMenu.GetComponent<AssignUnitMenu>().needAssign(structureManager);
+            }
+        }
     }
     public void ResourceInteraction()
     {
