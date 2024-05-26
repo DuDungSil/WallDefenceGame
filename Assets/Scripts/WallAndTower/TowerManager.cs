@@ -29,7 +29,6 @@ public class TowerManager : StructureManager
     }
 
     protected virtual void OnTriggerEnter(Collider other) {
-        Debug.Log("몬스터 출현");
         if(other.gameObject.layer == LayerMask.NameToLayer("Monster"))
         {
             AddMonsterToQueue(other.gameObject);
@@ -39,7 +38,6 @@ public class TowerManager : StructureManager
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Monster"))
         {
-            Debug.Log("몬스터 나가쓰요");
             RemoveMonsterFromQueue(other.gameObject);
         }
     }
@@ -70,8 +68,10 @@ public class TowerManager : StructureManager
     }
     public IEnumerator Shoot(GameObject target)
     {
+        Debug.Log("코루틴 시작");
         while(shootActivate)
         {
+            
             // 투사체 소환
             GameObject spawnedProjectile = Instantiate(projectile, launchingPad.transform.position, launchingPad.transform.rotation);
             //투사체 방향 설정

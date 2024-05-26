@@ -504,6 +504,7 @@ Transform:
   m_Children:
   - {fileID: 170031731}
   - {fileID: 22372344}
+  - {fileID: 282803131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &45385266
@@ -2475,6 +2476,51 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1636515391019944688, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!1 &282803130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 282803131}
+  - component: {fileID: 282803132}
+  m_Layer: 0
+  m_Name: Interaction Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &282803131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282803130}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 41330813}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &282803132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282803130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8143dd115efc83748bd5d5d522ebd362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionCanvas: {fileID: 450720803}
 --- !u!1 &353471923
 GameObject:
   m_ObjectHideFlags: 0
@@ -5528,6 +5574,7 @@ GameObject:
   - component: {fileID: 737223027}
   - component: {fileID: 737223029}
   - component: {fileID: 737223028}
+  - component: {fileID: 737223030}
   m_Layer: 5
   m_Name: DestroyMenu
   m_TagString: Untagged
@@ -5593,6 +5640,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737223026}
   m_CullTransparentMesh: 1
+--- !u!114 &737223030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737223026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d2da0caf6306a429135d7777a6b0d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyBtn: {fileID: 1817654904}
 --- !u!1 &738589139
 GameObject:
   m_ObjectHideFlags: 0
@@ -6732,6 +6792,7 @@ GameObject:
   - component: {fileID: 789207809}
   - component: {fileID: 789207811}
   - component: {fileID: 789207810}
+  - component: {fileID: 789207812}
   m_Layer: 5
   m_Name: UpgradeMenu
   m_TagString: Untagged
@@ -6797,6 +6858,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789207808}
   m_CullTransparentMesh: 1
+--- !u!114 &789207812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789207808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f3d0716612db242b5dd68c3dd55be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeBtn: {fileID: 535045904}
 --- !u!1 &820299681
 GameObject:
   m_ObjectHideFlags: 0
@@ -19561,8 +19635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd53dc71adfbfe44fb3070ae3304c8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removeBtn: {fileID: 1669495135}
-  assignBtn: {fileID: 45385266}
+  removeBtn: {fileID: 1669495137}
+  assignBtn: {fileID: 45385268}
   readyUnitsImg: {fileID: 189425146}
   neededUnitsImg: {fileID: 2054819111}
   assignUnitsImg: {fileID: 1656937121}

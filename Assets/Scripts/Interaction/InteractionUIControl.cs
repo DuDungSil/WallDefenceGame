@@ -9,8 +9,9 @@ public class InteractionUIControl : MonoBehaviour
     public GameObject AssignUnitMenu;
     public GameObject DestroyMenu;
     public GameObject UpgradeMenu;
+    private GameObject selectedObject;
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         defaultImage.SetActive(true);
         AssignUnitMenu.SetActive(false);
@@ -19,25 +20,24 @@ public class InteractionUIControl : MonoBehaviour
         //BuildingInteraction();
     }
 
-    public void BuildingInteraction(BaseInteractionEventArgs args)
+    public void BuildingInteraction(GameObject interactableObject)
     {
-        if (args is SelectEnterEventArgs selectArgs)
+        selectedObject = interactableObject;
+        StructureManager selectedObjectStructureManager = selectedObject.GetComponent<StructureManager>();
+        defaultImage.SetActive(false);
+        AssignUnitMenu.SetActive(true);
+        DestroyMenu.SetActive(true);
+        UpgradeMenu.SetActive(true);
+        if(selectedObjectStructureManager.IsAssigned) // structure에 이미 유닛이 할당되어 있을 때
         {
-            var selectedObject = selectArgs.interactableObject; //selectedObject.transform.gameObject 형식으로 게임오브젝트로서 사용하면 됨
-            StructureManager structureManager = selectedObject.transform.gameObject.GetComponent<StructureManager>();
-            defaultImage.SetActive(false);
-            AssignUnitMenu.SetActive(true);
-            DestroyMenu.SetActive(true);
-            UpgradeMenu.SetActive(true);
-            if(structureManager.isAssigned) // structure에 이미 유닛이 할당되어 있을 때
-            {
-                AssignUnitMenu.GetComponent<AssignUnitMenu>().alreadyAssign(structureManager);
-            }
-            else
-            {
-                AssignUnitMenu.GetComponent<AssignUnitMenu>().needAssign(structureManager);
-            }
+            AssignUnitMenu.GetComponent<AssignUnitMenu>().SetAlreadyAssignUI(selectedObjectStructureManager);
         }
+        else
+        {
+            AssignUnitMenu.GetComponent<AssignUnitMenu>().SetNeedAssignUI(selectedObjectStructureManager);
+        }
+        UpgradeMenu.GetComponent<UpgradeMenu>().SetUpgradeUI(selectedObjectStructureManager);
+        DestroyMenu.GetComponent<DestroyMenu>().SetDestroyUI(selectedObjectStructureManager);
     }
     public void ResourceInteraction()
     {
