@@ -75,7 +75,6 @@ public class HandController : Singleton<HandController>
 
         if(equipItem is RangedWeaponItem)
         {
-            equipObj.GetComponent<RangedWeaponControl>().projectilePrefab = ((RangedWeaponItem)equipItem).rangeWeaponData.ProjectilePrefab;
             equipObj.GetComponent<RangedWeaponControl>().damage = ((RangedWeaponItem)equipItem).weaponData.Damage;
             equipObj.GetComponent<RangedWeaponControl>().range = ((RangedWeaponItem)equipItem).rangeWeaponData.Range;
             equipObj.GetComponent<RangedWeaponControl>().m_speed = ((RangedWeaponItem)equipItem).rangeWeaponData.ProjSpeed;

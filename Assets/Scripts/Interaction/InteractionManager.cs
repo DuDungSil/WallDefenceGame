@@ -14,7 +14,7 @@ public class InteractionManager : Singleton<InteractionManager>
             if (args is SelectEnterEventArgs selectArgs)
             {
                 var selectedObject = selectArgs.interactableObject;
-                interactionCanvas.GetComponent<InteractionUIControl>().BuildingInteraction(selectedObject.transform.gameObject);
+                interactionCanvas.GetComponent<InteractionUIControl>().setInteractionObject(selectedObject.transform.gameObject);
             }
         }
     }

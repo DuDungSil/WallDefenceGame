@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -17,18 +18,19 @@ public class PullInteraction : XRBaseInteractable
     private LineRenderer _lineRenderer;
     private IXRSelectInteractor pullingInteractor = null;
 
+
     protected override void Awake()
     {
         base.Awake();
         _lineRenderer = GetComponent<LineRenderer>();
     }
+
     public void SetPullInteractor(SelectEnterEventArgs args)
     {
         pullingInteractor = args.interactorObject;
     }
     public void Release()
     {
-        Debug.Log("Release");
         PullActionReleased?.Invoke(pullAmount);
         pullingInteractor = null;
         pullAmount = 0f;
@@ -42,10 +44,8 @@ public class PullInteraction : XRBaseInteractable
         {
             if(isSelected)
             {
-                Debug.Log("pull");
                 Vector3 pullPosition = pullingInteractor.transform.position;
                 pullAmount = CalculatePull(pullPosition);
-                Debug.Log(pullAmount);
 
                 UpdateString();
             }
@@ -65,9 +65,8 @@ public class PullInteraction : XRBaseInteractable
 
     private void UpdateString()
     {
-        Vector3 linePosition = Vector3.forward * Mathf.Lerp(start.transform.localPosition.z, end.transform.localPosition.z, pullAmount);
-        notch.transform.localPosition = new Vector3(notch.transform.localPosition.x, notch.transform.localPosition.y, linePosition.z + .2f);
-        Debug.Log(linePosition);
+        Vector3 linePosition = Vector3.forward * Mathf.Lerp(0f, end.transform.localPosition.z - start.transform.localPosition.z, pullAmount);
+        notch.transform.localPosition = new Vector3(notch.transform.localPosition.x, notch.transform.localPosition.y, linePosition.z);
         _lineRenderer.SetPosition(1, linePosition);
     }
 }

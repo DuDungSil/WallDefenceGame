@@ -29,7 +29,7 @@ public class WorkerDatabase : Singleton<WorkerDatabase>
         totalWorker -= num;
         if(totalWorker < initialWorker) Debug.Log("오류. 초기 worker수보다 작아졌습니다.");
     }
-    public int RemainWorker(int num)
+    public int RemainWorker()
     {
         return totalWorker - assignedWorker;
     }

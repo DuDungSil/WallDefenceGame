@@ -52,6 +52,7 @@ public class ResourceDatabase : Singleton<ResourceDatabase>
         OnItemChanged();
     }
 
+
     public int getElementCount(Item _item)
     {
         int index = FindIndexByCondition(resources, resource => resource.Data.ID == _item.Data.ID);

@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item_RangedWeapon_", menuName = "New Item/Item Data/RangedWeapon")]
 public class RangedWeaponItemData : WeaponItemData
 {
-    public GameObject ProjectilePrefab => _projectilePrefab;
     public float Range => _range;
     public float ProjSpeed => _projSpeed;
     public float ShootDelay => _shootDelay;

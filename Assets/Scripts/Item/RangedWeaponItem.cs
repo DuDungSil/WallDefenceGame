@@ -10,8 +10,6 @@ public class RangedWeaponItem : WeaponItem
     { 
         rangeWeaponData = data;
     }
-
-    public GameObject ProjectilePrefab => rangeWeaponData.ProjectilePrefab;
     public float Range => rangeWeaponData.Range;
     public float ProjSpeed => rangeWeaponData.ProjSpeed;
     public float ShootDelay => rangeWeaponData.ShootDelay;

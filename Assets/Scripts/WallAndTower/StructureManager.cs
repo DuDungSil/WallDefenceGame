@@ -22,6 +22,9 @@ public class StructureManager : MonoBehaviour
         set { hp = value; }
     }
 
+    [SerializeField]
+    public BuildingBOM nextUpgrade;
+
     public virtual void TakeDamage(float damage)
     {
         Hp = Hp - damage;
@@ -32,6 +35,8 @@ public class StructureManager : MonoBehaviour
     }
     private void Start()
     {
+        nextUpgrade.Init();
+
         interactable = GetComponent<XRSimpleInteractable>();
         if(InteractionManager.Instance != null && interactable != null)
         {
@@ -72,9 +77,13 @@ public class StructureManager : MonoBehaviour
     public void Selfdestroy() // DestroyBtn의 이벤트함수
     {
         Debug.Log("부수기 작동");
+        Destroy(gameObject);
     }
     public void SelfUpgrade() //UpgradeBtn의 이벤트함수
     {
         Debug.Log("업그레이드 작동");
+        Instantiate(nextUpgrade.Data.prefab, gameObject.transform.position, gameObject.transform.rotation);
+        ResourceDatabase.Instance.DecreaseResource(nextUpgrade.craftNeedItems, nextUpgrade.Data.craftNeedItemCount);
+        Destroy(gameObject);
     }
 }

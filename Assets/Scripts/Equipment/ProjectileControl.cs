@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ProjectileControl : MonoBehaviour
 {
-    public float m_damage;
+    [HideInInspector]
+    public float damage;
+    [HideInInspector]
     public float projectileLifeTime;
 
     void Start()
@@ -18,7 +20,7 @@ public class ProjectileControl : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Monster"))
         {

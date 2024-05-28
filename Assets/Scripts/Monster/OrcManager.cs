@@ -13,6 +13,7 @@ public abstract class OrcManager : MonsterManager
             if(!IsDeath)
             {
                 Hp = Hp - damage + m_armor;
+                Debug.Log(Hp);
                 if(Hp < 0)
                 {
                     IsDeath = true;
@@ -21,6 +22,8 @@ public abstract class OrcManager : MonsterManager
             }
         }
     }
+
+
     public override void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("Wall")) //벽 레이어와 부딪혔을 경우 (보통 AttackRange가 부딪힘)
         {
@@ -35,12 +38,12 @@ public abstract class OrcManager : MonsterManager
                 coroutineStarted = true;
             }
         }
-        if(other.gameObject.layer == LayerMask.NameToLayer("Arrow")) // 오크가 플레이어의 weapon에 피격당하는 경우
+        if(other.gameObject.layer == LayerMask.NameToLayer("PlayerProjectile")) // 오크가 플레이어의 weapon에 피격당하는 경우
         {
-            ProjectileControl projectileControl = other.GetComponentInChildren<ProjectileControl>(); // 플레이어의 무기 데미지를 받아오는과정
+            ProjectileControl projectileControl = other.GetComponent<ProjectileControl>(); // 플레이어의 무기 데미지를 받아오는과정
             if(projectileControl != null)
             {
-                float damage = projectileControl.m_damage;
+                float damage = projectileControl.damage;
                 TakeDamage(damage);
             }
             else
