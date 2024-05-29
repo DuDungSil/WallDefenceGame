@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class InteractionUIControl : MonoBehaviour
 {
+    public GameObject InteractionMenu;
     public GameObject defaultImage;
     public GameObject AssignUnitMenu;
     public GameObject DestroyMenu;
@@ -16,6 +17,7 @@ public class InteractionUIControl : MonoBehaviour
     // Start is called before the first frame update
     private void OnEnable()
     {
+        InteractionMenu.SetActive(true);
         defaultImage.SetActive(true);
         AssignUnitMenu.SetActive(false);
         DestroyMenu.SetActive(false);
@@ -70,6 +72,15 @@ public class InteractionUIControl : MonoBehaviour
 
     public void ResourceInteraction()
     {
+        ResourceManager resourceManager = selectedObject.GetComponent<ResourceManager>();
+        if(resourceManager.IsAssigned) // structure에 이미 유닛이 할당되어 있을 때
+        {
+            AssignUnitMenu.GetComponent<AssignUnitMenu>().SetAlreadyAssignUI(resourceManager);
+        }
+        else
+        {
+            AssignUnitMenu.GetComponent<AssignUnitMenu>().SetNeedAssignUI(resourceManager);
+        }
         defaultImage.SetActive(false);
         AssignUnitMenu.SetActive(true);
         DestroyMenu.SetActive(false);

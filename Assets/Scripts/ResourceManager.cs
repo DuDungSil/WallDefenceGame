@@ -3,52 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class StructureManager : MonoBehaviour
+public class ResourceManager : MonoBehaviour
 {
     private XRSimpleInteractable interactable;
     public GameObject Units;
-    protected bool isAssigned = false;
+    protected bool isAssigned;
     public bool IsAssigned{
         get{ return isAssigned; }
         protected set{isAssigned = value;}
     }
-    public int grade;
     [SerializeField]
     protected int neededUnits;
     public int NeededUnits{
-        get{ return neededUnits;} 
-        protected set{ neededUnits = value;}
-    }
-    [SerializeField]
-    protected float hp;
-    public float Hp
-    {
-        get { return hp; }
-        set { hp = value; }
-    }
-
-    [SerializeField]
-    public BuildingBOM nextUpgrade;
-
-    public virtual void TakeDamage(float damage)
-    {
-        Hp = Hp - damage;
-        if (Hp < 0)
-        {
-            Destroy(gameObject);
-        }
+        get{ return neededUnits; }
+        protected set{neededUnits = value;}
     }
     private void Start()
     {
-        if(nextUpgrade.Data != null)
-        {
-            nextUpgrade.Init();
-        }
-
         interactable = GetComponent<XRSimpleInteractable>();
         if(InteractionManager.Instance != null && interactable != null)
         {
-            interactable.selectEntered.AddListener((args) => InteractionManager.Instance.forBuildingInteraction(args));
+            interactable.selectEntered.AddListener((args) => InteractionManager.Instance.forResourceInteraction(args));
         }
         else
         {
@@ -84,16 +59,5 @@ public class StructureManager : MonoBehaviour
             }
         }
     }
-    public void Selfdestroy() // DestroyBtn의 이벤트함수
-    {
-        Debug.Log("부수기 작동");
-        Destroy(gameObject);
-    }
-    public void SelfUpgrade() //UpgradeBtn의 이벤트함수
-    {
-        Debug.Log("업그레이드 작동");
-        Instantiate(nextUpgrade.Data.prefab, gameObject.transform.position, gameObject.transform.rotation);
-        ResourceDatabase.Instance.DecreaseResource(nextUpgrade.craftNeedItems, nextUpgrade.Data.craftNeedItemCount);
-        Destroy(gameObject);
-    }
+
 }

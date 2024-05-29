@@ -10,7 +10,7 @@ public class UpgradeMenu : MonoBehaviour
 
     private void UIUpdate()
     {
-        if(bom == null)
+        if(bom.Data == null)
         {
             upgradeBtn.SetActive(false);
         }

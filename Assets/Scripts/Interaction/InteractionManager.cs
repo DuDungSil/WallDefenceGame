@@ -18,4 +18,15 @@ public class InteractionManager : Singleton<InteractionManager>
             }
         }
     }
+    public void forResourceInteraction(BaseInteractionEventArgs args)
+    {
+        if(interactionCanvas.activeSelf)
+        {
+            if (args is SelectEnterEventArgs selectArgs)
+            {
+                var selectedObject = selectArgs.interactableObject;
+                interactionCanvas.GetComponent<InteractionUIControl>().setInteractionObject(selectedObject.transform.gameObject);
+            }
+        }
+    }
 }
