@@ -7,11 +7,11 @@ public class ProjectileControl : MonoBehaviour
     [HideInInspector]
     public float damage;
     [HideInInspector]
-    public float projectileLifeTime;
+    public float projectileLifeTime = 0;
 
     void Start()
     {
-        StartCoroutine(DestroyAfterTime());
+        if(projectileLifeTime != 0) StartCoroutine(DestroyAfterTime());
     }
 
     // Update is called once per frame
@@ -39,6 +39,11 @@ public class ProjectileControl : MonoBehaviour
 
         // 총알 제거
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        Debug.Log("제거");
     }
 
     // 생성시 어느 방향으로 어떻게 날아갈지 지정

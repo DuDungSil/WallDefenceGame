@@ -73,6 +73,7 @@ public class Staff : RangedWeaponControl
     {
         if(canCastSpell)
         {
+            isCasting = true;
             shootActivate = false;
             _spellRange.SetActive(false);
             canCastSpell = false;
