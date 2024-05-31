@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ResourceManager : MonoBehaviour
 {
+    private GetResource myGetResource;
     private XRSimpleInteractable interactable;
     public GameObject Units;
     protected bool isAssigned;
@@ -36,13 +37,14 @@ public class ResourceManager : MonoBehaviour
                 Debug.LogWarning("XRSimpleInteractable can't find");
             }
         }
-        
+        myGetResource = GetComponent<GetResource>();
+        myGetResource.enabled = false;
     }
     public void AssignedChange() //AssignBtn과 RemoveBtn의 이벤트함수
     {
         if(isAssigned) //RemoveBtn listener
         {
-            UnitController.Instance.assignedUnitNum -= NeededUnits;
+            myGetResource.enabled = false;
             isAssigned = false;
             if(Units != null)
             {
@@ -51,7 +53,7 @@ public class ResourceManager : MonoBehaviour
         }
         else //AssignBtn listener
         {
-            UnitController.Instance.assignedUnitNum += NeededUnits;
+            myGetResource.enabled = true;
             isAssigned = true;
             if(Units != null)
             {

@@ -2012,10 +2012,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9222033505249919870}
   - component: {fileID: 9222033505259285720}
+  - component: {fileID: 6503254368364034610}
   - component: {fileID: 61353662471259817}
   - component: {fileID: 7618506503805513052}
   - component: {fileID: 6902890082084910924}
-  - component: {fileID: 6503254368364034610}
   m_Layer: 9
   m_Name: orc_chieftain
   m_TagString: Untagged
@@ -2068,6 +2068,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6503254368364034610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9222033505249894238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193800ee37967784a92343935de3fe6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1
+  IsDeath: 0
+  deathTime: 100
+  attackTime: 2
+  nexusPosition: {x: 18, y: -65.27, z: -2}
+  m_animator: {fileID: 9222033505259285720}
+  m_armor: 6
 --- !u!143 &61353662471259817
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2139,24 +2158,6 @@ MonoBehaviour:
   m_groundMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &6503254368364034610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9222033505249894238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 193800ee37967784a92343935de3fe6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 10
-  deathTime: 100
-  attackTime: 2
-  nexusPosition: {x: 18, y: -65.27, z: -2}
-  m_animator: {fileID: 9222033505259285720}
-  m_armor: 6
 --- !u!1 &9222033505249894240
 GameObject:
   m_ObjectHideFlags: 0

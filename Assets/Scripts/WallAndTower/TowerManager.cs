@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TowerManager : StructureManager
 {
@@ -9,22 +10,31 @@ public class TowerManager : StructureManager
     protected GameObject target;
     public float shootDelay;
     public float m_projectileSpeed;
-    private bool shootActivate = false;
+    private float timer;
     protected Queue<GameObject> monsterQueue = new Queue<GameObject>();
 
+    void Start()
+    {
+        timer = 0f;
+    }
     private void Update() 
     {
-        if(!shootActivate) //shootActivate 가 false일 경우(공격하고 있지 않은 경우)
+        if(target == null && monsterQueue.Count < 1)
         {
-            if(monsterQueue.Count > 0)
+            return;
+        }
+        timer += Time.deltaTime;
+        if(timer > shootDelay)
+        {
+            if(target == null)
             {
-                target = monsterQueue.Dequeue();
-                if(target != null)
+                if(monsterQueue.Count > 0)
                 {
-                    shootActivate = true;
-                    StartCoroutine(Shoot(target));
+                    target = monsterQueue.Dequeue();
                 }
             }
+            Shoot(target);
+            timer = 0f;
         }
     }
 
@@ -50,7 +60,6 @@ public class TowerManager : StructureManager
         if(monster == target)
         {
             target = null;
-            shootActivate = false;
         }
         else
         {
@@ -66,32 +75,21 @@ public class TowerManager : StructureManager
             }
         }
     }
-    public IEnumerator Shoot(GameObject target)
+    public void Shoot(GameObject target)
     {
-        Debug.Log("코루틴 시작");
-        while(shootActivate)
-        {
-            
-            // 투사체 소환
-            GameObject spawnedProjectile = Instantiate(projectile, launchingPad.transform.position, launchingPad.transform.rotation);
-            //투사체 방향 설정
-            Vector3 monsterPos = target.transform.position;
-            Vector3 monsterDirection = (monsterPos - launchingPad.transform.position).normalized;
-            launchingPad.transform.rotation = Quaternion.LookRotation(monsterDirection); // 발사대 방향 설정
-            /* 발사체를 일정 속도로 돌리기
-            Quaternion rotation = Quaternion.LookRotation(monsterPos);
-            launchingPad.transform.rotation = Quaternion.Lerp(launchingPad.transform.rotation, rotation, 10f * Time.deltaTime);
-            */
-            spawnedProjectile.transform.rotation = Quaternion.LookRotation(monsterDirection); // 발사체 방향 설정
-            // 물리속성 설정
-            Rigidbody r = spawnedProjectile.GetComponentInChildren<Rigidbody>();
-            r.AddForce(monsterDirection * m_projectileSpeed, ForceMode.Impulse);
-            yield return new WaitForSeconds(shootDelay);
-            
-            if(target == null || target.GetComponent<MonsterManager>().IsDeath == true)
-            {
-                shootActivate = false;
-            }
-        }
+         // 투사체 소환
+        GameObject spawnedProjectile = Instantiate(projectile, launchingPad.transform.position, launchingPad.transform.rotation);
+        //투사체 방향 설정
+        Vector3 monsterPos = target.transform.position;
+        Vector3 monsterDirection = (monsterPos - launchingPad.transform.position).normalized;
+        launchingPad.transform.rotation = Quaternion.LookRotation(monsterDirection); // 발사대 방향 설정
+        /* 발사체를 일정 속도로 돌리기
+        Quaternion rotation = Quaternion.LookRotation(monsterPos);
+        launchingPad.transform.rotation = Quaternion.Lerp(launchingPad.transform.rotation, rotation, 10f * Time.deltaTime);
+        */
+        spawnedProjectile.transform.rotation = Quaternion.LookRotation(monsterDirection); // 발사체 방향 설정
+        // 물리속성 설정
+        Rigidbody r = spawnedProjectile.GetComponentInChildren<Rigidbody>();
+        r.AddForce(monsterDirection * m_projectileSpeed, ForceMode.Impulse);
     }
 }

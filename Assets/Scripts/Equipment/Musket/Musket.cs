@@ -8,6 +8,10 @@ public class Musket : RangedWeaponControl
     public Transform firePos;
     public GameObject bullet;
 
+    public int pelletCount = 10; 
+    public float spreadAngle = 15f; 
+    public float bulletSpeed = 20f; 
+
     public void Shoot()
     {
         // 딜레이 끝나면
@@ -24,18 +28,28 @@ public class Musket : RangedWeaponControl
                 shootActivate = false;
                 StartCoroutine(ShootDelay(shootDelay));
 
-                // 투사체 소환
-                GameObject spawnedProjectile = Instantiate(bullet, firePos.position, firePos.rotation);
 
-                // 데미지 설정
-                spawnedProjectile.GetComponent<ProjectileControl>().damage = damage;
+                for (int i = 0; i < pelletCount; i++)
+                {
+                    // Calculate a random spread angle within the defined range
+                    float spread = Random.Range(-spreadAngle / 2f, spreadAngle / 2f);
+                    Quaternion rotation = firePos.rotation * Quaternion.Euler(0, spread, 0);
 
-                // 투사체 제거 시간 ( 사거리 / 속도 )
-                spawnedProjectile.GetComponent<ProjectileControl>().projectileLifeTime = range / m_speed;
+                    // Instantiate the bullet
+                    GameObject _bullet = Instantiate(bullet, firePos.position, rotation);
 
-                // 물리속성 설정
-                Rigidbody r = spawnedProjectile.GetComponent<Rigidbody>();
-                r.AddForce(firePos.forward * m_speed, ForceMode.Impulse); 
+                    // 데미지 설정
+                    _bullet.GetComponent<ProjectileControl>().damage = damage;
+
+                    // 투사체 제거 시간 ( 사거리 / 속도 )
+                    _bullet.GetComponent<ProjectileControl>().projectileLifeTime = range / m_speed;
+
+                    // 물리속성 설정
+                    Rigidbody r = _bullet.GetComponent<Rigidbody>();
+                    r.AddForce(firePos.forward * m_speed, ForceMode.Impulse); 
+
+                }
+
             }
 
         }
