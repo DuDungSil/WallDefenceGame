@@ -5,11 +5,15 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Staff : RangedWeaponControl
 {
+    [Header("스태프 설정")]
+    [Space(5)]
+
     public GameObject Ray;
-    public float duration;
 
     public GameObject spell;
     public GameObject spellRange;
+
+    public float duration;
 
     private GameObject _spell;
     private GameObject _spellRange;
@@ -32,7 +36,7 @@ public class Staff : RangedWeaponControl
     void Update()
     {
         // 딜레이 끝나면
-        if(shootActivate == true)
+        if(isCoolTime == false)
         {
             // 선택 중인 인터렉터들의 목록
             var selectingInteractors = GetComponent<XRGrabInteractable>().interactorsSelecting;
@@ -74,7 +78,7 @@ public class Staff : RangedWeaponControl
         if(canCastSpell)
         {
             isCasting = true;
-            shootActivate = false;
+            isCoolTime = true;
             _spellRange.SetActive(false);
             canCastSpell = false;
 
@@ -82,7 +86,6 @@ public class Staff : RangedWeaponControl
             _spell = Instantiate(spell, castPoint, Quaternion.identity);
             _endMagicAfterDuration = StartCoroutine(EndMagicAfterDuration());
 
-            StartCoroutine(ShootDelay(shootDelay));
         }     
     }
 
@@ -92,7 +95,9 @@ public class Staff : RangedWeaponControl
         {
             StopCoroutine(_endMagicAfterDuration);
             Destroy(_spell);
-            isCasting = false;
+            isCasting = true;
+
+            StartCoroutine(ActivateCooldown(coolTime));
         }
     }
 
@@ -101,5 +106,7 @@ public class Staff : RangedWeaponControl
         yield return new WaitForSeconds(duration);
         Destroy(_spell);
         isCasting = false;
+
+        StartCoroutine(ActivateCooldown(coolTime));
     }
 }

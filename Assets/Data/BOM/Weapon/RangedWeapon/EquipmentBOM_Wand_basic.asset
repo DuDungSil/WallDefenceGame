@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aab613a8ff5af9645be61b183a76c1f6, type: 3}
-  m_Name: EquipmentBOM_Staff
+  m_Name: EquipmentBOM_Wand_basic
   m_EditorClassIdentifier: 
-  craftName: Staff
-  itemdata: {fileID: 11400000, guid: 0694cdd4288704142bc0e642d4389d60, type: 2}
+  craftName: BasicWand
+  itemdata: {fileID: 11400000, guid: 2340d7252ef6f8c4593d9cb10d5047c6, type: 2}
   craftNeedItemDatas:
-  - {fileID: 11400000, guid: e3aa78af6e8f2ef43b7c589a25825ad1, type: 2}
+  - {fileID: 11400000, guid: e56a9a7090868d14ab5c033ee85505df, type: 2}
   craftNeedItemCount: 01000000

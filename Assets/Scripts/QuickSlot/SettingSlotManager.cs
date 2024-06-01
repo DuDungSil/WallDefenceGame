@@ -63,7 +63,7 @@ public class SettingSlotManager : MonoBehaviour
         {
             currentIndex--;
             SettingSlotUpdate();
-            QuickSlotsDatabase.Instance.setQuickslots(equipDBIndex, equipDB[currentIndex]);
+            QuickSlotsDatabase.Instance.setQuickslotsItem(equipDBIndex, equipDB[currentIndex]);
         } 
         // 이전 인덱스로 변경
         // 퀵슬롯 무기 변경
@@ -75,14 +75,14 @@ public class SettingSlotManager : MonoBehaviour
         {
             currentIndex++;
             SettingSlotUpdate();
-            QuickSlotsDatabase.Instance.setQuickslots(equipDBIndex, equipDB[currentIndex]);
+            QuickSlotsDatabase.Instance.setQuickslotsItem(equipDBIndex, equipDB[currentIndex]);
         } 
     }
 
     private void UpdateUI()
     {
         equipDB = EquipmentDatabase.Instance.getDatabase(equipDBIndex);
-        if(equipDB.Count != 0) QuickSlotsDatabase.Instance.setQuickslots(equipDBIndex, equipDB[currentIndex]);
+        if(equipDB.Count != 0) QuickSlotsDatabase.Instance.setQuickslotsItem(equipDBIndex, equipDB[currentIndex]);
         SettingSlotUpdate();
     }
     

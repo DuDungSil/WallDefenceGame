@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class WeaponItemData : EquipmentItemData
 {
-    public float Damage => _damage;
-    [SerializeField] private float _damage;
+    //public float Damage => _damage;
+    //[SerializeField] private float _damage;
 }

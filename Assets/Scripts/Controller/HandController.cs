@@ -12,6 +12,7 @@ public class HandController : Singleton<HandController>
     public XRInteractionManager interactionManager;
     private EquipmentItem equipItem;
     private GameObject equipObj;
+    private int quickIndex;
 
 
     bool isUIController = false;
@@ -38,7 +39,7 @@ public class HandController : Singleton<HandController>
     }
 
     // 장비 장착
-    public void SetRightHandEquipment(int index)
+    public void mountingEquipment(int index)
     {
         DeleteEquipObject();
         setEquipment(index);
@@ -49,6 +50,20 @@ public class HandController : Singleton<HandController>
     {
         if(equipObj != null)
         {
+            if(equipItem is RangedWeaponItem)
+            {
+                // 장착중인 장비의 쿨타임, 탄환 수 저장하는 코드 추가 필요
+                RangedWeaponControl rangedWeaponControl = equipObj.GetComponent<RangedWeaponControl>();
+                ((RangedWeaponItem)equipItem).remainAmmo = rangedWeaponControl.remainAmmo;
+                ((RangedWeaponItem)equipItem).lastShootTime = rangedWeaponControl.lastShootTime;
+                ((RangedWeaponItem)equipItem).lastTime = rangedWeaponControl.lastCoolTime;
+                ((RangedWeaponItem)equipItem).isCoolTime = rangedWeaponControl.isCoolTime;
+                QuickSlotsDatabase.Instance.saveQuickslotsItem(quickIndex, equipItem);
+            }
+
+
+
+            // HUD를 끄는 코드 추가 필요 (equipObj객체 정보를 넘겨줌)
             Destroy(equipObj);
         }
     }
@@ -56,34 +71,39 @@ public class HandController : Singleton<HandController>
 
     public void setEquipment(int index)
     {
-        // 원래 장비 삭제
-        if(equipObj != null)
-        {
-            Destroy(equipObj);
-        }
-
         //퀵슬롯 데이터베이스에서 인덱스의 장비를 소환, 장비 그랩
         equipItem = QuickSlotsDatabase.Instance.getQuickslotsItem(index);
         equipObj = Instantiate(equipItem.EquipPrefab, gameObject.transform.position, gameObject.transform.rotation);
-        
-        interactionManager.SelectEnter(RightGrabController.GetComponent<XRDirectInteractor>(), equipObj.GetComponent<XRGrabInteractable>());
+        quickIndex = index;
+
+        if(equipItem.equipmentData.HandIndex == 0)
+        {
+            interactionManager.SelectEnter(LeftGrabController.GetComponent<XRDirectInteractor>(), equipObj.GetComponent<XRGrabInteractable>());
+        }
+        else if (equipItem.equipmentData.HandIndex == 1)
+        {
+            interactionManager.SelectEnter(RightGrabController.GetComponent<XRDirectInteractor>(), equipObj.GetComponent<XRGrabInteractable>());
+        }
 
         if(equipItem is MeleeWeaponItem)
         {
-            equipObj.GetComponent<MeleeWeaponControl>().damage = ((MeleeWeaponItem)equipItem).weaponData.Damage;
+
         }
 
         if(equipItem is RangedWeaponItem)
         {
-            equipObj.GetComponent<RangedWeaponControl>().damage = ((RangedWeaponItem)equipItem).weaponData.Damage;
-            equipObj.GetComponent<RangedWeaponControl>().range = ((RangedWeaponItem)equipItem).rangeWeaponData.Range;
-            equipObj.GetComponent<RangedWeaponControl>().m_speed = ((RangedWeaponItem)equipItem).rangeWeaponData.ProjSpeed;
-            equipObj.GetComponent<RangedWeaponControl>().shootDelay = ((RangedWeaponItem)equipItem).rangeWeaponData.ShootDelay;
-        } 
+            // 장착중인 장비의 쿨타임, 탄환 수 불러오는 코드 추가 필요
+            RangedWeaponControl rangedWeaponControl = equipObj.GetComponent<RangedWeaponControl>();
+            rangedWeaponControl.lastShootTime = ((RangedWeaponItem)equipItem).lastShootTime;
+            rangedWeaponControl.isCoolTime = ((RangedWeaponItem)equipItem).isCoolTime;
+            rangedWeaponControl.LoadData(((RangedWeaponItem)equipItem).lastTime, ((RangedWeaponItem)equipItem).remainAmmo);
+        }
 
         if(equipItem is ToolItem)
         {
-            equipObj.GetComponent<RepairToolControl>().value = ((ToolItem)equipItem).toolData.Value;
+
         }    
+
+        // HUD를 키는 코드 추가 필요 (equipObj객체 정보를 넘겨줌)
     }
 }

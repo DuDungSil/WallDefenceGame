@@ -23,17 +23,26 @@ public class QuickSlotsDatabase : Singleton<QuickSlotsDatabase>
         return quickslots;
     }
 
+    public void saveQuickslotsItem(int index, EquipmentItem _item)
+    {
+        quickslots[index] = _item;
+        if(_item is RangedWeaponItem)
+        {
+            EquipmentDatabase.Instance.SaveItem(_item , 1);
+        }
+    }
+
     public EquipmentItem getQuickslotsItem(int index)
     {
         return quickslots[index];
     }
 
-    public void setQuickslots(int index, EquipmentItem item)
+    public void setQuickslotsItem(int index, EquipmentItem item)
     {
         quickslots[index] = item;
     }
 
-    public void deleteQuickslots(int index)
+    public void deleteQuickslotsItem(int index)
     {
         quickslots[index] = null;
     }    

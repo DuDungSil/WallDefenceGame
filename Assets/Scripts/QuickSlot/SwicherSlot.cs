@@ -43,7 +43,7 @@ public class SwicherSlot : MonoBehaviour
      {
         if(collision.transform.CompareTag("RightHand"))
         {
-            if(equipitem != null) HandController.Instance.SetRightHandEquipment(index);
+            if(equipitem != null) HandController.Instance.mountingEquipment(index);
             UIController.Instance.CloseQuick();
         }
      }

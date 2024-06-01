@@ -32,6 +32,12 @@ public class ProjectileControl : MonoBehaviour
         }
     }
 
+    public void setLifeTime(float _time)
+    {
+        projectileLifeTime = _time;
+        StartCoroutine(DestroyAfterTime());
+    }
+
     IEnumerator DestroyAfterTime()
     {
         // lifetime 만큼 대기
@@ -41,10 +47,6 @@ public class ProjectileControl : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnDestroy()
-    {
-        Debug.Log("제거");
-    }
 
     // 생성시 어느 방향으로 어떻게 날아갈지 지정
 

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class UpgradeMenu : MonoBehaviour
 {
     public GameObject upgradeBtn;
-    public BuildingBOM bom;
+
+    private BuildingBOM bom;
 
     private void UIUpdate()
     {

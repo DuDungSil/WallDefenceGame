@@ -10,5 +10,5 @@ public abstract class WeaponItem : EquipmentItem
         weaponData = data;
     }
 
-    public float Damage => weaponData.Damage;
+    //public float Damage => weaponData.Damage;
 }

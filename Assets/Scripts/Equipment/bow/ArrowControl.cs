@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class ArrowControl : ProjectileControl
 {
-    public float speed = 30f;
     public Transform tip;
     public GameObject notchPos;
 
+    [HideInInspector]
     public float maxDamage;
+    [HideInInspector]
+    public float maxSpeed = 30f;
+    [HideInInspector]
+    public float maxRange;
+    [HideInInspector]
+    public float additionalTime;
+
     private Rigidbody _rigidbody;
     private bool _inAir = false;
     private Vector3 _lastPosition = Vector3.zero;
@@ -19,7 +26,7 @@ public class ArrowControl : ProjectileControl
         _rigidbody = GetComponent<Rigidbody>();
         PullInteraction.PullActionReleased += Release;
 
-        //Stop();
+        Stop();
     }
 
     private void OnDestroy()
@@ -35,14 +42,20 @@ public class ArrowControl : ProjectileControl
         SetPhysics(true);
 
         // arrow 날아가는 힘 계산
-        Vector3 force = transform.forward * value * speed;
+        Vector3 force = transform.forward * value * maxSpeed;
 
         // arrow 공격력 계산
         damage = value * maxDamage;
-        
+
+        // arrow lifetime 계산
+        float lifetime =  maxRange / maxSpeed * value + additionalTime;
+
+
         // arrow 발사시 물리 속성
         _rigidbody.AddForce(force, ForceMode.Impulse);
 
+        setLifeTime(lifetime);
+        
         StartCoroutine(RotateWithVelocity());
 
         _lastPosition = tip.position;
@@ -81,7 +94,7 @@ public class ArrowControl : ProjectileControl
                     transform.parent = hitinfo.transform;
                     body.AddForce(_rigidbody.velocity, ForceMode.Impulse);
                 }
-                //Stop();
+                Stop();
             }
         }
     }
@@ -94,7 +107,7 @@ public class ArrowControl : ProjectileControl
 
     private void SetPhysics(bool usePhysics)
     {
-        //_rigidbody.useGravity = usePhysics;
+        _rigidbody.useGravity = usePhysics;
         _rigidbody.isKinematic = !usePhysics;
     }
 }

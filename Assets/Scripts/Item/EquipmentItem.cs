@@ -10,6 +10,8 @@ public abstract class EquipmentItem : Item
 
     public GameObject QuickSlotPrefab => equipmentData.QuickSlotPrefab;
 
+    public int HandIndex => equipmentData.HandIndex;
+
     public EquipmentItem(EquipmentItemData data) : base(data)
     {
         equipmentData = data;

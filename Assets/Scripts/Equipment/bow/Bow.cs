@@ -5,8 +5,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Bow : RangedWeaponControl
 {
+    [Header("활 설정")]
+    [Space(5)]
     public GameObject arrow;
     public GameObject notch;
+    public float arrowSpawnDelay;
+    [Tooltip("화살이 박힌 후 남아있을 시간")]
+    public float additionalTime = 3f;
 
     private XRGrabInteractable _bow;
     private bool _arrowNotched = false;
@@ -46,7 +51,7 @@ public class Bow : RangedWeaponControl
 
     IEnumerator DelayedSpawn()
     {
-        yield return new WaitForSeconds(shootDelay);
+        yield return new WaitForSeconds(arrowSpawnDelay);
 
         // arrow 생성
         _currentArrow = Instantiate(arrow, notch.transform);
@@ -62,9 +67,12 @@ public class Bow : RangedWeaponControl
         _currentArrow.GetComponent<ArrowControl>().maxDamage = damage;
 
         // 속도 설정
-        _currentArrow.GetComponent<ArrowControl>().speed = m_speed;
+        _currentArrow.GetComponent<ArrowControl>().maxSpeed = speed;
+
+        // 최대 사거리
+        _currentArrow.GetComponent<ArrowControl>().maxRange = range;
 
         // 투사체 제거 시간 ( 사거리 / 속도 )
-        _currentArrow.GetComponent<ProjectileControl>().projectileLifeTime = range / m_speed;
+        _currentArrow.GetComponent<ArrowControl>().additionalTime = additionalTime;
     }
 }

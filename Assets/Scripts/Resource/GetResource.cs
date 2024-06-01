@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class GetResource : MonoBehaviour
 {
+    public ResourceItemData resourceData;
     private float timer;
     [SerializeField]
     private float resourceGetTime;
-    [SerializeField]
-    private string resourceName;
+
     void Update()
     {
         timer += Time.deltaTime;
         if(timer > resourceGetTime)
         {
             //wood 개수, stone 개수 증가
-            GameController.Instance.GetResource(resourceName);
+            ResourceDatabase.Instance.AddItem((ResourceItem)resourceData.CreateItem());
             timer = 0f;
         }
     }

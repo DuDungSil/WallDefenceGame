@@ -29,6 +29,7 @@ public class EquipmentDatabase : Singleton<EquipmentDatabase>
         List<EquipmentItem> list = null;
         if(i == 0) list = MeleeWeapons;
         else if(i == 1) list =  RangedWeapons;
+
         int index = FindIndexByCondition(list, equipment => equipment.Data.ID == _item.Data.ID);
         if(index == -1)
         {
@@ -39,11 +40,12 @@ public class EquipmentDatabase : Singleton<EquipmentDatabase>
     }
 
     // 아이템 삭제 함수
-    public void DeleteItem(Item _item, int i)
+    public void DeleteItem(EquipmentItem _item, int i)
     {
         List<EquipmentItem> list = null;
         if(i == 0) list = MeleeWeapons;
         else if(i == 1) list =  RangedWeapons;
+
         int index = FindIndexByCondition(list, equipment => equipment.Data.ID == _item.Data.ID);
         if(index == -1)
         {
@@ -54,6 +56,26 @@ public class EquipmentDatabase : Singleton<EquipmentDatabase>
             list.RemoveAt(index);
         }
         OnItemChanged();
+    }
+    
+    // 아이템 저장
+    public void SaveItem(EquipmentItem _item, int i)
+    {
+        List<EquipmentItem> list = null;
+        if(i == 0) list = MeleeWeapons;
+        else if(i == 1) list =  RangedWeapons;
+        
+        int index = FindIndexByCondition(list, equipment => equipment.Data.ID == _item.Data.ID);
+        if(index == -1)
+        {
+            Debug.Log("없는 아이템을 저장하려고 시도하였음");
+        }
+        else
+        {
+            
+            list[index] = _item;
+        }
+        //OnItemChanged();
     }
 
     int FindIndexByCondition(List<EquipmentItem> list, Predicate<EquipmentItem> condition)

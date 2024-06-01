@@ -41,13 +41,5 @@ public class GameController : Singleton<GameController>
         }
         
     }
-    public void GetResource(string resourceName)
-    {
-        if(resourceName == "wood")
-            rdb.AddItem((ResourceItem)wood.CreateItem());
-        else if(resourceName == "stone")
-            rdb.AddItem((ResourceItem)stone.CreateItem());
-        else if (resourceName == "iron")
-            rdb.AddItem((ResourceItem)iron.CreateItem());
-    }
+
 }
