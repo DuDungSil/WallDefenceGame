@@ -9,11 +9,15 @@ public class MonsterSpawnController : Singleton<MonsterSpawnController>
     public GameObject[] m_Monster;
     public float m_RespawnTime;
 
+    [SerializeField]
+    public Round[] rounds;
+
 
     void Start()
     {
         TimeController.Instance.nightActionDelegate += MonsterSpawn;
     }
+
 
     IEnumerator MonsterSpawn()
     {

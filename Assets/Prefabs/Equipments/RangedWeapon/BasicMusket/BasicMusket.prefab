@@ -299,7 +299,7 @@ MonoBehaviour:
   speed: 10
   range: 40
   coolTime: 5
-  useAmmo: 1
+  useAmmo: 0
   maxAmmo: 3
   remainAmmo: 0
   lastShootTime: 0

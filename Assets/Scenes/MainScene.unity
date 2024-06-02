@@ -12045,6 +12045,8 @@ MonoBehaviour:
   m_Monster:
   - {fileID: 9222033505249894238, guid: 2adc1236ef5c4c84183bbef2b44ac683, type: 3}
   m_RespawnTime: 1
+  rounds:
+  - Data: {fileID: 11400000, guid: beae53e8d93674a4c9c4812c9e300cb6, type: 2}
 --- !u!1 &1252580426
 GameObject:
   m_ObjectHideFlags: 0
