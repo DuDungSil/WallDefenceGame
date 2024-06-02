@@ -90,13 +90,13 @@ public class HandController : Singleton<HandController>
 
         }
 
-        if(equipItem is RangedWeaponItem)
+        if(equipItem is DistanceWeaponItem)
         {
             // 장착중인 장비의 쿨타임, 탄환 수 불러오는 코드 추가 필요
-            DistanceWeanponControl rangedWeaponControl = equipObj.GetComponent<DistanceWeanponControl>();
-            rangedWeaponControl.lastShootTime = ((RangedWeaponItem)equipItem).lastShootTime;
-            rangedWeaponControl.isCoolTime = ((RangedWeaponItem)equipItem).isCoolTime;
-            rangedWeaponControl.LoadData(((RangedWeaponItem)equipItem).lastTime, ((RangedWeaponItem)equipItem).remainAmmo);
+            DistanceWeanponControl ditanceWeaponControl = equipObj.GetComponent<DistanceWeanponControl>();
+            ditanceWeaponControl.lastShootTime = ((DistanceWeaponItem)equipItem).lastShootTime;
+            ditanceWeaponControl.isCoolTime = ((DistanceWeaponItem)equipItem).isCoolTime;
+            ditanceWeaponControl.LoadData(((DistanceWeaponItem)equipItem).lastTime, ((DistanceWeaponItem)equipItem).remainAmmo);
         }
 
         if(equipItem is ToolItem)

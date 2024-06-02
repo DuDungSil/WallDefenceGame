@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 1000
   _name: Bow
   _tooltip: 
-  _iconSprite: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
+  _iconSprite: {fileID: 21300000, guid: af7acb41a74676d4c9b59b84607a2829, type: 3}
   _dropItemPrefab: {fileID: 0}
   _equipPrefab: {fileID: 3794845486385301613, guid: 9bbba621689ce5142b4384909f572b5b, type: 3}
   _quickSlotPrefab: {fileID: 3794845486385301613, guid: 734c765f5c3b2e34980d9615ed34d052, type: 3}

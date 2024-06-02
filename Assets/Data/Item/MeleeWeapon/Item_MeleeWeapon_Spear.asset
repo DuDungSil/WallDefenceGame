@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 300
   _name: Spear
   _tooltip: 
-  _iconSprite: {fileID: 0}
+  _iconSprite: {fileID: 21300000, guid: e96ded90c60b8c545be3ecfefa8d79b9, type: 3}
   _dropItemPrefab: {fileID: 0}
   _equipPrefab: {fileID: 5765391341954477653, guid: 253498d405334a0419f1a7adc1e306d3, type: 3}
   _quickSlotPrefab: {fileID: 5765391341954477653, guid: 124eb562f65ed754fa6414a2d921f85c, type: 3}

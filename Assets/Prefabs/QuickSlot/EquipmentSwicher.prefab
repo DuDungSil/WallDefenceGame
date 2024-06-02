@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f46ad5b35102c34ea82cc9d4821f6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 3
+  index: 0
   transparency: 0.1
 --- !u!33 &1060815171198008662
 MeshFilter:
@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f46ad5b35102c34ea82cc9d4821f6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
+  index: 3
   transparency: 0.1
 --- !u!33 &5997775948619809049
 MeshFilter:
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f46ad5b35102c34ea82cc9d4821f6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  index: 2
   transparency: 0.1
 --- !u!33 &717247334462064388
 MeshFilter:

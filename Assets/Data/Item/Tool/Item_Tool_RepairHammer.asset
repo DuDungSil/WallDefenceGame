@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 30
   _name: RepairHammer
   _tooltip: 
-  _iconSprite: {fileID: 0}
+  _iconSprite: {fileID: 21300000, guid: 17019ed7e8d6a0a458279d59807ad67a, type: 3}
   _dropItemPrefab: {fileID: 0}
   _equipPrefab: {fileID: 6735491164160475151, guid: e82661a82ce40294abb2fda659f520d0, type: 3}
   _quickSlotPrefab: {fileID: 6735491164160475151, guid: 81adf2867ab908a45a8d86a02e9c7792, type: 3}

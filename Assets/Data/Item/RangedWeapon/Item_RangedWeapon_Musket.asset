@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 3000
   _name: Musket
   _tooltip: 
-  _iconSprite: {fileID: 0}
+  _iconSprite: {fileID: 21300000, guid: 66fe6856845df764683ef26754b324f9, type: 3}
   _dropItemPrefab: {fileID: 0}
   _equipPrefab: {fileID: 888665867258714323, guid: 03656f02bf593a7408e31c3fa6bb9b61, type: 3}
   _quickSlotPrefab: {fileID: 888665867258714323, guid: 390d58bd58bee5840bacf075accc2348, type: 3}

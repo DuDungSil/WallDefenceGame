@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildingBOM_Wall_Tier1
   m_EditorClassIdentifier: 
   craftName: Wall
-  buildingImage: {fileID: 21300000, guid: 1e69fb3d0697d5f4ab1403f3433cbc1e, type: 3}
+  buildingImage: {fileID: 21300000, guid: 0315474c1135dbf48ab0a78fb86c2a72, type: 3}
   prefab: {fileID: 1011774875663433049, guid: eb3a5d5c6199b5045b3570e916b6cb03, type: 3}
   PreviewPrefab: {fileID: 1011774875663433049, guid: 59120b8a959ae7f4581966ebe01681ca, type: 3}
   craftNeedItemDatas:

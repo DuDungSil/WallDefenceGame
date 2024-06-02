@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 20
   _name: Pickaxe
   _tooltip: 
-  _iconSprite: {fileID: 0}
+  _iconSprite: {fileID: 21300000, guid: 007293a4261cc0f4abc211a98dcd7175, type: 3}
   _dropItemPrefab: {fileID: 0}
   _equipPrefab: {fileID: 1848777325084274234, guid: 7caa7acc96a1a92469abe11f3ba2d65e, type: 3}
   _quickSlotPrefab: {fileID: 1848777325084274234, guid: 97bb57cdb0102744bb630ec883b14667, type: 3}

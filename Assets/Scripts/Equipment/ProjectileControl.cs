@@ -22,14 +22,7 @@ public class ProjectileControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Monster"))
-        {
-            Destroy(gameObject);
-        }
-        if(other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     public void setLifeTime(float _time)

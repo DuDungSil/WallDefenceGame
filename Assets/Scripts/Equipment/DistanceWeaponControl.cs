@@ -32,6 +32,7 @@ public abstract class DistanceWeanponControl : MonoBehaviour
 
     protected IEnumerator ActivateCooldown(float _time)
     {
+        lastCoolTime = Time.time;
         yield return new WaitForSeconds(_time);
         isCoolTime = false;
         if(useAmmo) remainAmmo = maxAmmo;

@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 100
   _name: Mace
   _tooltip: 
-  _iconSprite: {fileID: 0}
+  _iconSprite: {fileID: 21300000, guid: 2c2350b819ac34e49bdb21b6ca969550, type: 3}
   _dropItemPrefab: {fileID: 0}
   _equipPrefab: {fileID: 3523650237230614957, guid: c9742994366b652449cffe18ad24d4eb, type: 3}
   _quickSlotPrefab: {fileID: 3523650237230614957, guid: 8e0df5e82e4d7b04c83608178a22a13e, type: 3}
