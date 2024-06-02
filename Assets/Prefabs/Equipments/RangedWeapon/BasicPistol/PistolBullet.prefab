@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2021264311302095444}
   - component: {fileID: -3958186937271269888}
   - component: {fileID: -531344829208180624}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PistolBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 696698505540791595}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.628, y: -64.315, z: 16.491001}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 5659410928102202649}
   - component: {fileID: 5153655431759663109}
   - component: {fileID: 4933973843033158802}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: BulletModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

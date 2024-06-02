@@ -39,6 +39,9 @@ public class EquipmentCraftManual : Singleton<EquipmentCraftManual>
     [SerializeField]
     private EquipmentBOM[] rangedweapon_Manual;  // 원거리무기 메뉴얼 
 
+    [SerializeField]
+    private EquipmentBOM[] magicalweapon_Manual;  // 원거리무기 메뉴얼 
+
     public EquipmentBOM[] getMeleeweaponManual()
     {
         return meleeweapon_Manual;
@@ -49,11 +52,17 @@ public class EquipmentCraftManual : Singleton<EquipmentCraftManual>
         return rangedweapon_Manual;
     }
 
+    public EquipmentBOM[] getMagicalweaponManual()
+    {
+        return magicalweapon_Manual;
+    }   
+
     public void MoveElementToEnd(EquipmentBOM element, int manualIndex)
     {
         EquipmentBOM[] Manual = null;
         if(manualIndex == 0) Manual = meleeweapon_Manual;
         else if(manualIndex == 1) Manual = rangedweapon_Manual;
+        else if(manualIndex == 2) Manual = magicalweapon_Manual;
 
         if (Manual == null || Manual.Length == 0)
             return; // 배열이 비어있거나 null인 경우 처리하지 않음
@@ -74,6 +83,7 @@ public class EquipmentCraftManual : Singleton<EquipmentCraftManual>
     {
         foreach(var bom in  meleeweapon_Manual) bom.Init();
         foreach(var bom in  rangedweapon_Manual) bom.Init();
+        foreach(var bom in  magicalweapon_Manual) bom.Init();
     }
 
     void Update()

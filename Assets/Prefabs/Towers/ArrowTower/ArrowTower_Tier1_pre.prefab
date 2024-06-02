@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5467191864641309649}
   - component: {fileID: 2158994094866910375}
   - component: {fileID: -6049718754619616701}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: ArrowTower_Tier1_pre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 3594137690402530252}
   - component: {fileID: 4425079767184174627}
   - component: {fileID: 6888259743573351617}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: tower_Lv1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 8998974719794637469}
   - component: {fileID: 5648307983727448387}
   - component: {fileID: 190672850954921401}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: tower_Lv1_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 1877381819080570180}
   - component: {fileID: 1798385282533300960}
   - component: {fileID: 3075728350007940711}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: tower_Lv1_door_handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,7 +7,7 @@ public class PreviewObject : MonoBehaviour
     private List<Collider> colliderList = new List<Collider>(); // 충돌한 오브젝트들 저장할 리스트
 
     [SerializeField]
-    private int layerGround = 3; // 지형 레이어 (무시하게 할 것)
+    private int layerGround = 6; // 지형 레이어 (무시하게 할 것)
     private const int IGNORE_RAYCAST_LAYER = 2;  // ignore_raycast (무시하게 할 것)
 
     [SerializeField]

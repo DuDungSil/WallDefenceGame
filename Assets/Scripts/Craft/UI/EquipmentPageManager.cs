@@ -11,6 +11,8 @@ public class EquipmentPageManager : MonoBehaviour
 
     private EquipmentBOM[] meleeweapon_Manual;
     private EquipmentBOM[] rangedweapon_Manual;
+    private EquipmentBOM[] magicalweapon_Manual;
+
     private EquipmentBOM[] current_manual;
 
     public int numOfCraftSlots = 2;  // 페이지당 크래프트 슬롯 수
@@ -23,6 +25,7 @@ public class EquipmentPageManager : MonoBehaviour
     {
         meleeweapon_Manual = EquipmentCraftManual.Instance.getMeleeweaponManual();
         rangedweapon_Manual = EquipmentCraftManual.Instance.getRangedweaponManual();
+        magicalweapon_Manual = EquipmentCraftManual.Instance.getMagicalweaponManual();
         craftSlots = CraftSlotsParent.GetComponentsInChildren<EquipCraftSlot>();
         setCategory(0);
         CraftSlotsUpdate();
@@ -89,6 +92,10 @@ public class EquipmentPageManager : MonoBehaviour
         else if(category == 1)
         {
             current_manual = rangedweapon_Manual;
+        }
+        else if(category == 2)
+        {
+            current_manual = magicalweapon_Manual;
         }
 
         lastPage = (current_manual.Length-1) / numOfCraftSlots;

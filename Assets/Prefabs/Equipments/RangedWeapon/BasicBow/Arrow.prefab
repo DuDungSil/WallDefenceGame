@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5355213809429848812}
-  m_Layer: 14
+  m_Layer: 17
   m_Name: Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8391510294157006676}
   - component: {fileID: -9182792513056696623}
   - component: {fileID: 656334902152256539}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,10 +108,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   projectileLifeTime: 0
-  speed: 0
   tip: {fileID: 5355213809429848812}
   notchPos: {fileID: 2754584230941540430}
   maxDamage: 0
+  maxSpeed: 30
+  maxRange: 0
+  additionalTime: 0
 --- !u!1 &2754584230941540430
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8910132602117780081}
-  m_Layer: 14
+  m_Layer: 17
   m_Name: notchPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865309214770636011, guid: 45804eb2722b83845adbcf2d72da12dd, type: 3}
       propertyPath: m_Layer
-      value: 14
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5246372888971771473, guid: 45804eb2722b83845adbcf2d72da12dd, type: 3}
       propertyPath: m_LocalScale.y

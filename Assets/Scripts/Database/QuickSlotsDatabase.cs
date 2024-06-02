@@ -30,6 +30,10 @@ public class QuickSlotsDatabase : Singleton<QuickSlotsDatabase>
         {
             EquipmentDatabase.Instance.SaveItem(_item , 1);
         }
+        if(_item is MagicalWeaponItem)
+        {
+            EquipmentDatabase.Instance.SaveItem(_item , 2);
+        }
     }
 
     public EquipmentItem getQuickslotsItem(int index)
@@ -40,12 +44,23 @@ public class QuickSlotsDatabase : Singleton<QuickSlotsDatabase>
     public void setQuickslotsItem(int index, EquipmentItem item)
     {
         quickslots[index] = item;
+        OnItemChanged();
     }
 
     public void deleteQuickslotsItem(int index)
     {
         quickslots[index] = null;
     }    
+
+    public delegate void ItemChanged();
+    public event ItemChanged onItemChanged;
+
+    // 아이템 변경 이벤트 호출 메서드
+    private void OnItemChanged()
+    {
+        if (onItemChanged != null)
+            onItemChanged.Invoke();
+    }
 
     //퀵슬롯 장비 리스트
     // 특정 인덱스에 장비 추가

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - RightHand
+  - LeftHand
   layers:
   - Default
   - TransparentFX
@@ -12,20 +13,20 @@ TagManager:
   - Terrain
   - Water
   - UI
-  - PreviewObj
-  - Arrow
-  - MonsterAttackRange
+  - Bulidable
+  - Previewobj
   - Monster
   - Structure
-  - MonsterWeapon
-  - Weapon
-  - TowerAttackRange
-  - PlayerProjectile
   - Resource
-  - 
-  - 
-  - 
-  - 
+  - MonsterAttackRange
+  - TowerAttackRange
+  - MonsterWeapon
+  - MonsterProjectile
+  - PlayerWeapon
+  - TowerProjectil
+  - PlayerProjectile
+  - PlayerTool
+  - PlayerHand
   - 
   - 
   - 

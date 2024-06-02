@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8689252709147535146}
   - component: {fileID: 6607469567648218800}
   - component: {fileID: 6007086378919421204}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
-  transparency: 0.3
+  transparency: 0.1
 --- !u!33 &6607469567648218800
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6355714872736446537}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pos4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 3899763177212240812}
   - component: {fileID: 1060815171198008662}
   - component: {fileID: 5147680710341445831}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 3
-  transparency: 0.3
+  transparency: 0.1
 --- !u!33 &1060815171198008662
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -591,9 +591,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3782050529812621134}
+  - component: {fileID: 7708013669196323098}
   - component: {fileID: 2630520862771317916}
   - component: {fileID: 5748535216507100595}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HandTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,6 +616,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7946789274983774685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &7708013669196323098
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3919345269985661862}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &2630520862771317916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -657,7 +685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3774763014425870499}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,7 +717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1602095015995726507}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EquipmentSwicher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7946789274983774685}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +791,7 @@ GameObject:
   - component: {fileID: 1556961997355571999}
   - component: {fileID: 5997775948619809049}
   - component: {fileID: 4543869322144675772}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +1000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
-  transparency: 0.3
+  transparency: 0.1
 --- !u!33 &5997775948619809049
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1038,7 +1066,7 @@ GameObject:
   - component: {fileID: 758697524231009136}
   - component: {fileID: 717247334462064388}
   - component: {fileID: 9035684371946888928}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1223,7 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
-  transparency: 0.3
+  transparency: 0.1
 --- !u!33 &717247334462064388
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1283,7 +1311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 74458760805433972}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1315,7 +1343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2768039592045975420}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

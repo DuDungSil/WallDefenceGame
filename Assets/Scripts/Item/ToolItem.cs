@@ -9,5 +9,4 @@ public class ToolItem : EquipmentItem
     { 
         toolData = data;
     }
-    public float Value => toolData.Value;
 }

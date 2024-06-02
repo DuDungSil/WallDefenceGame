@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Musket : RangedWeaponControl
+public class Musket : DistanceWeanponControl
 {
     [Header("머스킷 설정")]
     [Space(5)]
@@ -42,7 +42,6 @@ public class Musket : RangedWeaponControl
 
                 if(shootActivate == true)
                 {
-                    shootActivate = false;
 
                     for (int i = 0; i < pelletCount; i++)
                     {
@@ -77,6 +76,7 @@ public class Musket : RangedWeaponControl
                     } 
                     else
                     {
+                        shootActivate = false;
                         StartCoroutine(ShootDelay());
                     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6287834770487974890}
   - component: {fileID: 4289625636842246494}
   - component: {fileID: 3857738131619429689}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall_Tier1_pre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5780034516089840320, guid: b4b7339fb3082864b8444ec917d80cf4, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6592458862164998266, guid: b4b7339fb3082864b8444ec917d80cf4, type: 3}
       propertyPath: m_LocalScale.x

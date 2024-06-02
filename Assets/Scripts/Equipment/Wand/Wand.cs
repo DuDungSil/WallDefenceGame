@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Wand : RangedWeaponControl
+public class Wand : DistanceWeanponControl
 {
     [Header("완드 설정")]
     [Space(5)]

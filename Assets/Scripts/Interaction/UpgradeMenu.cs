@@ -5,15 +5,28 @@ using UnityEngine.UI;
 
 public class UpgradeMenu : MonoBehaviour
 {
+    [SerializeField] 
+    private GameObject upgradeMaterialSlotsParent;
+    private UpgradeMaterialSlot[] upgradeMaterialSlots;
+
+    public int numOfMaterialSlots = 6;
+
     public GameObject upgradeBtn;
 
     private BuildingBOM bom;
+
+    void Awake()
+    {
+        upgradeMaterialSlots = upgradeMaterialSlotsParent.GetComponentsInChildren<UpgradeMaterialSlot>();
+    }
+
 
     private void UIUpdate()
     {
         if(bom.Data == null)
         {
             upgradeBtn.SetActive(false);
+            UpgradeMaterialSlotsClear();
         }
         else
         {
@@ -27,7 +40,35 @@ public class UpgradeMenu : MonoBehaviour
             }
 
             // 재료 슬롯 업데이트
+            UpgradeMaterialSlotsUpdate();
 
+        }
+    }
+
+    void UpgradeMaterialSlotsUpdate()
+    {
+        int numActiveSlot = numOfMaterialSlots;
+        int numOfItems = bom.craftNeedItems.Length;
+
+        numActiveSlot = numOfItems % numOfMaterialSlots == 0 ? numOfMaterialSlots : numOfItems % numOfMaterialSlots;
+        
+        for(int i = 0; i < numActiveSlot; i++)
+        {
+            upgradeMaterialSlots[i].gameObject.SetActive(true);
+            upgradeMaterialSlots[i].setItem(bom.craftNeedItems[i], bom.Data.craftNeedItemCount[i], ResourceDatabase.Instance.getElementCount(bom.craftNeedItems[i]));        
+        }
+
+        for(int i = numActiveSlot; i < numOfMaterialSlots; i++)
+        {
+            upgradeMaterialSlots[i].gameObject.SetActive(false);
+        }       
+    }
+
+    void UpgradeMaterialSlotsClear()
+    {
+        for(int i = 0; i < numOfMaterialSlots; i++)
+        {
+            upgradeMaterialSlots[i].gameObject.SetActive(false);       
         }
     }
 

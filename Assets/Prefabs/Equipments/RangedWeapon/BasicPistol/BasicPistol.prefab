@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4301522439257950146}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: firePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5260275980096891481}
   - component: {fileID: 4993836595743868630}
   - component: {fileID: 2948312736355374774}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: BasicPistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 7183311732854063567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.628, y: -64.315, z: 16.356}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -300,7 +300,10 @@ MonoBehaviour:
   coolTime: 5
   useAmmo: 1
   maxAmmo: 5
+  remainAmmo: 0
+  lastShootTime: 0
   isCoolTime: 0
+  lastCoolTime: 0
   firePos: {fileID: 4301522439257950146}
   bullet: {fileID: 696698505540791595, guid: 272992b6e9954334daca6c1e3cc9bea4, type: 3}
   shootDelay: 0.1
@@ -313,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 629588796043924622}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: AttachPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3289607326125478886, guid: 91dfc76dabfda1c499263150d69542c9, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

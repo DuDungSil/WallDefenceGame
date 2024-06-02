@@ -50,14 +50,14 @@ public class HandController : Singleton<HandController>
     {
         if(equipObj != null)
         {
-            if(equipItem is RangedWeaponItem)
+            if(equipItem is DistanceWeaponItem)
             {
                 // 장착중인 장비의 쿨타임, 탄환 수 저장하는 코드 추가 필요
-                RangedWeaponControl rangedWeaponControl = equipObj.GetComponent<RangedWeaponControl>();
-                ((RangedWeaponItem)equipItem).remainAmmo = rangedWeaponControl.remainAmmo;
-                ((RangedWeaponItem)equipItem).lastShootTime = rangedWeaponControl.lastShootTime;
-                ((RangedWeaponItem)equipItem).lastTime = rangedWeaponControl.lastCoolTime;
-                ((RangedWeaponItem)equipItem).isCoolTime = rangedWeaponControl.isCoolTime;
+                DistanceWeanponControl rangedWeaponControl = equipObj.GetComponent<DistanceWeanponControl>();
+                ((DistanceWeaponItem)equipItem).remainAmmo = rangedWeaponControl.remainAmmo;
+                ((DistanceWeaponItem)equipItem).lastShootTime = rangedWeaponControl.lastShootTime;
+                ((DistanceWeaponItem)equipItem).lastTime = rangedWeaponControl.lastCoolTime;
+                ((DistanceWeaponItem)equipItem).isCoolTime = rangedWeaponControl.isCoolTime;
                 QuickSlotsDatabase.Instance.saveQuickslotsItem(quickIndex, equipItem);
             }
 
@@ -93,7 +93,7 @@ public class HandController : Singleton<HandController>
         if(equipItem is RangedWeaponItem)
         {
             // 장착중인 장비의 쿨타임, 탄환 수 불러오는 코드 추가 필요
-            RangedWeaponControl rangedWeaponControl = equipObj.GetComponent<RangedWeaponControl>();
+            DistanceWeanponControl rangedWeaponControl = equipObj.GetComponent<DistanceWeanponControl>();
             rangedWeaponControl.lastShootTime = ((RangedWeaponItem)equipItem).lastShootTime;
             rangedWeaponControl.isCoolTime = ((RangedWeaponItem)equipItem).isCoolTime;
             rangedWeaponControl.LoadData(((RangedWeaponItem)equipItem).lastTime, ((RangedWeaponItem)equipItem).remainAmmo);

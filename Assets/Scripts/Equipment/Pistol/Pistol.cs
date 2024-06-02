@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : RangedWeaponControl
+public class Pistol : DistanceWeanponControl
 {
     [Header("피스톨 설정")]
     [Space(5)]

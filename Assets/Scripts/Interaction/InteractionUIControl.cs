@@ -13,6 +13,10 @@ public class InteractionUIControl : MonoBehaviour
 
     private GameObject selectedObject;
 
+    void Start()
+    {
+        ResourceDatabase.Instance.onItemChanged += UpdateUI;
+    }
 
     // Start is called before the first frame update
     private void OnEnable()
@@ -28,10 +32,10 @@ public class InteractionUIControl : MonoBehaviour
     public void setInteractionObject(GameObject _obj)
     {
         selectedObject = _obj;
-        UIUpdate();
+        UpdateUI();
     }
 
-    private void UIUpdate()
+    private void UpdateUI()
     {
         if(selectedObject.layer == LayerMask.NameToLayer("Structure"))
         {
@@ -91,14 +95,15 @@ public class InteractionUIControl : MonoBehaviour
     {
         StructureManager structureManager = selectedObject.GetComponent<StructureManager>();
         structureManager.Selfdestroy();
-        // ui 종료
+        gameObject.SetActive(false);
     }
 
     public void clickUpgrade()
     {
         StructureManager structureManager = selectedObject.GetComponent<StructureManager>();
-        structureManager.SelfUpgrade();
-        UIUpdate();
+        selectedObject = structureManager.SelfUpgrade();
+        structureManager.Selfdestroy();
+        UpdateUI();
     }
 
 

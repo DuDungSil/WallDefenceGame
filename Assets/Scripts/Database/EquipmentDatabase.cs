@@ -8,6 +8,8 @@ public class EquipmentDatabase : Singleton<EquipmentDatabase>
 {
     List<EquipmentItem> MeleeWeapons = new List<EquipmentItem>();
     List<EquipmentItem> RangedWeapons = new List<EquipmentItem>();
+    List<EquipmentItem> MagicalWeapons = new List<EquipmentItem>();
+    List<EquipmentItem> Tools = new List<EquipmentItem>();
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,8 @@ public class EquipmentDatabase : Singleton<EquipmentDatabase>
     {
         if(i == 0) return MeleeWeapons;
         else if(i == 1) return RangedWeapons;
+        else if(i == 2) return MagicalWeapons;
+        else if(i == 3) return Tools;
         return null;
     }
 
@@ -29,6 +33,8 @@ public class EquipmentDatabase : Singleton<EquipmentDatabase>
         List<EquipmentItem> list = null;
         if(i == 0) list = MeleeWeapons;
         else if(i == 1) list =  RangedWeapons;
+        else if(i == 2) list =  MagicalWeapons;
+        else if(i == 3) list = Tools;
 
         int index = FindIndexByCondition(list, equipment => equipment.Data.ID == _item.Data.ID);
         if(index == -1)
@@ -44,7 +50,9 @@ public class EquipmentDatabase : Singleton<EquipmentDatabase>
     {
         List<EquipmentItem> list = null;
         if(i == 0) list = MeleeWeapons;
-        else if(i == 1) list =  RangedWeapons;
+        else if(i == 1) list = RangedWeapons;
+        else if(i == 2) list = MagicalWeapons;
+        else if(i == 3) list = Tools;
 
         int index = FindIndexByCondition(list, equipment => equipment.Data.ID == _item.Data.ID);
         if(index == -1)
@@ -57,13 +65,37 @@ public class EquipmentDatabase : Singleton<EquipmentDatabase>
         }
         OnItemChanged();
     }
+
+    // 아이템 인덱스 찾기
+    public int ReturnItemIndex(EquipmentItem _item, int i)
+    {
+        List<EquipmentItem> list = null;
+        if(i == 0) list = MeleeWeapons;
+        else if(i == 1) list = RangedWeapons;
+        else if(i == 2) list = MagicalWeapons;
+        else if(i == 3) list = Tools;
+
+        int index = FindIndexByCondition(list, equipment => equipment.Data.ID == _item.Data.ID);
+        if(index == -1)
+        {
+            Debug.Log("없는 아이템을 찾으려고 시도하였음");
+            return index;
+        }
+        else
+        {
+            return index;
+        }
+        //OnItemChanged();
+    }
     
     // 아이템 저장
     public void SaveItem(EquipmentItem _item, int i)
     {
         List<EquipmentItem> list = null;
         if(i == 0) list = MeleeWeapons;
-        else if(i == 1) list =  RangedWeapons;
+        else if(i == 1) list = RangedWeapons;
+        else if(i == 2) list = MagicalWeapons;
+        else if(i == 3) list = Tools;
         
         int index = FindIndexByCondition(list, equipment => equipment.Data.ID == _item.Data.ID);
         if(index == -1)

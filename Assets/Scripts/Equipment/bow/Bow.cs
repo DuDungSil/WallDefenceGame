@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Bow : RangedWeaponControl
+public class Bow : DistanceWeanponControl
 {
     [Header("활 설정")]
     [Space(5)]

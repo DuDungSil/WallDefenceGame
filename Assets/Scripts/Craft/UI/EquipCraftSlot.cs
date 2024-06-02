@@ -88,6 +88,11 @@ public class EquipCraftSlot : MonoBehaviour
             EquipmentDatabase.Instance.AddItem((EquipmentItem)bom.Data.itemdata.CreateItem(), 1);
             EquipmentCraftManual.Instance.MoveElementToEnd(bom, 1);
         }
+        else if(bom.Data.itemdata is MagicalWeaponItemData)
+        {
+            EquipmentDatabase.Instance.AddItem((EquipmentItem)bom.Data.itemdata.CreateItem(), 2);
+            EquipmentCraftManual.Instance.MoveElementToEnd(bom, 2);
+        }
         // 필요 아이템 소모
         ResourceDatabase.Instance.DecreaseResource(bom.craftNeedItems, bom.Data.craftNeedItemCount);        
     }

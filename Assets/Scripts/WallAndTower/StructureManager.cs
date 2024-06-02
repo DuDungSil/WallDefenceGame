@@ -88,12 +88,13 @@ public class StructureManager : MonoBehaviour
     {
         Debug.Log("부수기 작동");
         Destroy(gameObject);
+        // 할당된 인원 뺴오는 코드
     }
-    public void SelfUpgrade() //UpgradeBtn의 이벤트함수
+    public GameObject SelfUpgrade() //UpgradeBtn의 이벤트함수
     {
         Debug.Log("업그레이드 작동");
-        Instantiate(nextUpgrade.Data.prefab, gameObject.transform.position, gameObject.transform.rotation);
+        GameObject upgradeObj = Instantiate(nextUpgrade.Data.prefab, gameObject.transform.position, gameObject.transform.rotation);
         ResourceDatabase.Instance.DecreaseResource(nextUpgrade.craftNeedItems, nextUpgrade.Data.craftNeedItemCount);
-        Destroy(gameObject);
+        return upgradeObj;
     }
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9390416e36b02a144b058b9522bffcd0, type: 3}
+  m_Name: Item_Tool_RepairHammer
+  m_EditorClassIdentifier: 
+  _id: 30
+  _name: RepairHammer
+  _tooltip: 
+  _iconSprite: {fileID: 0}
+  _dropItemPrefab: {fileID: 0}
+  _equipPrefab: {fileID: 6735491164160475151, guid: e82661a82ce40294abb2fda659f520d0, type: 3}
+  _quickSlotPrefab: {fileID: 6735491164160475151, guid: 81adf2867ab908a45a8d86a02e9c7792, type: 3}
+  _handIndex: 1

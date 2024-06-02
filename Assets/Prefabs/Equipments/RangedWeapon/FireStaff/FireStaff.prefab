@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 9063645383431637598}
   - component: {fileID: 3094457460207028702}
   - component: {fileID: 110378344826290512}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: Ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9063645383431637598
 Transform:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 4615613723244615911}
   - component: {fileID: 9006045399136690872}
   - component: {fileID: 2384351937899045201}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: FireStaff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ Transform:
   m_GameObject: {fileID: 2135793571027288367}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.276617, y: -63.409, z: 17.182245}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -429,7 +429,13 @@ MonoBehaviour:
   damage: 20
   speed: 0
   range: 0
-  coolTime: 0
+  coolTime: 10
+  useAmmo: 0
+  maxAmmo: 0
+  remainAmmo: 0
+  lastShootTime: 0
+  isCoolTime: 0
+  lastCoolTime: 0
   Ray: {fileID: 935599283182996831}
   spell: {fileID: 8050176662522283868, guid: 9205b074d8c8ba04e96e5e9fa4124d11, type: 3}
   spellRange: {fileID: 649987893755259412, guid: 8577373e486119b4592ed0a3788e7d27, type: 3}
@@ -443,7 +449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6443296395042863954}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: AttachPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5000502050487711434}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: AttachPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5875270693028758024, guid: 3058356566addd04d8ab52928169b5e2, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6540061452467591346, guid: 3058356566addd04d8ab52928169b5e2, type: 3}
       propertyPath: m_LocalPosition.x

@@ -8,20 +8,19 @@ public class GameController : Singleton<GameController>
     public ResourceItemData wood;
     public ResourceItemData stone;
     public ResourceItemData iron;
-    public MeleeWeaponItemData sword;
-    public RangedWeaponItemData staff;
-    public ToolItemData hammer;
+    public ToolItemData[] starterKit;
 
     [SerializeField]
     private ResourceDatabase rdb;
-
-    private QuickSlotsDatabase qdb;
 
     // Start is called before the first frame update
     void Start()
     {
         rdb = ResourceDatabase.Instance;
-        qdb = QuickSlotsDatabase.Instance;
+        for(int i = 0; i < starterKit.Length; i++)
+        {
+            EquipmentDatabase.Instance.AddItem((EquipmentItem)starterKit[i].CreateItem(), 3);
+        }
     }
 
     // Update is called once per frame

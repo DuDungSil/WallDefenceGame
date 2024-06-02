@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Staff : RangedWeaponControl
+public class Staff : DistanceWeanponControl
 {
     [Header("스태프 설정")]
     [Space(5)]
@@ -27,7 +27,7 @@ public class Staff : RangedWeaponControl
 
     void Start()
     {
-        _spellRange = Instantiate(spellRange, gameObject.transform);
+        _spellRange = Instantiate(spellRange, gameObject.transform.position, Quaternion.identity);
         _spellRange.SetActive(false);
         canCastSpell = false;
         isCasting = false;

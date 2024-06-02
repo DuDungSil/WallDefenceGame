@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf067590c34a54409f69d9edfdc3e99, type: 3}
+  m_Name: Item_RangedWeapon_Musket
+  m_EditorClassIdentifier: 
+  _id: 3000
+  _name: Musket
+  _tooltip: 
+  _iconSprite: {fileID: 0}
+  _dropItemPrefab: {fileID: 0}
+  _equipPrefab: {fileID: 888665867258714323, guid: 03656f02bf593a7408e31c3fa6bb9b61, type: 3}
+  _quickSlotPrefab: {fileID: 888665867258714323, guid: 390d58bd58bee5840bacf075accc2348, type: 3}
+  _handIndex: 0

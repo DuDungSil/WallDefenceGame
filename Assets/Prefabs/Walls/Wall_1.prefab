@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8123826477514694212}
   - component: {fileID: 6294156969024285326}
   - component: {fileID: 4654685495033400311}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: WoodenBarbedWireBarrier_33_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 3480490013865641335}
   - component: {fileID: 3932911815760767374}
   - component: {fileID: 2789607924097904188}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Wall_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 6413691044749816811}
   - component: {fileID: 7441014599859351490}
   - component: {fileID: 8090603298350078173}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9144696073809372308}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Units
   m_TagString: Untagged
   m_Icon: {fileID: 0}

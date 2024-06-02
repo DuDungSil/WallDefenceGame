@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6287834770487974890}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Wall_Tier1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5780034516089840320, guid: b4b7339fb3082864b8444ec917d80cf4, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6592458862164998266, guid: b4b7339fb3082864b8444ec917d80cf4, type: 3}
       propertyPath: m_LocalScale.x
@@ -268,10 +268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22213d09c1cb06f4385994eafde73aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAssigned: 1
+  Units: {fileID: 0}
   grade: 1
   neededUnits: 1
   hp: 10
+  nextUpgrade:
+    Data: {fileID: 11400000, guid: 912d521e7d4cb8b42965f5679a25102f, type: 2}
 --- !u!4 &3359074997519776730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6592458862164998266, guid: b4b7339fb3082864b8444ec917d80cf4, type: 3}

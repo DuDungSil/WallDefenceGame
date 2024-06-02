@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5903460781192021389}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_Tier3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,6 +43,10 @@ PrefabInstance:
     - target: {fileID: 1877063299389030, guid: de8829a6894b147498a1055ab1814cf1, type: 3}
       propertyPath: m_Name
       value: orc_log_wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877063299389030, guid: de8829a6894b147498a1055ab1814cf1, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4294385920768942, guid: de8829a6894b147498a1055ab1814cf1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -280,10 +284,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22213d09c1cb06f4385994eafde73aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAssigned: 1
+  Units: {fileID: 0}
   grade: 3
   neededUnits: 1
   hp: 40
+  nextUpgrade:
+    Data: {fileID: 0}
 --- !u!4 &5133565163831642923 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4294385920768942, guid: de8829a6894b147498a1055ab1814cf1, type: 3}

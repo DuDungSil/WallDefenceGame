@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MeleeWeaponControl : MonoBehaviour
 {
-    [HideInInspector]
     public float damage;
     [HideInInspector]
     public float magnitude; // 속도의 크기

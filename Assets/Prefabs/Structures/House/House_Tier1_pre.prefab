@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3631313984005063791}
   - component: {fileID: -2291279089937477706}
   - component: {fileID: 5280314020786472849}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: House_Tier1_pre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,15 +80,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1294077102607872, guid: 0826e0e91a102c841b128c35e65ce24c, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1611679963186488, guid: 0826e0e91a102c841b128c35e65ce24c, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1655490819792634, guid: 0826e0e91a102c841b128c35e65ce24c, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1982136562041382, guid: 0826e0e91a102c841b128c35e65ce24c, type: 3}
       propertyPath: m_Name
@@ -96,7 +96,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1982136562041382, guid: 0826e0e91a102c841b128c35e65ce24c, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4454551402681180, guid: 0826e0e91a102c841b128c35e65ce24c, type: 3}
       propertyPath: m_LocalPosition.x
