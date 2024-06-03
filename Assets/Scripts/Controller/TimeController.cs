@@ -19,18 +19,16 @@ public class TimeController : Singleton<TimeController>
     public TextMeshProUGUI[] m_text_time;
     public Sprite[] m_sprites;
     public Image m_dayNightImage;
-    
-    public float m_dayTime = 600;
-    public float m_nightTime = 600;
-    public int stage = 1;
+    public int currentRound = 1;
     public bool IsNight = false;
     float time;
     public Light sunLight;
+    public Round[] rounds;
     
     // Start is called before the first frame update
     void Start()
     {
-        time = m_dayTime;
+        time = rounds[0].Data.RoundDayTime;
     }
 
     // Update is called once per frame
@@ -51,14 +49,14 @@ public class TimeController : Singleton<TimeController>
     {
         if(IsNight)
             {
-                time = m_dayTime;
-                stage++;
+                currentRound++;
+                time = rounds[currentRound - 1].Data.RoundDayTime;
                 IsNight = false;
                 sunLight.transform.rotation = Quaternion.Euler(50.0f,-30.0f,0);
                 m_dayNightImage.sprite = m_sprites[0];
             }
             else{
-                time = m_nightTime;
+                time = rounds[currentRound - 1].Data.RoundNightTime;
                 NightActivate();
                 IsNight = true;
                 sunLight.transform.rotation = Quaternion.Euler(270.0f,-30.0f,0);

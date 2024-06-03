@@ -868,37 +868,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1103922616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &103586208
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 103586209}
-  m_Layer: 0
-  m_Name: MonsterSpawner (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &103586209
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103586208}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -63.35998, y: -61.95999, z: 63.800003}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &118680886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,6 +1526,37 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_RayInteractor: {fileID: 738589144}
+--- !u!1 &181344558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181344559}
+  m_Layer: 0
+  m_Name: LeftBridgeSpawner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &181344559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181344558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.45, y: 9, z: 95.53}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &186644987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3722,6 +3722,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 260819592}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1001 &413058534
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1055337616233065041, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.068065
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055337616233065041, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055337616233065041, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.032043
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055337616233065041, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.37249917
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055337616233065041, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055337616233065041, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9280325
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055337616233065041, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055337616233065041, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055337616233065041, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -136.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055337616233065041, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228530529646582355, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
+      propertyPath: m_Name
+      value: Nexus
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a6cf79e67aa54594abea389e760e6e6c, type: 3}
 --- !u!1 &425430352
 GameObject:
   m_ObjectHideFlags: 0
@@ -9151,6 +9208,37 @@ Transform:
   - {fileID: 1347268851}
   m_Father: {fileID: 1733270367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &879027488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 879027489}
+  m_Layer: 0
+  m_Name: MiddleBridgeSpawner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &879027489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879027488}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 69.78, y: 9, z: 55.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &899879736
 GameObject:
   m_ObjectHideFlags: 0
@@ -9467,6 +9555,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6168477390908215639, guid: 6ee0fc84ddc58564c843e8e57feec456, type: 3}
   m_PrefabInstance: {fileID: 922595781}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &966652734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966652735}
+  m_Layer: 0
+  m_Name: RightBridgeSpawner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &966652735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966652734}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 99.4, y: 9, z: -13.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &968049576
 GameObject:
   m_ObjectHideFlags: 0
@@ -11361,11 +11480,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: db2ead04fe9cc0f46949ccf6125fda78, type: 3}
   - {fileID: 21300000, guid: 2c6e15156a617f747a353203f78f6a59, type: 3}
   m_dayNightImage: {fileID: 1573292655}
-  m_dayTime: 6
-  m_nightTime: 6
-  stage: 1
+  currentRound: 1
   IsNight: 0
   sunLight: {fileID: 705507994}
+  rounds:
+  - Data: {fileID: 11400000, guid: beae53e8d93674a4c9c4812c9e300cb6, type: 2}
 --- !u!4 &1204529662
 Transform:
   m_ObjectHideFlags: 0
@@ -12039,12 +12158,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MonsterSpawnPoint:
-  - {fileID: 2017906470}
-  - {fileID: 1737778581}
-  - {fileID: 103586208}
-  m_Monster:
-  - {fileID: 9222033505249894238, guid: 2adc1236ef5c4c84183bbef2b44ac683, type: 3}
-  m_RespawnTime: 1
+  - {fileID: 1518279739}
+  - {fileID: 181344558}
+  - {fileID: 1545409936}
+  - {fileID: 879027488}
+  - {fileID: 2034578616}
+  - {fileID: 966652734}
   rounds:
   - Data: {fileID: 11400000, guid: beae53e8d93674a4c9c4812c9e300cb6, type: 2}
 --- !u!1 &1252580426
@@ -13761,6 +13880,37 @@ Transform:
   - {fileID: 2075264170}
   m_Father: {fileID: 2019965765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1518279739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1518279740}
+  m_Layer: 0
+  m_Name: LeftBridgeSpawner1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1518279740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518279739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.3, y: 9, z: 95.53}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1531665713
 GameObject:
   m_ObjectHideFlags: 0
@@ -13863,6 +14013,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531665713}
   m_CullTransparentMesh: 1
+--- !u!1 &1545409936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545409937}
+  m_Layer: 0
+  m_Name: MiddleBridgeSpawner1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545409937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545409936}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 61.82, y: 9, z: 64.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1571261668
 GameObject:
   m_ObjectHideFlags: 0
@@ -15698,37 +15879,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735440057}
   m_CullTransparentMesh: 0
---- !u!1 &1737778581
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1737778582}
-  m_Layer: 0
-  m_Name: MonsterSpawner (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1737778582
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1737778581}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 113, y: -63.761353, z: 52.300003}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757246410
 GameObject:
   m_ObjectHideFlags: 0
@@ -17632,37 +17782,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005382900}
   m_CullTransparentMesh: 1
---- !u!1 &2017906470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2017906471}
-  m_Layer: 0
-  m_Name: MonsterSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2017906471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017906470}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 106, y: -63.761353, z: -55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2019965764
 GameObject:
   m_ObjectHideFlags: 0
@@ -17791,6 +17910,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031105263}
   m_CullTransparentMesh: 1
+--- !u!1 &2034578616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2034578617}
+  m_Layer: 0
+  m_Name: RightBridgeSpawner1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2034578617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034578616}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 100.1, y: 9, z: -0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2039455948
 GameObject:
   m_ObjectHideFlags: 0
@@ -19367,9 +19517,6 @@ SceneRoots:
   - {fileID: 1228379998}
   - {fileID: 41330813}
   - {fileID: 1250445991}
-  - {fileID: 103586209}
-  - {fileID: 1737778582}
-  - {fileID: 2017906471}
   - {fileID: 1204529662}
   - {fileID: 226560901}
   - {fileID: 207137772}
@@ -19387,3 +19534,10 @@ SceneRoots:
   - {fileID: 632743254}
   - {fileID: 775992920}
   - {fileID: 3945348769503414173}
+  - {fileID: 1518279740}
+  - {fileID: 181344559}
+  - {fileID: 1545409937}
+  - {fileID: 879027489}
+  - {fileID: 2034578617}
+  - {fileID: 966652735}
+  - {fileID: 413058534}
