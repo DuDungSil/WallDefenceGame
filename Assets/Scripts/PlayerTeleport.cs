@@ -11,7 +11,10 @@ public class PlayerTeleport : MonoBehaviour
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            
+            CharacterController controller = other.GetComponent<CharacterController>();
+            controller.enabled = false;
+            other.transform.position = Exit.transform.position;
+            controller.enabled = true;
         }
     }
 }
