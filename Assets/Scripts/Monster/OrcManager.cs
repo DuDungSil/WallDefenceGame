@@ -25,7 +25,7 @@ public abstract class OrcManager : MonsterManager
 
 
     public override void OnTriggerEnter(Collider other) {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Wall")) //벽 레이어와 부딪혔을 경우 (보통 AttackRange가 부딪힘)
+        if(other.gameObject.layer == LayerMask.NameToLayer("Structure")) //벽 혹은 타워 레이어와 부딪혔을 경우 (AttackRange가 부딪힘)
         {
             if(!coroutineStarted) //코루틴 실행중이면 안함
             {
@@ -40,7 +40,8 @@ public abstract class OrcManager : MonsterManager
         }
         if(other.gameObject.layer == LayerMask.NameToLayer("PlayerProjectile")) // 오크가 플레이어의 weapon에 피격당하는 경우
         {
-            ProjectileControl projectileControl = other.GetComponent<ProjectileControl>(); // 플레이어의 무기 데미지를 받아오는과정
+            // 플레이어의 무기 데미지를 받아오는과정 (자식에게 collider가, 부모에게 script가 달려있음)
+            ProjectileControl projectileControl = other.gameObject.transform.root.GetComponent<ProjectileControl>();
             if(projectileControl != null)
             {
                 float damage = projectileControl.damage;
@@ -48,7 +49,7 @@ public abstract class OrcManager : MonsterManager
             }
             else
             {
-                Debug.Log("projectileControl is null");
+                Debug.Log("Error : projectileControl is null");
             }
         }
         if(other.gameObject.layer == LayerMask.NameToLayer("AllyMeeleWeapon") && meleeAtackActivate )

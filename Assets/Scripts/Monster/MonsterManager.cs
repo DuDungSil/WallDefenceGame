@@ -7,6 +7,7 @@ using UnityEngine.XR.OpenXR.Features.Interactions;
 
 public abstract class MonsterManager : MonoBehaviour
 {
+    public GameObject nexusPoint;
     [SerializeField]
     protected float hp;
     public float Hp
@@ -35,10 +36,12 @@ public abstract class MonsterManager : MonoBehaviour
             {
                 m_animator.SetBool("IsAttack", false);
                 yield return new WaitForSeconds(attackTime); //AttackTime이 지난 후 다시 앞으로 걸어가도록 하려고했는데 자연스럽지 않음. 변경해야함
-                if(nexusPosition != null)
+                if(nexusPoint != null)
                 {
-                    transform.LookAt(nexusPosition); // 몬스터가 다시 넥서스를 바라보도록 함
+                    transform.LookAt(nexusPoint.transform.position); // 몬스터가 다시 넥서스를 바라보도록 함
                 }
+                else
+                    Debug.Log("Error : nexusPoint is null");
                 coroutineStarted = false; // 다시 벽 혹은 타워를 만날 수 있도록 코루틴 스타트를 false로 바꿔줌
                 encounteredWallOrTower = null; // 다음에 만난 벽 혹은 타워를 저장할 수 있도록 null로 바꿔줌
                 //structureManager = null; // 다음에 만난 벽 혹은 타워를 저장할 수 있도록 null로 바꿔줌
@@ -69,9 +72,11 @@ public abstract class MonsterManager : MonoBehaviour
 
     void Start()
     {
-        if(nexusPosition != null)
+        if(nexusPoint != null)
         {
-            transform.LookAt(nexusPosition); // 몬스터 생성시 넥서스 위치를 바라보도록 함
+            transform.LookAt(nexusPoint.transform.position); // 몬스터 생성시 넥서스 위치를 바라보도록 함
         }
+        else
+            Debug.Log("Error : nexusPoint is null");
     }
 }

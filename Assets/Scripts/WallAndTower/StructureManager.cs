@@ -24,7 +24,7 @@ public class StructureManager : MonoBehaviour
     public float Hp
     {
         get { return hp; }
-        set { hp = value; }
+        private set { hp = value; }
     }
 
     [SerializeField]
@@ -33,6 +33,7 @@ public class StructureManager : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         Hp = Hp - damage;
+        Debug.Log(Hp);
         if (Hp < 0)
         {
             Destroy(gameObject);

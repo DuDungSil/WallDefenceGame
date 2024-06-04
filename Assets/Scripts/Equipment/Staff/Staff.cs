@@ -31,6 +31,7 @@ public class Staff : DistanceWeanponControl
         _spellRange.SetActive(false);
         canCastSpell = false;
         isCasting = false;
+        Ray.GetComponent<RayControl>().rayDistance = range;
     }
 
     void Update()
@@ -84,6 +85,10 @@ public class Staff : DistanceWeanponControl
 
             // castPoint에 소환
             _spell = Instantiate(spell, castPoint, Quaternion.identity);
+
+            _spell.GetComponent<Spell>().duration = duration;
+            _spell.GetComponent<Spell>().maxDamage = damage;
+
             _endMagicAfterDuration = StartCoroutine(EndMagicAfterDuration());
 
         }     
@@ -103,10 +108,16 @@ public class Staff : DistanceWeanponControl
 
     protected IEnumerator EndMagicAfterDuration()
     {
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(duration + 0.2f);
         Destroy(_spell);
         isCasting = false;
 
         StartCoroutine(ActivateCooldown(coolTime));
+    }
+
+    void OnDestroy()
+    {
+        if(_spellRange != null) Destroy(_spellRange);
+        if(_spell != null) Destroy(_spell);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileControl : MonoBehaviour
 {
-    [HideInInspector]
+    //[HideInInspector]
     public float damage;
     [HideInInspector]
     public float projectileLifeTime = 0;

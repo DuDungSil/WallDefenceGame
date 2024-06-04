@@ -8,6 +8,7 @@ public class WallManager : StructureManager
     public virtual void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("MonsterWeapon"))
         {
+            Debug.Log("공격받는중");
             MonsterWeaponDamage monsterWeaponDamage = other.GetComponent<MonsterWeaponDamage>();
             TakeDamage(monsterWeaponDamage.m_damage);
         }

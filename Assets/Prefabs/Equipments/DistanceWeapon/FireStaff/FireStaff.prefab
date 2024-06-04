@@ -428,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   speed: 0
-  range: 0
+  range: 100
   coolTime: 10
   useAmmo: 0
   maxAmmo: 0
@@ -437,8 +437,8 @@ MonoBehaviour:
   isCoolTime: 0
   lastCoolTime: 0
   Ray: {fileID: 935599283182996831}
-  spell: {fileID: 8050176662522283868, guid: 9205b074d8c8ba04e96e5e9fa4124d11, type: 3}
-  spellRange: {fileID: 649987893755259412, guid: 8577373e486119b4592ed0a3788e7d27, type: 3}
+  spell: {fileID: 258732657407382646, guid: 3e4a17fe10a2e2e468ce335e3bca99b2, type: 3}
+  spellRange: {fileID: 2244147214846633925, guid: 96096081c0ef3c7409aa5c159d7ee3f9, type: 3}
   duration: 8
 --- !u!1 &3843716018455682135
 GameObject:
