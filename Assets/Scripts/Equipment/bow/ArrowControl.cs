@@ -76,33 +76,52 @@ public class ArrowControl : ProjectileControl
     {
         if(_inAir)
         {
-            CheckCollision();
+            //CheckCollision();
             _lastPosition = tip.position;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        int hitlayer = other.gameObject.layer;
+            // 충돌 레이어 처리
+        if(hitlayer == 3 || hitlayer == 6 || hitlayer == 8 || hitlayer == 9 || hitlayer == 10)
+        {
+            if(other.transform.TryGetComponent(out Rigidbody body))
+            {
+                _rigidbody.interpolation = RigidbodyInterpolation.None;
+                transform.parent = other.transform;
+                body.AddForce(_rigidbody.velocity, ForceMode.Impulse);
+            }
+            Stop();
         }
     }
 
     private void CheckCollision()
     {
-        if(Physics.Linecast(_lastPosition, tip.position, out RaycastHit hitinfo))
-        {
-            // 충돌 레이어 처리
-            if(hitinfo.transform.gameObject.layer != 0)
-            {
-                if(hitinfo.transform.TryGetComponent(out Rigidbody body))
-                {
-                    _rigidbody.interpolation = RigidbodyInterpolation.None;
-                    transform.parent = hitinfo.transform;
-                    body.AddForce(_rigidbody.velocity, ForceMode.Impulse);
-                }
-                Stop();
-            }
-        }
+        // if(Physics.Linecast(_lastPosition, tip.position, out RaycastHit hitinfo))
+        // {
+        //     int hitlayer = hitinfo.transform.gameObject.layer;
+        //     // 충돌 레이어 처리
+        //     if(hitlayer == 3 || hitlayer == 6 || hitlayer == 8 || hitlayer == 9 || hitlayer == 10)
+        //     {
+        //         if(hitinfo.transform.TryGetComponent(out Rigidbody body))
+        //         {
+        //             _rigidbody.interpolation = RigidbodyInterpolation.None;
+        //             transform.parent = hitinfo.transform;
+        //             body.AddForce(_rigidbody.velocity, ForceMode.Impulse);
+        //         }
+        //         Stop();
+        //         Debug.Log("dd");
+        //     }
+        // }
     }
 
     private void Stop()
     {
         _inAir = false;
         SetPhysics(false);
+        damage = 0;
     }
 
     private void SetPhysics(bool usePhysics)

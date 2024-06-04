@@ -60,7 +60,7 @@ public class Musket : DistanceWeanponControl
 
                         // 물리속성 설정
                         Rigidbody r = _bullet.GetComponent<Rigidbody>();
-                        r.AddForce(firePos.forward * speed, ForceMode.Impulse); 
+                        r.AddForce(_bullet.transform.forward * speed, ForceMode.Impulse); 
 
                     }
 

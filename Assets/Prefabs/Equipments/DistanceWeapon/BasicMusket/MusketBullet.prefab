@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -3958186937271269888}
   - component: {fileID: -531344829208180624}
   m_Layer: 17
-  m_Name: PistolBullet
+  m_Name: MusketBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5153655431759663109}
   - component: {fileID: 4933973843033158802}
   m_Layer: 17
-  m_Name: Bullet_big
+  m_Name: Bullet_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,8 +103,8 @@ Transform:
   m_GameObject: {fileID: 5219959096840592820}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0.526, y: 0, z: -1.006}
+  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2021264311302095444}

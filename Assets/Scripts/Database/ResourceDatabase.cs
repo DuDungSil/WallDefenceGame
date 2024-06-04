@@ -26,6 +26,7 @@ public class ResourceDatabase : Singleton<ResourceDatabase>
         int index = FindIndexByCondition(resources, resource => resource.Data.ID == _item.Data.ID);
         if(index == -1)
         {
+            _item.SetAmount(_count);
             resources.Add(_item);
             resources = resources.OrderBy(x => x.Data.ID).ToList(); // id 순으로 재정렬
         }

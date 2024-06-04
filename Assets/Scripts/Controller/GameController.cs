@@ -21,6 +21,9 @@ public class GameController : Singleton<GameController>
         {
             EquipmentDatabase.Instance.AddItem((EquipmentItem)starterKit[i].CreateItem(), 3);
         }
+        rdb.AddItem((ResourceItem)wood.CreateItem(), 30);
+        rdb.AddItem((ResourceItem)stone.CreateItem(), 30);
+        rdb.AddItem((ResourceItem)iron.CreateItem(), 30);
     }
 
     // Update is called once per frame

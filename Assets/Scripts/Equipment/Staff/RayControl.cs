@@ -8,11 +8,13 @@ public class RayControl : MonoBehaviour
     private LineRenderer lineRenderer;
 
     private RaycastHit hit;  // 레이캐스트 충돌 정보
+    private int layerMask;
 
     void Start()
     {
         // LineRenderer 컴포넌트를 가져옴
         lineRenderer = GetComponent<LineRenderer>();
+        layerMask = (1 << 3) | (1 << 6);
     }
 
     void Update()
@@ -24,7 +26,7 @@ public class RayControl : MonoBehaviour
 
 
         // 레이캐스트를 쏴서 충돌 여부 확인
-        if (Physics.Raycast(origin, direction, out hit, rayDistance))
+        if (Physics.Raycast(origin, direction, out hit, rayDistance, layerMask))
         {
             // 충돌 지점의 좌표 설정
             lineRenderer.SetPosition(0, origin);
