@@ -296,10 +296,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  speed: 10
+  speed: 50
   range: 40
-  coolTime: 5
-  useAmmo: 0
+  coolTime: 3
+  useAmmo: 1
   maxAmmo: 3
   remainAmmo: 0
   lastShootTime: 0
@@ -307,9 +307,12 @@ MonoBehaviour:
   lastCoolTime: 0
   firePos: {fileID: 3568502925504218953}
   bullet: {fileID: 696698505540791595, guid: 272992b6e9954334daca6c1e3cc9bea4, type: 3}
-  shootDelay: 0.1
+  shootDelay: 0.5
   pelletCount: 10
   spreadAngle: 15
+  gunModel: {fileID: 5004077510982961060}
+  recoilAngle: 10
+  recoilDuration: 0.1
 --- !u!1 &4094918046425770902
 GameObject:
   m_ObjectHideFlags: 0
