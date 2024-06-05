@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 3940097284083590140}
   - component: {fileID: 5988328369063318962}
   - component: {fileID: 3055201311076535081}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tree_Big1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Units: {fileID: 2381504929881475673}
-  neededUnits: 2
+  neededUnits: 6
 --- !u!114 &5988328369063318962
 MonoBehaviour:
   m_ObjectHideFlags: 0

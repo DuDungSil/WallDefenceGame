@@ -68,7 +68,7 @@ public class StructureManager : MonoBehaviour
     {
         if(isAssigned) //RemoveBtn listener
         {
-            UnitController.Instance.assignedUnitNum -= NeededUnits;
+            UnitController.Instance.RemoveUnits(NeededUnits);
             isAssigned = false;
             if(Units != null)
             {
@@ -77,7 +77,7 @@ public class StructureManager : MonoBehaviour
         }
         else //AssignBtn listener
         {
-            UnitController.Instance.assignedUnitNum += NeededUnits;
+            UnitController.Instance.AssignUnits(NeededUnits);
             isAssigned = true;
             if(Units != null)
             {

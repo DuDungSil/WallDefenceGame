@@ -44,20 +44,26 @@ public class ResourceManager : MonoBehaviour
     {
         if(isAssigned) //RemoveBtn listener
         {
-            myGetResource.enabled = false;
-            isAssigned = false;
-            if(Units != null)
+            if(UnitController.Instance.RemoveUnits(NeededUnits))
             {
-                Units.SetActive(false);
+                myGetResource.enabled = false;
+                isAssigned = false;
+                if(Units != null)
+                {
+                    Units.SetActive(false);
+                }
             }
         }
         else //AssignBtn listener
         {
-            myGetResource.enabled = true;
-            isAssigned = true;
-            if(Units != null)
+            if(UnitController.Instance.AssignUnits(NeededUnits))
             {
-                Units.SetActive(true);
+                myGetResource.enabled = true;
+                isAssigned = true;
+                if (Units != null)
+                {
+                    Units.SetActive(true);
+                }
             }
         }
     }

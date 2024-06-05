@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 442896765270355706}
   - component: {fileID: 9125493122112419940}
   - component: {fileID: 7157923174730282408}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
