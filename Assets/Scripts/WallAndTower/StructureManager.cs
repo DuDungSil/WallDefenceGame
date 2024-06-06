@@ -20,11 +20,12 @@ public class StructureManager : MonoBehaviour
         protected set{ neededUnits = value;}
     }
     [SerializeField]
+    protected float MaxHp;
     protected float hp;
     public float Hp
     {
         get { return hp; }
-        private set { hp = value; }
+        protected set { hp = value; }
     }
 
     [SerializeField]
@@ -68,20 +69,24 @@ public class StructureManager : MonoBehaviour
     {
         if(isAssigned) //RemoveBtn listener
         {
-            UnitController.Instance.RemoveUnits(NeededUnits);
-            isAssigned = false;
-            if(Units != null)
+            if(UnitController.Instance.RemoveUnits(NeededUnits))
             {
-                Units.SetActive(false);
+                isAssigned = false;
+                if(Units != null)
+                {
+                    Units.SetActive(false);
+                }
             }
         }
         else //AssignBtn listener
         {
-            UnitController.Instance.AssignUnits(NeededUnits);
-            isAssigned = true;
-            if(Units != null)
+            if(UnitController.Instance.AssignUnits(NeededUnits))
             {
-                Units.SetActive(true);
+                isAssigned = true;
+                if(Units != null)
+                {
+                    Units.SetActive(true);
+                }
             }
         }
     }
@@ -89,6 +94,8 @@ public class StructureManager : MonoBehaviour
     {
         Debug.Log("부수기 작동");
         // 할당된 unit을 UnitController에 돌려주는 코드
+        if(isAssigned)
+            UnitController.Instance.RemoveUnits(NeededUnits);
         Destroy(gameObject);
     }
     public GameObject SelfUpgrade() //UpgradeBtn의 이벤트함수
@@ -97,6 +104,8 @@ public class StructureManager : MonoBehaviour
         GameObject upgradeObj = Instantiate(nextUpgrade.Data.prefab, gameObject.transform.position, gameObject.transform.rotation);
         ResourceDatabase.Instance.DecreaseResource(nextUpgrade.craftNeedItems, nextUpgrade.Data.craftNeedItemCount);
         // 할당된 unit을 UnitController에 돌려주는 코드
+        if(isAssigned)
+            UnitController.Instance.RemoveUnits(NeededUnits);
         return upgradeObj;
     }
 }

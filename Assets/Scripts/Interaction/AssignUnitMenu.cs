@@ -45,8 +45,11 @@ public class AssignUnitMenu : MonoBehaviour
         assignUnitsImg.SetActive(false);
 
         assignBtn.onClick.RemoveAllListeners();
-        assignBtn.onClick.AddListener(structureManager.AssignedChange);
-        assignBtn.onClick.AddListener(() => SetAlreadyAssignUI(structureManager));
+        if(UnitController.Instance.isAssignable(structureManager.NeededUnits))
+        {
+            assignBtn.onClick.AddListener(structureManager.AssignedChange);
+            assignBtn.onClick.AddListener(() => SetAlreadyAssignUI(structureManager));
+        }
     }
     public void SetAlreadyAssignUI(ResourceManager resourceManager) // recource를 select했을 때 실행되는 함수(선택된 resource에 맞는 값들로 UI구성 및 해당 객체에 대한 버튼 리스너)
     {
@@ -74,8 +77,11 @@ public class AssignUnitMenu : MonoBehaviour
         assignUnitsImg.SetActive(false);
 
         assignBtn.onClick.RemoveAllListeners();
-        assignBtn.onClick.AddListener(resourceManager.AssignedChange);
-        assignBtn.onClick.AddListener(() => SetAlreadyAssignUI(resourceManager));
+        if(UnitController.Instance.isAssignable(resourceManager.NeededUnits))
+        {
+            assignBtn.onClick.AddListener(resourceManager.AssignedChange);
+            assignBtn.onClick.AddListener(() => SetAlreadyAssignUI(resourceManager));
+        }
     }
     
 }

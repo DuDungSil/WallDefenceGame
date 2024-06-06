@@ -15,6 +15,7 @@ public class TowerManager : StructureManager
 
     void Start()
     {
+        Hp = MaxHp;
         timer = 0f;
     }
     private void Update() 

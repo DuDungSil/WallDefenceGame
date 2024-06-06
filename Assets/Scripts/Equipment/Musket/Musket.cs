@@ -14,8 +14,15 @@ public class Musket : DistanceWeanponControl
     public int pelletCount = 10; 
     public float spreadAngle = 15f; 
 
+
     // 사격 딜레이
     private bool shootActivate = true;
+
+
+    void Start()
+    {
+
+    }
 
     void Update()
     {
@@ -62,7 +69,11 @@ public class Musket : DistanceWeanponControl
                         Rigidbody r = _bullet.GetComponent<Rigidbody>();
                         r.AddForce(_bullet.transform.forward * speed, ForceMode.Impulse); 
 
+                        
                     }
+
+                    SoundController.Instance.PlaySound3D("Musket_Shoot", gameObject.transform);
+
 
                     // 마지막 슈팅 시간
                     lastShootTime = Time.time;

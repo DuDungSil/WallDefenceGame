@@ -5,6 +5,10 @@ using UnityEngine.XR.OpenXR.Features.Interactions;
 
 public class WallManager : StructureManager
 {
+    void Start()
+    {
+        Hp = MaxHp;
+    }
     public virtual void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("MonsterWeapon"))
         {

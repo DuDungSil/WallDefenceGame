@@ -33,8 +33,8 @@ public class UnitController : Singleton<UnitController>
         }
         else
         {
-            Debug.Log("Error : °¡¿ë °¡´É À¯´Ö¼ö ÃÊ°ú");
-            // °¡¿ë °¡´É À¯´Ö¼ö ÃÊ°ú½Ã ³ª¿Ã UI
+            Debug.Log("Error : UnitsNum over Max");
+            // Unitì´ Maxë¥¼ ë„˜ê²¼ì„ ê²½ìš° ë‚˜ì˜¬ UI
             return false;
         }
     }
@@ -47,8 +47,15 @@ public class UnitController : Singleton<UnitController>
         }
         else
         {
-            Debug.Log("Error : À¯´Ö Á¦°ÅÇÏ¸é ¹èÄ¡µÈ À¯´Ö ¼ö°¡ 0º¸´Ù ÀÛ¾ÆÁü - ¾îµğ¼±°¡ ¹®Á¦°¡ »ı°å´Ù!");
+            Debug.Log("Error : ë­”ê°€ ì˜ëª»ëë‹¤.");
             return false;
         }
+    }
+    public bool isAssignable(int neededUnits)
+    {
+        if(neededUnits + assignedUnitNum <= maxUnitNum)
+            return true;
+        else
+            return false;
     }
 }
