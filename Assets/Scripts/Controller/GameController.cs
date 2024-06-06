@@ -24,6 +24,7 @@ public class GameController : Singleton<GameController>
         rdb.AddItem((ResourceItem)wood.CreateItem(), 30);
         rdb.AddItem((ResourceItem)stone.CreateItem(), 30);
         rdb.AddItem((ResourceItem)iron.CreateItem(), 30);
+        //SoundController.Instance.PlaySound2D("tavern loop", 0, true, SoundType.BGM);
     }
 
     // Update is called once per frame

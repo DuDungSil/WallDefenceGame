@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 
 public enum SoundType
 {
+    Master,
     BGM,
     SFX,
 }
@@ -27,7 +28,7 @@ public class SoundController : Singleton<SoundController>
 
     private List<TemporarySoundPlayer> mInstantiatedSounds;
 
-    private void Start()
+    private void Awake()
     {
         mClipsDictionary = new Dictionary<string, AudioClip>();
         foreach (AudioClip clip in mPreloadClips)
