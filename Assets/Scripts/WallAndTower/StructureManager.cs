@@ -20,7 +20,12 @@ public class StructureManager : MonoBehaviour
         protected set{ neededUnits = value;}
     }
     [SerializeField]
-    protected float MaxHp;
+    protected float maxHp;
+    public float MaxHp
+    {
+        get { return maxHp; }
+        protected set { maxHp = value; }
+    }
     protected float hp;
     public float Hp
     {
@@ -40,8 +45,9 @@ public class StructureManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Start()
+    protected virtual void Start()
     {
+        hp = MaxHp;
         if(nextUpgrade.Data != null)
         {
             nextUpgrade.Init();

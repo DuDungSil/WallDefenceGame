@@ -13,9 +13,9 @@ public class TowerManager : StructureManager
     private float timer;
     protected Queue<GameObject> monsterQueue = new Queue<GameObject>();
 
-    void Start()
+    protected override void Start()
     {
-        Hp = MaxHp;
+        base.Start();
         timer = 0f;
     }
     private void Update() 
