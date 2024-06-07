@@ -17,7 +17,12 @@ public class Pistol : DistanceWeanponControl
         float timeSinceLastShot = Time.time - lastShootTime;
         if(timeSinceLastShot > coolTime)
         {
-            remainAmmo = maxAmmo;
+            if(remainAmmo < maxAmmo)
+            {
+                Reload();
+                OnStatusChanged();
+            }
+
         }
     }
 
@@ -42,6 +47,8 @@ public class Pistol : DistanceWeanponControl
                 Rigidbody r = spawnedProjectile.GetComponent<Rigidbody>();
                 r.AddForce(firePos.forward * speed, ForceMode.Impulse);   
 
+                SoundController.Instance.PlaySound3D("Pistol_shoot", gameObject.transform);
+
                 // 마지막 슈팅 시간
                 lastShootTime = Time.time;
                 // 총알 감소
@@ -58,8 +65,13 @@ public class Pistol : DistanceWeanponControl
                     StartCoroutine(ShootDelay());
                 }
 
+                OnStatusChanged();
             }
 
+        }
+        else
+        {
+            SoundController.Instance.PlaySound3D("Gun_Ammo_not_exixt", gameObject.transform);
         }
     }
 

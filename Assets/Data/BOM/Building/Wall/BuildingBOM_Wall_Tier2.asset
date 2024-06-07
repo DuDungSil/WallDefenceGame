@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa1d4bd349d5a54abaaf152c6c2ee33, type: 3}
   m_Name: BuildingBOM_Wall_Tier2
   m_EditorClassIdentifier: 
-  craftName: Wall_tier2
+  craftName: Wall Tier2
   buildingImage: {fileID: 0}
   prefab: {fileID: 4652906109305257286, guid: 4bb2f4080f46a6f47869738876eb676f, type: 3}
   PreviewPrefab: {fileID: 0}

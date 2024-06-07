@@ -27,7 +27,7 @@ public abstract class DistanceWeanponControl : MonoBehaviour
 
     void Start()
     {
-        if(useAmmo) remainAmmo = maxAmmo;
+        if(useAmmo) Reload();
     }
 
     protected IEnumerator ActivateCooldown(float _time)
@@ -35,7 +35,8 @@ public abstract class DistanceWeanponControl : MonoBehaviour
         lastCoolTime = Time.time;
         yield return new WaitForSeconds(_time);
         isCoolTime = false;
-        if(useAmmo) remainAmmo = maxAmmo;
+        if(useAmmo) Reload();
+        OnStatusChanged();
     }
 
     public void LoadData(float _lastCoolTime, int _remainAmmo)
@@ -55,7 +56,7 @@ public abstract class DistanceWeanponControl : MonoBehaviour
                 // 마지막 슛 시점에서 쿨타임만큼 지났다면 재장전
                 if(timeSinceLastShot >= coolTime)
                 {
-                    remainAmmo = maxAmmo;
+                    Reload();
                 }
                 // 지나지 않았다면 장탄수 적용
                 else
@@ -74,14 +75,24 @@ public abstract class DistanceWeanponControl : MonoBehaviour
                 StartCoroutine(ActivateCooldown(remainCooltime));  
             }
         }
-
+        OnStatusChanged();
     }
 
-    // 원거리 공격
+    protected void Reload()
+    {
+        remainAmmo = maxAmmo;
+        SoundController.Instance.PlaySound3D("Gun_reload", gameObject.transform);
+        OnStatusChanged();
+    } 
 
-    // 특정 투사체를 날림
+    public delegate void StatusChanged();
+    public event StatusChanged onStatusChanged;
 
-    // 투사체가 생성되는 위치를 지정
+    // 무기 상태 변경 이벤트 호출 메서드
+    protected void OnStatusChanged()
+    {
+        if (onStatusChanged != null)
+            onStatusChanged.Invoke();
+    }
 
-    // 투사체가 몇개 남았는지 체크
 }

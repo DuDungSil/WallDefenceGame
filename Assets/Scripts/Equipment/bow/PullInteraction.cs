@@ -36,6 +36,8 @@ public class PullInteraction : XRBaseInteractable
         pullAmount = 0f;
         notch.transform.localPosition = new Vector3(notch.transform.localPosition.x, notch.transform.localPosition.y, 0f);
         UpdateString();
+
+        SoundController.Instance.PlaySound2D("Bow_release");
     }
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
     {

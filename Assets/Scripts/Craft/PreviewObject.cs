@@ -15,6 +15,10 @@ public class PreviewObject : MonoBehaviour
     [SerializeField]
     private Material red;
 
+    void OnDisable() 
+    {
+        colliderList.Clear();
+    }
 
     void Update()
     {

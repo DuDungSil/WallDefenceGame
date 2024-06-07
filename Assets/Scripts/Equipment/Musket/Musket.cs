@@ -29,7 +29,11 @@ public class Musket : DistanceWeanponControl
         float timeSinceLastShot = Time.time - lastShootTime;
         if(timeSinceLastShot > coolTime)
         {
-            remainAmmo = maxAmmo;
+            if(remainAmmo < maxAmmo)
+            {
+                Reload();
+                OnStatusChanged();
+            }
         }
     }
 
@@ -72,7 +76,7 @@ public class Musket : DistanceWeanponControl
                         
                     }
 
-                    SoundController.Instance.PlaySound3D("Musket_Shoot", gameObject.transform);
+                    SoundController.Instance.PlaySound3D("Musket_shoot", gameObject.transform);
 
 
                     // 마지막 슈팅 시간
@@ -91,15 +95,21 @@ public class Musket : DistanceWeanponControl
                         StartCoroutine(ShootDelay());
                     }
 
+                    OnStatusChanged();
                 }
                 
             }
 
         }
+        else
+        {
+            SoundController.Instance.PlaySound3D("Gun_Ammo_not_exixt", gameObject.transform);
+        }
     }
 
     protected IEnumerator ShootDelay()
     {
+        SoundController.Instance.PlaySound3D("Musket_shootdelay", gameObject.transform);
         yield return new WaitForSeconds(shootDelay);
         shootActivate = true;
     }

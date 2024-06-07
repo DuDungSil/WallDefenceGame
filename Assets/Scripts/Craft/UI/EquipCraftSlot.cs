@@ -94,7 +94,9 @@ public class EquipCraftSlot : MonoBehaviour
             EquipmentCraftManual.Instance.MoveElementToEnd(bom, 2);
         }
         // 필요 아이템 소모
-        ResourceDatabase.Instance.DecreaseResource(bom.craftNeedItems, bom.Data.craftNeedItemCount);        
+        ResourceDatabase.Instance.DecreaseResource(bom.craftNeedItems, bom.Data.craftNeedItemCount);
+
+        SoundController.Instance.PlaySound2D("Craft_weapon");        
     }
 
     void Update()

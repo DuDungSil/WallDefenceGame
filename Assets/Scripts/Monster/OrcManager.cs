@@ -52,12 +52,12 @@ public abstract class OrcManager : MonsterManager
                 Debug.Log("Error : projectileControl is null");
             }
         }
-        if(other.gameObject.layer == LayerMask.NameToLayer("AllyMeeleWeapon") && meleeAtackActivate )
+        if(other.gameObject.layer == LayerMask.NameToLayer("PlayerMeleeWeapon") && meleeAtackActivate )
         {
             meleeAtackActivate = false;
             Debug.Log("오크가 근접 공격 당함");
-            float damage = other.GetComponent<MeleeWeaponControl>().damage; // 플레이어의 무기 데미지를 받아오는것.
-            float magnitude = other.GetComponent<MeleeWeaponControl>().magnitude;
+            float damage = other.GetComponentInParent<MeleeWeaponControl>().damage; // 플레이어의 무기 데미지를 받아오는것.
+            float magnitude = other.GetComponentInParent<MeleeWeaponControl>().magnitude;
             if(magnitude > 0.5f)
             {
                 TakeDamage(damage);

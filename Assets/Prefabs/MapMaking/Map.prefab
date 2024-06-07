@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5190002875226442512}
+  - component: {fileID: 8514218756224555264}
   - component: {fileID: 3451635398745414493}
   - component: {fileID: 8131500537283070439}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemySiteLeftTerrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,6 +34,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9065290102578015547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &8514218756224555264
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186212880290196847}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!218 &3451635398745414493
 Terrain:
   m_ObjectHideFlags: 0
@@ -101,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2251217236690772750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NexusSite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9065290102578015547}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemySiteLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,9 +309,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5284281373973735437}
+  - component: {fileID: 6413513980833599813}
   - component: {fileID: 7234591729802554337}
   - component: {fileID: 6927645025238173435}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemySiteRightTerrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,6 +334,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 999244523767657180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &6413513980833599813
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411998358090195494}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!218 &7234591729802554337
 Terrain:
   m_ObjectHideFlags: 0
@@ -465,9 +521,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7984683500619677010}
+  - component: {fileID: 8703343936396706235}
   - component: {fileID: 4789462116158927887}
   - component: {fileID: 6221321530616841293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NexusTerrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,6 +546,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2251217236690772750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &8703343936396706235
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429479567594871408}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!218 &4789462116158927887
 Terrain:
   m_ObjectHideFlags: 0
@@ -557,9 +641,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6847308798644716118}
+  - component: {fileID: 261581274110344990}
   - component: {fileID: 5553070683666314652}
   - component: {fileID: 7153349582197735687}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemySiteMiddleTerrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,6 +666,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4960464496552709537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &261581274110344990
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4166614320673505586}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!218 &5553070683666314652
 Terrain:
   m_ObjectHideFlags: 0
@@ -693,7 +805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 999244523767657180}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemySiteRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4960464496552709537}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemySiteMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

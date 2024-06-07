@@ -101,9 +101,11 @@ public class Craft : Singleton<Craft>
             Destroy(go_Preview);
             UIController.Instance.OffCrafting();
             ResourceDatabase.Instance.DecreaseResource(needitem, needitem_count);
+
+            SoundController.Instance.PlaySound2D("Craft_building");
+
             isPreviewActivated = false;
             go_Preview = null;
-
             craft_Prefab = null;
         }
     }

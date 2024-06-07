@@ -22,13 +22,13 @@ TagManager:
   - TowerAttackRange
   - MonsterWeapon
   - MonsterProjectile
-  - PlayerWeapon
+  - PlayerEquipment
   - TowerProjectil
   - PlayerProjectile
   - PlayerTool
   - PlayerHand
   - Player
-  - 
+  - PlayerMeleeWeapon
   - 
   - 
   - 
