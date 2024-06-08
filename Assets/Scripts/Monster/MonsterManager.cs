@@ -7,6 +7,9 @@ using UnityEngine.XR.OpenXR.Features.Interactions;
 
 public abstract class MonsterManager : MonoBehaviour
 {
+    public CharacterController characterController;
+    public float speed;
+    public bool isAttack;
     public GameObject nexusPoint;
     [SerializeField]
     protected float hp;
@@ -35,6 +38,7 @@ public abstract class MonsterManager : MonoBehaviour
             if(encounteredWallOrTower == null)
             {
                 m_animator.SetBool("IsAttack", false);
+                isAttack = false;
                 yield return new WaitForSeconds(attackTime); //AttackTime이 지난 후 다시 앞으로 걸어가도록 하려고했는데 자연스럽지 않음. 변경해야함
                 if(nexusPoint != null)
                 {
@@ -78,5 +82,23 @@ public abstract class MonsterManager : MonoBehaviour
         }
         else
             Debug.Log("Error : nexusPoint is null");
+    }
+    void Update()
+    {
+        if (!isAttack)
+        {
+            // 목표 지점을 바라보게 함
+            Vector3 direction = nexusPoint.transform.position - transform.position;
+            direction.y = 0;  // Y축 방향의 회전은 무시
+
+            if (direction.magnitude > 0.1f)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * speed);
+            }
+
+            // 앞으로 이동
+            Vector3 move = transform.forward * speed * Time.deltaTime;
+            characterController.Move(move);
+        }
     }
 }
