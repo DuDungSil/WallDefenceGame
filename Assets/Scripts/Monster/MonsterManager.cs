@@ -25,13 +25,11 @@ public abstract class MonsterManager : MonoBehaviour
     protected float deathTime = 5f;
     [SerializeField]
     protected float attackTime = 2.267f;
-    [SerializeField]
-    protected Vector3 nexusPosition; // 넥서스 위치 (플레이어의 넥서스)
     protected GameObject encounteredWallOrTower; //몬스터의 사거리 내에 들어온 벽 혹은 타워
     //protected StructureManager structureManager;
     public Animator m_animator;
 
-    public IEnumerator Attacking() //벽 혹은 타워를 공격중일 때 호출
+    public virtual IEnumerator Attacking() //벽 혹은 타워를 공격중일 때 호출
     {
         while(true)
         {
@@ -101,4 +99,5 @@ public abstract class MonsterManager : MonoBehaviour
             characterController.Move(move);
         }
     }
+
 }

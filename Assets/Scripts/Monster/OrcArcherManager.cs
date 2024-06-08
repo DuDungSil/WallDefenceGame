@@ -2,28 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class OrcManager : MonsterManager
+public class OrcArcherManager : OrcManager
 {
-    protected bool meleeAtackActivate = true;
-    public float m_armor;
-    public override void TakeDamage(float damage)
-    {
-        if(m_armor < damage) // 방어력이 데미지보다 큰경우는 제외
-        {
-            if(!IsDeath)
-            {
-                Hp = Hp - damage + m_armor;
-                Debug.Log(Hp);
-                if(Hp < 0)
-                {
-                    IsDeath = true;
-                    StartCoroutine(Death());
-                }
-            }
-        }
-    }
-
-
     public override void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("Structure")) //벽 혹은 타워 레이어와 부딪혔을 경우 (AttackRange가 부딪힘)
         {
@@ -67,10 +47,5 @@ public abstract class OrcManager : MonsterManager
                 StartCoroutine(MeleeAtackDelay());  
             }       
         }
-    }
-    protected IEnumerator MeleeAtackDelay()
-    {
-        yield return new WaitForSeconds(1f);
-        meleeAtackActivate = true;
     }
 }
