@@ -22,31 +22,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865057772326108125, guid: 7af41be5ba98fcb458b4e23ea313245d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.005423181
+      value: 0.4985848
       objectReference: {fileID: 0}
     - target: {fileID: 4865057772326108125, guid: 7af41be5ba98fcb458b4e23ea313245d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.005470466
+      value: 0.50288683
       objectReference: {fileID: 0}
     - target: {fileID: 4865057772326108125, guid: 7af41be5ba98fcb458b4e23ea313245d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.71011674
+      value: 0.5013984
       objectReference: {fileID: 0}
     - target: {fileID: 4865057772326108125, guid: 7af41be5ba98fcb458b4e23ea313245d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7040417
+      value: 0.49710932
       objectReference: {fileID: 0}
     - target: {fileID: 4865057772326108125, guid: 7af41be5ba98fcb458b4e23ea313245d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 268.989
+      value: 179.83
       objectReference: {fileID: 0}
     - target: {fileID: 4865057772326108125, guid: 7af41be5ba98fcb458b4e23ea313245d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -60.851013
+      value: -89.507996
       objectReference: {fileID: 0}
     - target: {fileID: 4865057772326108125, guid: 7af41be5ba98fcb458b4e23ea313245d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -119.145004
+      value: -89.99899
       objectReference: {fileID: 0}
     - target: {fileID: 4865057772326594557, guid: 7af41be5ba98fcb458b4e23ea313245d, type: 3}
       propertyPath: m_Name
@@ -118,6 +118,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 37d6d19a3eef140448cf2c80d3180eff, type: 2}
+    - target: {fileID: 9500000, guid: 337f91b7b78f3a446ad06c47e8efcd6a, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -161,7 +165,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

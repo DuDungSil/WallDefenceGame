@@ -25,7 +25,7 @@ public abstract class MonsterManager : MonoBehaviour
     protected float deathTime = 5f;
     [SerializeField]
     protected float attackTime = 2.267f;
-    protected GameObject encounteredWallOrTower; //몬스터의 사거리 내에 들어온 벽 혹은 타워
+    protected GameObject encounteredStructure; //몬스터의 사거리 내에 들어온 벽 혹은 타워
     //protected StructureManager structureManager;
     public Animator m_animator;
 
@@ -33,7 +33,7 @@ public abstract class MonsterManager : MonoBehaviour
     {
         while(true)
         {
-            if(encounteredWallOrTower == null)
+            if(encounteredStructure == null)
             {
                 m_animator.SetBool("IsAttack", false);
                 isAttack = false;
@@ -45,7 +45,7 @@ public abstract class MonsterManager : MonoBehaviour
                 else
                     Debug.Log("Error : nexusPoint is null");
                 coroutineStarted = false; // 다시 벽 혹은 타워를 만날 수 있도록 코루틴 스타트를 false로 바꿔줌
-                encounteredWallOrTower = null; // 다음에 만난 벽 혹은 타워를 저장할 수 있도록 null로 바꿔줌
+                encounteredStructure = null; // 다음에 만난 벽 혹은 타워를 저장할 수 있도록 null로 바꿔줌
                 //structureManager = null; // 다음에 만난 벽 혹은 타워를 저장할 수 있도록 null로 바꿔줌
                 yield break; //코루틴 종료
             }

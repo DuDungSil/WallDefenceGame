@@ -29,11 +29,11 @@ public abstract class OrcManager : MonsterManager
         {
             if(!coroutineStarted) //코루틴 실행중이면 안함
             {
-                Vector3 wallPosition = other.transform.position; 
-                transform.LookAt(wallPosition); //벽 혹은 타워를 바라보도록 몬스터 회전
+                Vector3 structurePosition = other.transform.position; 
+                transform.LookAt(structurePosition); //벽 혹은 타워를 바라보도록 몬스터 회전
                 m_animator.SetBool("IsAttack", true); //공격 애니메이션 작동
                 isAttack = true;
-                encounteredWallOrTower = other.gameObject; // 트리거가 발동된 벽 혹은 타워를 wallOrTower에 저장
+                encounteredStructure = other.gameObject; // 트리거가 발동된 벽 혹은 타워를 wallOrTower에 저장
                 //structureManager = encounteredWallOrTower.GetComponent<StructureManager>();
                 StartCoroutine(Attacking()); //공격 코루틴 실행
                 coroutineStarted = true;

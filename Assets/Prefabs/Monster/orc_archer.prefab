@@ -851,9 +851,10 @@ MonoBehaviour:
   hp: 100
   IsDeath: 0
   deathTime: 5
-  attackTime: 2.267
+  attackTime: 3
   m_animator: {fileID: 6788130266283350}
   m_armor: 0
+  shootDelay: 2.7
 --- !u!143 &1817950330352511245
 CharacterController:
   m_ObjectHideFlags: 0

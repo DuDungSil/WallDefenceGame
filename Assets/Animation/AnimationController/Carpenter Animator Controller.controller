@@ -33,7 +33,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 8629896241634818966}
-    m_Position: {x: 319.1524, y: 146.2818, z: 0}
+    m_Position: {x: 320, y: 150, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -52,7 +52,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Baseball Hit (1)
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 4759a298c4810d04a90b663239d8d615, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: 4c34d6ffb7f37b044bb2750f2bd51bf6, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
