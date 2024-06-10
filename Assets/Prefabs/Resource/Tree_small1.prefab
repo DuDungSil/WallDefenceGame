@@ -370,8 +370,8 @@ GameObject:
   - component: {fileID: 5407753131041368313}
   - component: {fileID: 4783565964747282421}
   - component: {fileID: 2475078227464103898}
-  - component: {fileID: 2046834106036234752}
   - component: {fileID: 6205778894081858461}
+  - component: {fileID: 2046834106036234752}
   m_Layer: 10
   m_Name: Tree_small1
   m_TagString: Untagged
@@ -443,7 +443,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Units: {fileID: 6963482752459308309}
-  neededUnits: 3
+  neededUnits: 1
+--- !u!114 &6205778894081858461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7085039789651029282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc179f102e2aa3e4fb450a998f6f137b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceData: {fileID: 11400000, guid: e56a9a7090868d14ab5c033ee85505df, type: 2}
+  getResourceNum: 10
+  resourceGetTime: 60
 --- !u!114 &2046834106036234752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,20 +561,6 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6205778894081858461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7085039789651029282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc179f102e2aa3e4fb450a998f6f137b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceData: {fileID: 11400000, guid: e56a9a7090868d14ab5c033ee85505df, type: 2}
-  resourceGetTime: 60
 --- !u!1001 &414565192474254287
 PrefabInstance:
   m_ObjectHideFlags: 0

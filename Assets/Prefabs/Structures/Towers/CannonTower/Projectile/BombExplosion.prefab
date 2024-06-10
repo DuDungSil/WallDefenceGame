@@ -9789,6 +9789,7 @@ GameObject:
   - component: {fileID: 1532707375375150665}
   - component: {fileID: 3091773303755028797}
   - component: {fileID: 7424601452276283425}
+  - component: {fileID: 6612380160054706339}
   m_Layer: 17
   m_Name: BombExplosion
   m_TagString: Untagged
@@ -14713,6 +14714,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!65 &6612380160054706339
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516420010026733506}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7691801570016500733
 GameObject:
   m_ObjectHideFlags: 0

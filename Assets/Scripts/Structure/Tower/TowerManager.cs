@@ -1,3 +1,5 @@
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +21,7 @@ public class TowerManager : StructureManager
         base.Start();
         timer = 0f;
     }
-    private void Update() 
+    protected virtual void Update() 
     {
         if(target == null && monsterQueue.Count < 1)
         {
@@ -35,7 +37,10 @@ public class TowerManager : StructureManager
                     target = monsterQueue.Dequeue();
                 }
             }
-            Shoot(target);
+            if(target != null)
+            {
+                Shoot(target);
+            }
             timer = 0f;
         }
     }
@@ -78,7 +83,7 @@ public class TowerManager : StructureManager
             }
         }
     }
-    public void Shoot(GameObject target)
+    public virtual void Shoot(GameObject target)
     {
         //투사체 방향 설정
         Vector3 monsterPos = target.transform.position;
@@ -92,7 +97,7 @@ public class TowerManager : StructureManager
         */
         spawnedProjectile.transform.rotation = Quaternion.LookRotation(monsterDirection); // 발사체 방향 설정
         // 물리속성 설정
-        Rigidbody r = spawnedProjectile.GetComponentInChildren<Rigidbody>();
+        Rigidbody r = spawnedProjectile.GetComponent<Rigidbody>();
         r.AddForce(monsterDirection * m_projectileSpeed, ForceMode.Impulse);
     }
 }

@@ -1,0 +1,39 @@
+라운드
+1 : 	낮 : 3분, 밤 1분, maxMonsterNum : 20마리
+	무기 : 
+		활 - max dmg : 120, reload delay : 1sec
+		피스톨 - dmg : 10, shoot delay : 0.2sec, reload delay : 3sec, 장탄수 : 5
+		샷건 - max dmg : 150, 탄환수 20, shoot delay : 0.2sec, reload delay : 7sec, 
+					 장탄수 : 2(더블배럴 샷건)
+		완드
+		스태프
+		칼
+	기본 자원 수 : 타워 2개, 무기 2개 (활,피스톨,칼,샷건 정도는 2개 만들 양)
+				(스태프, 완드는 기본 자원으로 제작 불가능)
+
+몬스터 
+
+chieftain - ㅈ밥 : hp - 100, damage - 10, attack delay : 2sec
+warrior - 기본 근접 몬스터 : hp - 200, damage - 10(한번에 두대 때림) , attack delay : 2.267sec
+archer - 기본 원거리 몬스터 : hp - 100, damage - 50, attack delay : 5.7sec
+
+
+타워
+
+arrowTower : 	hp : 200
+			데미지 : 70
+			단일 타겟 
+			
+
+
+cannonTower:	hp : 200
+			데미지 : 중앙60, 사이드 30
+
+
+벽
+
+티어1 : 	hp : 500
+		chieftain 공격 50회, warrior 공격 25회, archer공격 10회 받으면 부서짐
+
+티어2
+티어3
