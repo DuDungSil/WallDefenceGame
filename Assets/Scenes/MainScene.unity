@@ -289,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9222033505249919870, guid: 2adc1236ef5c4c84183bbef2b44ac683, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.92
+      value: 34.55
       objectReference: {fileID: 0}
     - target: {fileID: 9222033505249919870, guid: 2adc1236ef5c4c84183bbef2b44ac683, type: 3}
       propertyPath: m_LocalPosition.y
@@ -297,7 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9222033505249919870, guid: 2adc1236ef5c4c84183bbef2b44ac683, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.41
+      value: -25.63
       objectReference: {fileID: 0}
     - target: {fileID: 9222033505249919870, guid: 2adc1236ef5c4c84183bbef2b44ac683, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7142,7 +7142,7 @@ MonoBehaviour:
   projectile: {fileID: 4602991757036550918, guid: efd666b5f49b6904a94bdb7de65b932a, type: 3}
   shootDelay: 3
   m_projectileSpeed: 5
-  launchAngle: 10
+  launchAngle: 45
 --- !u!1001 &721332007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22107,7 +22107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3261378889428465889, guid: decff0d8bb09c8e4982f0e409daab54f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5009609323942013161, guid: decff0d8bb09c8e4982f0e409daab54f, type: 3}
       propertyPath: speed

@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "WallDefenceGame.sln"
+    "dotnet.defaultSolution": "WallDefence.sln"
 }

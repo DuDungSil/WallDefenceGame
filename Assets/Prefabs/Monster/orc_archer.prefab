@@ -854,6 +854,9 @@ MonoBehaviour:
   attackTime: 3
   m_animator: {fileID: 6788130266283350}
   m_armor: 0
+  shootingPoint: {fileID: 1382213782565067475}
+  arrow: {fileID: 3773725413051541393, guid: e1be0ac05c6ae1347aa3ba142b3293ff, type: 3}
+  flightTime: 5
   shootDelay: 2.7
 --- !u!143 &1817950330352511245
 CharacterController:
@@ -2749,6 +2752,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4edc417a3ad216a4d9ade20bf89305f5, type: 3}
+--- !u!1 &1382213782565067475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8486437815048867073, guid: 4edc417a3ad216a4d9ade20bf89305f5, type: 3}
+  m_PrefabInstance: {fileID: 7416159914799568850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4089152478659961050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6797313537236662024, guid: 4edc417a3ad216a4d9ade20bf89305f5, type: 3}
