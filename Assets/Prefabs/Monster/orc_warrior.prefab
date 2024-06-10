@@ -1577,7 +1577,7 @@ MonoBehaviour:
   speed: 5
   isAttack: 0
   nexusPoint: {fileID: 0}
-  hp: 10
+  hp: 200
   IsDeath: 0
   deathTime: 5
   attackTime: 2.267

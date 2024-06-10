@@ -75,7 +75,7 @@ MonoBehaviour:
   Units: {fileID: 0}
   grade: 1
   neededUnits: 1
-  maxHp: 0
+  maxHp: 200
   nextUpgrade:
     Data: {fileID: 0}
   shootingPoint: {fileID: 4742960497059464175}

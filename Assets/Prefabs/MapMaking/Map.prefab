@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 4520202272873755303}
   - component: {fileID: 5200342779248366938}
   - component: {fileID: 7705170683239128217}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,9 +429,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7068379316654446630}
+  - component: {fileID: 8584330029582031616}
   - component: {fileID: 3256594578178703591}
   - component: {fileID: 2083133571389969505}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomTerrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,6 +454,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 11452164006356282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &8584330029582031616
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403601281747054955}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!218 &3256594578178703591
 Terrain:
   m_ObjectHideFlags: 0
@@ -2030,7 +2058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4889433309411611369, guid: 3d3321aa7d744b24faf8d51455a3641a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.99
+      value: 7.28
       objectReference: {fileID: 0}
     - target: {fileID: 4889433309411611369, guid: 3d3321aa7d744b24faf8d51455a3641a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2802,7 +2830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4889433309411611369, guid: 3d3321aa7d744b24faf8d51455a3641a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.289879
+      value: 7.28
       objectReference: {fileID: 0}
     - target: {fileID: 4889433309411611369, guid: 3d3321aa7d744b24faf8d51455a3641a, type: 3}
       propertyPath: m_LocalPosition.z

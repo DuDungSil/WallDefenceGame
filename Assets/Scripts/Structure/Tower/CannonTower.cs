@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CannonTower : TowerManager
 {
+    public GameObject cannon;
     public float launchAngle;
     protected float distance;
     protected float gravity;
@@ -11,41 +12,47 @@ public class CannonTower : TowerManager
 
     public override void Shoot(GameObject target)
     {
-        // 투사체 방향 설정
+        // // 투사체 방향 설정
         Vector3 monsterPos = target.transform.position;
-        Vector3 direction = (monsterPos - shootingPoint.transform.position).normalized;
+        Vector3 monsterDirection = (monsterPos - shootingPoint.transform.position).normalized;
+        monsterDirection.y = 0;
 
-        // 시작점과 목표점 사이의 거리와 높이 계산
-        float distance = Vector3.Distance(new Vector3(monsterPos.x, shootingPoint.transform.position.y, monsterPos.z), shootingPoint.transform.position);
-        float heightDifference = monsterPos.y - shootingPoint.transform.position.y;
+        launchingPad.transform.rotation = Quaternion.identity;
 
-        // 중력 가속도
-        gravity = Physics.gravity.y;
+        cannon.transform.rotation = Quaternion.Euler(-launchAngle, 0, 0);
 
-        // 수평 거리로부터 초기 속도 계산 (kinematic equation)
-        float initialSpeed = Mathf.Sqrt((distance * Mathf.Abs(gravity)) / Mathf.Sin(2 * launchAngle * Mathf.Deg2Rad));
+        launchingPad.transform.rotation = Quaternion.LookRotation(monsterDirection);
 
-        // 초기 속도 벡터 계산
-        Vector3 velocity = new Vector3(direction.x, Mathf.Tan(launchAngle * Mathf.Deg2Rad), direction.z).normalized * initialSpeed;
 
-        // 투사체 소환
+        // // 투사체 소환
         GameObject spawnedProjectile = Instantiate(projectile, shootingPoint.transform.position, shootingPoint.transform.rotation);
+        Rigidbody rb = spawnedProjectile.GetComponent<Rigidbody>();
 
-        // 발사체 방향 설정
-        spawnedProjectile.transform.rotation = Quaternion.LookRotation(direction);
-
-        // 물리 속성 설정
-        Rigidbody r = spawnedProjectile.GetComponent<Rigidbody>();
-        r.velocity = velocity;
-
-        // 초기 속도에 높이 차이를 반영하여 수정
-        r.velocity = new Vector3(r.velocity.x, CalculateVerticalVelocity(initialSpeed, heightDifference, distance), r.velocity.z);
+        rb.velocity = GetVelocity(shootingPoint.transform.position, monsterPos, 0f);
     }
 
-    private float CalculateVerticalVelocity(float initialSpeed, float heightDifference, float distance)
+    public Vector3 GetVelocity(Vector3 player, Vector3 target, float initialAngle)
     {
-        // 포물선 운동의 수직 속도 계산
-        float verticalVelocity = (heightDifference + 0.5f * Mathf.Abs(Physics.gravity.y) * (distance / initialSpeed) * (distance / initialSpeed)) / (distance / initialSpeed);
-        return verticalVelocity;
+        float gravity = Physics.gravity.magnitude;
+        float angle = initialAngle * Mathf.Deg2Rad;
+
+        Vector3 planarTarget = new Vector3(target.x, 0, target.z);
+        Vector3 planarPosition = new Vector3(player.x, 0, player.z);
+
+        float distance = Vector3.Distance(planarTarget, planarPosition);
+        float yOffset = player.y - target.y;
+
+        float initialVelocity
+            = (1 / Mathf.Cos(angle)) * Mathf.Sqrt((0.5f * gravity * Mathf.Pow(distance, 2)) / (distance * Mathf.Tan(angle) + yOffset));
+
+        Vector3 velocity
+            = new Vector3(0f, initialVelocity * Mathf.Sin(angle), initialVelocity * Mathf.Cos(angle));
+
+        float angleBetweenObjects
+            = Vector3.Angle(Vector3.forward, planarTarget - planarPosition) * (target.x > player.x ? 1 : -1);
+        Vector3 finalVelocity
+            = Quaternion.AngleAxis(angleBetweenObjects, Vector3.up) * velocity;
+
+        return finalVelocity;
     }
 }

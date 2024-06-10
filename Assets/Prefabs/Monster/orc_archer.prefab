@@ -856,7 +856,7 @@ MonoBehaviour:
   m_armor: 0
   shootingPoint: {fileID: 1382213782565067475}
   arrow: {fileID: 3773725413051541393, guid: e1be0ac05c6ae1347aa3ba142b3293ff, type: 3}
-  flightTime: 5
+  m_InitialAngle: 20
   shootDelay: 2.7
 --- !u!143 &1817950330352511245
 CharacterController:
