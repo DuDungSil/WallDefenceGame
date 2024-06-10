@@ -6,7 +6,7 @@ public class ProjectileControl : MonoBehaviour
 {
     //[HideInInspector]
     public float damage;
-    [HideInInspector]
+    //[HideInInspector]
     public float projectileLifeTime = 0;
 
     void Start()
@@ -20,7 +20,7 @@ public class ProjectileControl : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {

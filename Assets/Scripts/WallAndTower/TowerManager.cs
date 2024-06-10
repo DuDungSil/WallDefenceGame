@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class TowerManager : StructureManager
 {
-    public GameObject launchingPad; //발사대
+    public GameObject shootingPoint; // 투사체 생성 지점
+    public GameObject launchingPad; // 발사대 
     public GameObject projectile; // 발사체
     protected GameObject target;
     public float shootDelay;
@@ -42,6 +43,7 @@ public class TowerManager : StructureManager
     protected virtual void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("Monster"))
         {
+            Debug.Log("몬스터 출현");
             AddMonsterToQueue(other.gameObject);
         } 
     }
@@ -78,12 +80,12 @@ public class TowerManager : StructureManager
     }
     public void Shoot(GameObject target)
     {
-         // 투사체 소환
-        GameObject spawnedProjectile = Instantiate(projectile, launchingPad.transform.position, launchingPad.transform.rotation);
         //투사체 방향 설정
         Vector3 monsterPos = target.transform.position;
-        Vector3 monsterDirection = (monsterPos - launchingPad.transform.position).normalized;
+        Vector3 monsterDirection = (monsterPos - shootingPoint.transform.position).normalized;
         launchingPad.transform.rotation = Quaternion.LookRotation(monsterDirection); // 발사대 방향 설정
+        // 투사체 소환
+        GameObject spawnedProjectile = Instantiate(projectile, shootingPoint.transform.position, shootingPoint.transform.rotation);
         /* 발사체를 일정 속도로 돌리기
         Quaternion rotation = Quaternion.LookRotation(monsterPos);
         launchingPad.transform.rotation = Quaternion.Lerp(launchingPad.transform.rotation, rotation, 10f * Time.deltaTime);
