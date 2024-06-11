@@ -9,8 +9,6 @@ public class DestroyMenu : MonoBehaviour
     
     public void SetDestroyUI(StructureManager structureManager)
     {
-        Debug.Log("부수기 UI 켬");
-        destroyBtn.onClick.RemoveAllListeners();
-        destroyBtn.onClick.AddListener(structureManager.Selfdestroy);
+        
     }
 }

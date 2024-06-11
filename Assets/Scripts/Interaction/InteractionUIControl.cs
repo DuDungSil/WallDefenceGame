@@ -37,14 +37,19 @@ public class InteractionUIControl : MonoBehaviour
 
     private void UpdateUI()
     {
-        if(selectedObject.layer == LayerMask.NameToLayer("Structure"))
+        if(selectedObject == null)
+        {
+            return;
+        }
+        else if(selectedObject.layer == LayerMask.NameToLayer("Structure"))
         {
             BuildingInteraction();
         }
         else if(selectedObject.layer == LayerMask.NameToLayer("Resource"))
         {
             ResourceInteraction();
-        }
+        }        
+
     }
 
     public void BuildingInteraction()
@@ -67,7 +72,7 @@ public class InteractionUIControl : MonoBehaviour
         }
 
         // 디스트로이 버튼
-        DestroyMenu.GetComponent<DestroyMenu>().SetDestroyUI(structureManager);
+        //DestroyMenu.GetComponent<DestroyMenu>().SetDestroyUI(structureManager);
 
         // 업그레이드 버튼
         UpgradeMenu.GetComponent<UpgradeMenu>().SetUpgradeUI(structureManager);
@@ -95,7 +100,9 @@ public class InteractionUIControl : MonoBehaviour
     {
         StructureManager structureManager = selectedObject.GetComponent<StructureManager>();
         structureManager.Selfdestroy();
-        gameObject.SetActive(false);
+        OnEnable();
+
+        SoundController.Instance.PlaySound2D("Building_destroy");
     }
 
     public void clickUpgrade()
@@ -105,8 +112,6 @@ public class InteractionUIControl : MonoBehaviour
 
         StructureManager newStructureManager = selectedObject.GetComponent<StructureManager>();
         if(newStructureManager.nextUpgrade.Data != null) newStructureManager.nextUpgrade.Init();
-
-        newStructureManager.TakeDamage(newStructureManager.Hp - ( structureManager.MaxHp - structureManager.Hp ));
 
         structureManager.Selfdestroy();
         UpdateUI();

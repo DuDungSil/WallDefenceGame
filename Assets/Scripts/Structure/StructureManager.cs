@@ -59,6 +59,7 @@ public class StructureManager : MonoBehaviour
         Debug.Log(Hp);
         if (Hp < 0)
         {
+            SoundController.Instance.PlaySound2D("Building_destroy");
             Destroy(gameObject);
         }
     }
@@ -119,6 +120,8 @@ public class StructureManager : MonoBehaviour
         // 할당된 unit을 UnitController에 돌려주는 코드
         if(isAssigned)
             UnitController.Instance.RemoveUnits(NeededUnits);
+
+        SoundController.Instance.PlaySound2D("Building_destroy");
         Destroy(gameObject);
     }
     public GameObject SelfUpgrade() //UpgradeBtn의 이벤트함수
@@ -138,8 +141,5 @@ public class StructureManager : MonoBehaviour
     {
         Hp = Hp + recovery;
     }
-    void OnDestroy()
-    {
-        SoundController.Instance.PlaySound2D("Building_destroy");
-    }
+
 }

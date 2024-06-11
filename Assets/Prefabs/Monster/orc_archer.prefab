@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OrcController: {fileID: 0}
-  m_groundCheck: {fileID: 0}
+  m_groundCheck: {fileID: 1938440319663597587}
   m_radius: 0.04
   m_groundMask:
     serializedVersion: 2

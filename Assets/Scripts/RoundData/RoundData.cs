@@ -7,6 +7,7 @@ public class RoundData : ScriptableObject
 {
     public int RoundNum => _roundNum;
     public GameObject[] Monsters => _monsters;
+    public float[] MonstersWeights => _monstersWeights;
     public GameObject[] EliteMonsters => _eliteMonsters;
     public float RespawnTime => _respawnTime;
     public float RoundDayTime => _roundDayTime;
@@ -16,6 +17,7 @@ public class RoundData : ScriptableObject
 
     [SerializeField] private int _roundNum;
     [SerializeField] private GameObject[] _monsters;
+    [SerializeField] private float[]  _monstersWeights;
     [SerializeField] private GameObject[] _eliteMonsters;
     [SerializeField] private float _respawnTime;
     [SerializeField] private float _roundDayTime;
