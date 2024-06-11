@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildingBOM_CannonTower_Tear1
   m_EditorClassIdentifier: 
   craftName: Cannon Tower
-  buildingImage: {fileID: 21300000, guid: da09804303305f542a686824630e7269, type: 3}
+  buildingImage: {fileID: 21300000, guid: f04223020abc7a641b2bec2dc3643356, type: 3}
   prefab: {fileID: 718433148593771475, guid: 12d36c2dd4230534183a85101ff86884, type: 3}
   PreviewPrefab: {fileID: 718433148593771475, guid: f3221cfb33a48a645ad3306ff0587a8f, type: 3}
   craftNeedItemDatas:

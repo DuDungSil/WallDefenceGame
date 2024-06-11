@@ -16,6 +16,11 @@ public class WallManager : StructureManager
             MonsterWeaponDamage monsterWeaponDamage = other.GetComponent<MonsterWeaponDamage>();
             TakeDamage(monsterWeaponDamage.m_damage);
         }
+        if(other.gameObject.layer == LayerMask.NameToLayer("MonsterProjectile"))
+        {
+            MonsterWeaponDamage monsterWeaponDamage = other.gameObject.transform.root.GetComponent<MonsterWeaponDamage>();
+            TakeDamage(monsterWeaponDamage.m_damage);
+        }
     }
     public void temp()
     {

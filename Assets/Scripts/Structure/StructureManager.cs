@@ -112,6 +112,13 @@ public class StructureManager : MonoBehaviour
         // 할당된 unit을 UnitController에 돌려주는 코드
         if(isAssigned)
             UnitController.Instance.RemoveUnits(NeededUnits);
+
+        
         return upgradeObj;
+    }
+    
+    void OnDestroy()
+    {
+        
     }
 }

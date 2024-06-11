@@ -96,8 +96,6 @@ public class InteractionUIControl : MonoBehaviour
         StructureManager structureManager = selectedObject.GetComponent<StructureManager>();
         structureManager.Selfdestroy();
         gameObject.SetActive(false);
-
-        SoundController.Instance.PlaySound2D("Building_destroy");
     }
 
     public void clickUpgrade()
@@ -107,6 +105,8 @@ public class InteractionUIControl : MonoBehaviour
 
         StructureManager newStructureManager = selectedObject.GetComponent<StructureManager>();
         if(newStructureManager.nextUpgrade.Data != null) newStructureManager.nextUpgrade.Init();
+
+        newStructureManager.TakeDamage(newStructureManager.Hp - ( structureManager.MaxHp - structureManager.Hp ));
 
         structureManager.Selfdestroy();
         UpdateUI();
