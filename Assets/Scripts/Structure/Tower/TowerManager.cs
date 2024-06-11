@@ -23,34 +23,38 @@ public class TowerManager : StructureManager
     }
     protected virtual void Update() 
     {
-        if(target == null && monsterQueue.Count < 1)
+        if(isAssigned)
         {
-            return;
-        }
-        timer += Time.deltaTime;
-        if(timer > shootDelay)
-        {
-            if(target == null)
+            if(target == null && monsterQueue.Count < 1)
             {
-                if(monsterQueue.Count > 0)
+                return;
+            }
+            timer += Time.deltaTime;
+            if(timer > shootDelay)
+            {
+                if(target == null)
                 {
-                    target = monsterQueue.Dequeue();
+                    if(monsterQueue.Count > 0)
+                    {
+                        target = monsterQueue.Dequeue();
+                    }
                 }
+                if(target != null)
+                {
+                    Shoot(target);
+                }
+                timer = 0f;
             }
-            if(target != null)
-            {
-                Shoot(target);
-            }
-            timer = 0f;
         }
     }
 
-    protected virtual void OnTriggerEnter(Collider other) {
+    public override void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("Monster"))
         {
             Debug.Log("몬스터 출현");
             AddMonsterToQueue(other.gameObject);
-        } 
+        }
+        base.OnTriggerEnter(other);
     }
     protected virtual void OnTriggerExit(Collider other)
     {

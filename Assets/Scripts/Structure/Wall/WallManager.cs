@@ -9,18 +9,8 @@ public class WallManager : StructureManager
     {
         base.Start();
     }
-    public virtual void OnTriggerEnter(Collider other) {
-        if(other.gameObject.layer == LayerMask.NameToLayer("MonsterWeapon"))
-        {
-            Debug.Log("공격받는중");
-            MonsterWeaponDamage monsterWeaponDamage = other.GetComponent<MonsterWeaponDamage>();
-            TakeDamage(monsterWeaponDamage.m_damage);
-        }
-        if(other.gameObject.layer == LayerMask.NameToLayer("MonsterProjectile"))
-        {
-            MonsterWeaponDamage monsterWeaponDamage = other.gameObject.transform.root.GetComponent<MonsterWeaponDamage>();
-            TakeDamage(monsterWeaponDamage.m_damage);
-        }
+    public override void OnTriggerEnter(Collider other) {
+        base.OnTriggerEnter(other);
     }
     public void temp()
     {

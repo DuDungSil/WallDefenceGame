@@ -30,11 +30,28 @@ public class StructureManager : MonoBehaviour
     public float Hp
     {
         get { return hp; }
-        protected set { hp = value; }
+        protected set { hp = Mathf.Min(value,MaxHp); }
     }
 
     [SerializeField]
     public BuildingBOM nextUpgrade;
+
+    public virtual void OnTriggerEnter(Collider other) {
+        if(other.gameObject.layer == LayerMask.NameToLayer("MonsterWeapon"))
+        {
+            MonsterWeaponDamage monsterWeaponDamage = other.GetComponent<MonsterWeaponDamage>();
+            TakeDamage(monsterWeaponDamage.m_damage);
+        }
+        if(other.gameObject.layer == LayerMask.NameToLayer("MonsterProjectile"))
+        {
+            MonsterWeaponDamage monsterWeaponDamage = other.gameObject.transform.root.GetComponent<MonsterWeaponDamage>();
+            TakeDamage(monsterWeaponDamage.m_damage);
+        }
+        if(other.gameObject.layer == LayerMask.NameToLayer("PlayerTool"))
+        {
+            Repair(MaxHp * 0.1f);
+        }
+    }
 
     public virtual void TakeDamage(float damage)
     {
@@ -47,7 +64,7 @@ public class StructureManager : MonoBehaviour
     }
     protected virtual void Start()
     {
-        hp = MaxHp;
+        Hp = MaxHp;
         if(nextUpgrade.Data != null)
         {
             nextUpgrade.Init();
@@ -117,8 +134,12 @@ public class StructureManager : MonoBehaviour
         return upgradeObj;
     }
     
+    public void Repair(float recovery)
+    {
+        Hp = Hp + recovery;
+    }
     void OnDestroy()
     {
-        
+        SoundController.Instance.PlaySound2D("Building_destroy");
     }
 }
