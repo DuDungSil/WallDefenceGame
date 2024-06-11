@@ -11,8 +11,8 @@ public class Musket : DistanceWeanponControl
     public GameObject bullet;
     public float shootDelay;
     [Tooltip("샷건 탄환 총알 수")]
-    public int pelletCount = 10; 
-    public float spreadAngle = 15f; 
+    public int pelletCount = 30; 
+    public float spreadAngle = 10f; 
 
 
     // 사격 딜레이
@@ -57,8 +57,9 @@ public class Musket : DistanceWeanponControl
                     for (int i = 0; i < pelletCount; i++)
                     {
                         // Calculate a random spread angle within the defined range
-                        float spread = Random.Range(-spreadAngle / 2f, spreadAngle / 2f);
-                        Quaternion rotation = firePos.rotation * Quaternion.Euler(0, spread, 0);
+                        float spreadYaw = Random.Range(-spreadAngle / 2f, spreadAngle / 2f); // 좌우
+                        float spreadPitch = Random.Range(-spreadAngle / 2f, spreadAngle / 2f); // 상하
+                        Quaternion rotation = firePos.rotation * Quaternion.Euler(spreadPitch, spreadYaw, 0);
 
                         // Instantiate the bullet
                         GameObject _bullet = Instantiate(bullet, firePos.position, rotation);

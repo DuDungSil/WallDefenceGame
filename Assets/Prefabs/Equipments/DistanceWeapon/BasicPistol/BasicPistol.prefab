@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 3615473000580552574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.133}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -327,19 +327,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714143fb9141e1c4c93c1c3890bd4303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 20
   speed: 30
   range: 120
   coolTime: 2
   useAmmo: 1
-  maxAmmo: 20
+  maxAmmo: 10
   remainAmmo: 0
   lastShootTime: 0
   isCoolTime: 0
   lastCoolTime: 0
   firePos: {fileID: 4301522439257950146}
   bullet: {fileID: 696698505540791595, guid: 272992b6e9954334daca6c1e3cc9bea4, type: 3}
-  shootDelay: 0.3
+  shootDelay: 0.2
 --- !u!1 &8830091185625508440
 GameObject:
   m_ObjectHideFlags: 0

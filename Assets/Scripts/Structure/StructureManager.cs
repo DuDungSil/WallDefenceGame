@@ -49,7 +49,11 @@ public class StructureManager : MonoBehaviour
         }
         if(other.gameObject.layer == LayerMask.NameToLayer("PlayerTool"))
         {
-            Repair(MaxHp * 0.1f);
+            if(other.gameObject.tag == "RepairTool")
+            {
+                ToolControl toolControl = other.gameObject.GetComponentInParent<ToolControl>();
+                Repair(MaxHp * toolControl.value);
+            } 
         }
     }
 

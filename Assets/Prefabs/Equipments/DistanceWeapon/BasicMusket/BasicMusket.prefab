@@ -299,9 +299,9 @@ MonoBehaviour:
   damage: 100
   speed: 30
   range: 60
-  coolTime: 4
+  coolTime: 3
   useAmmo: 1
-  maxAmmo: 3
+  maxAmmo: 2
   remainAmmo: 0
   lastShootTime: 0
   isCoolTime: 0
@@ -309,8 +309,8 @@ MonoBehaviour:
   firePos: {fileID: 3568502925504218953}
   bullet: {fileID: 696698505540791595, guid: 272992b6e9954334daca6c1e3cc9bea4, type: 3}
   shootDelay: 0.8
-  pelletCount: 10
-  spreadAngle: 15
+  pelletCount: 24
+  spreadAngle: 8
 --- !u!1 &3561801874895584729
 GameObject:
   m_ObjectHideFlags: 0
