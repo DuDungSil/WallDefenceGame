@@ -296,10 +296,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3747070250c0146985dfe4df87ebbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 150
   speed: 30
   range: 60
-  coolTime: 3
+  coolTime: 7
   useAmmo: 1
   maxAmmo: 2
   remainAmmo: 0
@@ -308,8 +308,8 @@ MonoBehaviour:
   lastCoolTime: 0
   firePos: {fileID: 3568502925504218953}
   bullet: {fileID: 696698505540791595, guid: 272992b6e9954334daca6c1e3cc9bea4, type: 3}
-  shootDelay: 0.8
-  pelletCount: 24
+  shootDelay: 0.4
+  pelletCount: 20
   spreadAngle: 8
 --- !u!1 &3561801874895584729
 GameObject:

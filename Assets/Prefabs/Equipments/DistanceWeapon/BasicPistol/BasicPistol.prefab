@@ -327,12 +327,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714143fb9141e1c4c93c1c3890bd4303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 10
   speed: 30
   range: 120
-  coolTime: 2
+  coolTime: 3
   useAmmo: 1
-  maxAmmo: 10
+  maxAmmo: 5
   remainAmmo: 0
   lastShootTime: 0
   isCoolTime: 0

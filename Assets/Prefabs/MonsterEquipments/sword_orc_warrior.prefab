@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7799534300944172398}
   - component: {fileID: 1668059914852205701}
   - component: {fileID: 2337595785537016942}
+  - component: {fileID: 8057956451525727452}
   - component: {fileID: 9223231294853496104}
   m_Layer: 13
   m_Name: sword_orc_warrior
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8057956451525727452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6531914101202471351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a32737d77d7cb4e8fab707febe0f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_damage: 10
 --- !u!65 &9223231294853496104
 BoxCollider:
   m_ObjectHideFlags: 0

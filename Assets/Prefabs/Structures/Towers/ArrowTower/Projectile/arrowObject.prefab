@@ -77,6 +77,18 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8415842835630618913, guid: 8fcb8522ab3a2564c9e969037e0a5366, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415842835630618913, guid: 8fcb8522ab3a2564c9e969037e0a5366, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415842835630618913, guid: 8fcb8522ab3a2564c9e969037e0a5366, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415842835630618913, guid: 8fcb8522ab3a2564c9e969037e0a5366, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -172,5 +184,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a44a63b432ff4e4a9a4b5df5d471d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  projectileLifeTime: 5
+  damage: 70
+  projectileLifeTime: 10

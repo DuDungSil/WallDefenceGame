@@ -15158,7 +15158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3542762882181567952, guid: 0a3d2998ddb7b9f43967b34cab23ae5c, type: 3}
       propertyPath: m_Name
-      value: PlayerTower (1)
+      value: PlayerTowerRight
       objectReference: {fileID: 0}
     - target: {fileID: 3542762882181567952, guid: 0a3d2998ddb7b9f43967b34cab23ae5c, type: 3}
       propertyPath: m_Layer
@@ -21324,7 +21324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3542762882181567952, guid: 0a3d2998ddb7b9f43967b34cab23ae5c, type: 3}
       propertyPath: m_Name
-      value: PlayerTower
+      value: PlayerTowerLeft
       objectReference: {fileID: 0}
     - target: {fileID: 3542762882181567952, guid: 0a3d2998ddb7b9f43967b34cab23ae5c, type: 3}
       propertyPath: m_Layer

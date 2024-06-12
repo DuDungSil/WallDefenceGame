@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 1817950330352511245}
   - component: {fileID: 7184290330517360194}
   - component: {fileID: 1582327437112926873}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: orc_archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1817950330352511245}
-  speed: 5
+  speed: 3
   isAttack: 0
   nexusPoint: {fileID: 0}
   hp: 100
@@ -923,7 +923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc344e44ed97974bb5efde8166cc825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OrcController: {fileID: 0}
+  m_OrcController: {fileID: 1817950330352511245}
   m_groundCheck: {fileID: 1938440319663597587}
   m_radius: 0.04
   m_groundMask:
