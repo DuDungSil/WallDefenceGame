@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6287834770487974890}
   - component: {fileID: 5216861507697039742}
-  - component: {fileID: -1811201397269961267}
   - component: {fileID: -8922256687158280623}
+  - component: {fileID: -1811201397269961267}
   m_Layer: 9
   m_Name: Wall_Tier1
   m_TagString: Untagged
@@ -63,6 +63,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8922256687158280623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011774875663433049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22213d09c1cb06f4385994eafde73aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Units: {fileID: 8304146771187279467, guid: 50b00d2ec08b1d74f81e0996cdf5c27f, type: 3}
+  grade: 1
+  neededUnits: 1
+  maxHp: 500
+  nextUpgrade:
+    Data: {fileID: 11400000, guid: 912d521e7d4cb8b42965f5679a25102f, type: 2}
 --- !u!114 &-1811201397269961267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,24 +195,6 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &-8922256687158280623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011774875663433049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22213d09c1cb06f4385994eafde73aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Units: {fileID: 8304146771187279467, guid: 50b00d2ec08b1d74f81e0996cdf5c27f, type: 3}
-  grade: 1
-  neededUnits: 1
-  maxHp: 500
-  nextUpgrade:
-    Data: {fileID: 11400000, guid: 912d521e7d4cb8b42965f5679a25102f, type: 2}
 --- !u!1001 &6782007910502219224
 PrefabInstance:
   m_ObjectHideFlags: 0

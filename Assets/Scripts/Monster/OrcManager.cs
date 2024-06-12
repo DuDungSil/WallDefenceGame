@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class OrcManager : MonsterManager
 {
+    protected Coroutine attackCoroutine = null;
     protected bool meleeAtackActivate = true;
     public float m_armor;
     public override void TakeDamage(float damage)
@@ -35,7 +36,26 @@ public abstract class OrcManager : MonsterManager
                 isAttack = true;
                 encounteredStructure = other.gameObject; // 트리거가 발동된 벽 혹은 타워를 wallOrTower에 저장
                 //structureManager = encounteredWallOrTower.GetComponent<StructureManager>();
-                StartCoroutine(Attacking()); //공격 코루틴 실행
+                attackCoroutine = StartCoroutine(Attacking()); //공격 코루틴 실행
+                coroutineStarted = true;
+            }
+            else if(coroutineStarted && encounteredStructure == null) //코루틴이 실행중인데 encounteredStructure == null이 된 경우 (structure가 업그레이드시 필요)
+            {
+                if (attackCoroutine != null)
+                {
+                    StopCoroutine(attackCoroutine);
+                    coroutineStarted = false;
+                }
+                m_animator.SetBool("IsAttack", false);
+                isAttack = false;
+
+                Vector3 structurePosition = other.transform.position;
+                transform.LookAt(structurePosition); //벽 혹은 타워를 바라보도록 몬스터 회전
+                m_animator.SetBool("IsAttack", true); //공격 애니메이션 작동
+                isAttack = true;
+                encounteredStructure = other.gameObject; // 트리거가 발동된 벽 혹은 타워를 wallOrTower에 저장
+                //structureManager = encounteredWallOrTower.GetComponent<StructureManager>();
+                attackCoroutine = StartCoroutine(Attacking()); //공격 코루틴 실행
                 coroutineStarted = true;
             }
         }

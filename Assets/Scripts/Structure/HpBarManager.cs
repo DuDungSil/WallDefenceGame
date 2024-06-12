@@ -40,4 +40,5 @@ public class HpBarManager : MonoBehaviour
             currentHpRenderer.material = redMaterial;
         }
     }
+    
 }

@@ -111,7 +111,7 @@ public class InteractionUIControl : MonoBehaviour
         selectedObject = structureManager.SelfUpgrade();
 
         StructureManager newStructureManager = selectedObject.GetComponent<StructureManager>();
-        if(newStructureManager.nextUpgrade.Data != null) newStructureManager.nextUpgrade.Init();
+        newStructureManager.TakeDamage(structureManager.MaxHp - structureManager.Hp);
 
         structureManager.Selfdestroy();
         UpdateUI();

@@ -63,17 +63,26 @@ public class StructureManager : MonoBehaviour
         //Debug.Log(Hp);
         if (Hp < 0)
         {
+            Debug.Log(Hp);
             SoundController.Instance.PlaySound2D("Building_destroy");
             Destroy(gameObject);
         }
     }
-    protected virtual void Start()
+    public void Awake()
     {
         Hp = MaxHp;
-        if(nextUpgrade.Data != null)
+        if (nextUpgrade.Data != null)
         {
             nextUpgrade.Init();
         }
+    }
+    protected virtual void Start()
+    {
+        //Hp = MaxHp;
+        //if(nextUpgrade.Data != null)
+        //{
+        //    nextUpgrade.Init();
+        //}
 
         interactable = GetComponent<XRSimpleInteractable>();
         if(InteractionManager.Instance != null && interactable != null)
