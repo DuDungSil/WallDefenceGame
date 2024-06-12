@@ -17,11 +17,12 @@ public class UIController : Singleton<UIController>
     public GameObject m_SettingCanvas;
     public GameObject m_InteractionMenuCanvas;
     public GameObject m_swapper;
+    public GameObject m_GameoverCanvas;
     public GameObject m_RightHand;
     public Transform m_mainCamera;
     public Transform m_UIPos;
-    GameObject m_Quick;
 
+    private GameObject m_Quick;
     private bool isOpenMenu = false;
     private bool isOpenCrafting = false;
     private bool isOnCrafting = false;
@@ -192,6 +193,12 @@ public class UIController : Singleton<UIController>
         m_InteractionMenuCanvas.SetActive(false);
         isOpenInteraction = false;
     }
+    public void OpenGameover()
+    {
+        HandController.Instance.DeleteEquipObject();
+        HandController.Instance.SetUIController();
+        DisplayUI(m_GameoverCanvas);
+    }  
 
     public void DisplayUI(GameObject canvas)
     {

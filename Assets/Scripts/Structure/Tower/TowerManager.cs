@@ -13,37 +13,40 @@ public class TowerManager : StructureManager
     protected GameObject target;
     public float shootDelay;
     public float m_projectileSpeed;
-    private float timer;
+
+    private bool shootActivate = true;
     protected Queue<GameObject> monsterQueue = new Queue<GameObject>();
 
     protected override void Start()
     {
         base.Start();
-        timer = 0f;
     }
     protected virtual void Update() 
     {
         if(isAssigned)
         {
-            if(target == null && monsterQueue.Count < 1)
+            if(shootActivate)
             {
-                return;
-            }
-            timer += Time.deltaTime;
-            if(timer > shootDelay)
-            {
-                if(target == null)
+                if(target == null && monsterQueue.Count < 1)
                 {
-                    if(monsterQueue.Count > 0)
+                    return;
+                }
+                else
+                {
+                    if(target == null)
                     {
-                        target = monsterQueue.Dequeue();
+                        if(monsterQueue.Count > 0)
+                        {
+                            target = monsterQueue.Dequeue();
+                        }
+                    }
+                    else
+                    {
+                        Shoot(target);
+                        shootActivate = false;
+                        StartCoroutine(ShootDelay());
                     }
                 }
-                if(target != null)
-                {
-                    Shoot(target);
-                }
-                timer = 0f;
             }
         }
     }
@@ -103,5 +106,11 @@ public class TowerManager : StructureManager
         // 물리속성 설정
         Rigidbody r = spawnedProjectile.GetComponent<Rigidbody>();
         r.AddForce(monsterDirection * m_projectileSpeed, ForceMode.Impulse);
+    }
+
+    protected IEnumerator ShootDelay()
+    {
+        yield return new WaitForSeconds(shootDelay);
+        shootActivate = true;
     }
 }

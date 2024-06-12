@@ -457,8 +457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: e56a9a7090868d14ab5c033ee85505df, type: 2}
-  getResourceNum: 10
-  resourceGetTime: 60
+  getResourceNum: 4
+  resourceGetTime: 10
 --- !u!114 &2046834106036234752
 MonoBehaviour:
   m_ObjectHideFlags: 0

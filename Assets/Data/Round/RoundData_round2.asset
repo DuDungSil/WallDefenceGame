@@ -26,5 +26,5 @@ MonoBehaviour:
   _respawnTime: 5
   _roundDayTime: 30
   _roundNightTime: 600
-  _maxSpawnNum: 600
+  _maxSpawnNum: 40
   _monsterNumVariable: 2

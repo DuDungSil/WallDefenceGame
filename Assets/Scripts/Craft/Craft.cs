@@ -66,9 +66,9 @@ public class Craft : Singleton<Craft>
             Cancel();
 
         if (isPreviewActivated && LeftGribButtonAction.action.WasPerformedThisFrame())
-            go_Preview.transform.Rotate(0f, +30f, 0f);
+            go_Preview.transform.Rotate(0f, +15f, 0f);
         else if (isPreviewActivated && RightGribButtonAction.action.WasPerformedThisFrame())
-            go_Preview.transform.Rotate(0f, -30f, 0f);
+            go_Preview.transform.Rotate(0f, -15f, 0f);
 
     }
 

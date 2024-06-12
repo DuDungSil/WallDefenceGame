@@ -16,9 +16,10 @@ public class NexusController : Singleton<NexusController>
     {
         Hp = Hp - damage;
         Debug.Log(Hp);
-        if (Hp < 0)
+        if (Hp <= 0)
         {
             //GameOver시 수행할 코드
+            UIController.Instance.OpenGameover();
             Debug.Log("GameOver");
         }
     }

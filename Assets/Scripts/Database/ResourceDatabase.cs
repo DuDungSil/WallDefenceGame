@@ -16,23 +16,23 @@ public class ResourceDatabase : Singleton<ResourceDatabase>
     {
         AddItem((ResourceItem)wood.CreateItem(), 30);
         AddItem((ResourceItem)stone.CreateItem(), 30);
-        AddItem((ResourceItem)iron.CreateItem(), 30);
+        //AddItem((ResourceItem)iron.CreateItem(), 30);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown("f"))
-        {
-            AddItem((ResourceItem)wood.CreateItem());
-        }
-        if(Input.GetKeyDown("g"))
-        {
-            AddItem((ResourceItem)stone.CreateItem());
-        }
-        if(Input.GetKeyDown("h"))
-        {
-            AddItem((ResourceItem)iron.CreateItem());
-        }
+        // if(Input.GetKeyDown("f"))
+        // {
+        //     AddItem((ResourceItem)wood.CreateItem());
+        // }
+        // if(Input.GetKeyDown("g"))
+        // {
+        //     AddItem((ResourceItem)stone.CreateItem());
+        // }
+        // if(Input.GetKeyDown("h"))
+        // {
+        //     AddItem((ResourceItem)iron.CreateItem());
+        // }
     }
 
     public List<ResourceItem> getDatabase()

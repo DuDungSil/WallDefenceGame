@@ -81,7 +81,7 @@ public class ArrowControl : ProjectileControl
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
         int hitlayer = other.gameObject.layer;
             // 충돌 레이어 처리

@@ -7,8 +7,7 @@ public class HpBarManager : MonoBehaviour
     [SerializeField]
     private GameObject rootObject;
     private StructureManager rootStructureManager;
-    private float lastHp;
-    private float maxHp;
+
     [SerializeField]
     private GameObject currentHpObject;
     private Vector3 currentScale;
@@ -21,24 +20,24 @@ public class HpBarManager : MonoBehaviour
             rootStructureManager = rootObject.GetComponent<StructureManager>();
         else
             Debug.Log("One of Structures is null");
-        lastHp = rootStructureManager.Hp;
-        maxHp = rootStructureManager.MaxHp;
-        if(lastHp == maxHp)
-            currentHpRenderer.material = greenMaterial;
-        else
-            currentHpRenderer.material = redMaterial;
+
+        rootStructureManager.onStatusChanged += UpdateUI;
+        UpdateUI();
     }
-    // Update is called once per frame
-    void Update()
+
+    void UpdateUI()
     {
-        if(rootStructureManager.Hp != lastHp)
-        {
-            currentScale = currentHpObject.transform.localScale;
-            currentScale.y = rootStructureManager.Hp / maxHp;
-            currentHpObject.transform.localScale = currentScale;
-            lastHp = rootStructureManager.Hp;
-            currentHpRenderer.material = redMaterial;
-        }
+        currentScale = currentHpObject.transform.localScale;
+        currentScale.y = rootStructureManager.Hp / rootStructureManager.MaxHp;
+        currentHpObject.transform.localScale = currentScale;
+        if(rootStructureManager.Hp != rootStructureManager.MaxHp) setColor(currentHpRenderer, "Red");
+        else setColor(currentHpRenderer, "Green");
     }
-    
+
+    void setColor(Renderer _renderer, string _color)
+    {
+        if(_color.Equals("Red")) _renderer.material = redMaterial;
+        else if (_color.Equals("Green")) _renderer.material = greenMaterial;
+    }
+
 }

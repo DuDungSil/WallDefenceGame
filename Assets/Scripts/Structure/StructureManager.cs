@@ -61,13 +61,21 @@ public class StructureManager : MonoBehaviour
     {
         Hp = Hp - damage;
         //Debug.Log(Hp);
-        if (Hp < 0)
+        if (Hp <= 0)
         {
             Debug.Log(Hp);
             SoundController.Instance.PlaySound2D("Building_destroy");
             Destroy(gameObject);
         }
+        OnStatusChanged();
     }
+    
+    public void Repair(float recovery)
+    {
+        Hp = Hp + recovery;
+        OnStatusChanged();
+    }
+
     public void Awake()
     {
         Hp = MaxHp;
@@ -78,12 +86,6 @@ public class StructureManager : MonoBehaviour
     }
     protected virtual void Start()
     {
-        //Hp = MaxHp;
-        //if(nextUpgrade.Data != null)
-        //{
-        //    nextUpgrade.Init();
-        //}
-
         interactable = GetComponent<XRSimpleInteractable>();
         if(InteractionManager.Instance != null && interactable != null)
         {
@@ -149,10 +151,16 @@ public class StructureManager : MonoBehaviour
         
         return upgradeObj;
     }
-    
-    public void Repair(float recovery)
+
+
+    public delegate void StatusChanged();
+    public event StatusChanged onStatusChanged;
+
+    // 스트럭쳐 hp 변경 이벤트 호출 메서드
+    protected void OnStatusChanged()
     {
-        Hp = Hp + recovery;
+        if (onStatusChanged != null)
+            onStatusChanged.Invoke();
     }
 
 }
