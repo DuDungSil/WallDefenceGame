@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 7102120432081527075}
-  speed: 2
+  speed: 3
   isAttack: 0
   nexusPoint: {fileID: 0}
   hp: 0
