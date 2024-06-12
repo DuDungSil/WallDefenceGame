@@ -24,15 +24,15 @@ public class ProjectileControl : MonoBehaviour
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
-            Destroy(transform.root.gameObject);
+            Destroy(gameObject);
         }
         if(other.gameObject.layer == LayerMask.NameToLayer("Monster"))
         {
-            Destroy(transform.root.gameObject);
+            Destroy(gameObject);
         }
         if(other.gameObject.layer == LayerMask.NameToLayer("Bulidable"))
         {
-            Destroy(transform.root.gameObject);
+            Destroy(gameObject);
         }          
     }
 
@@ -48,7 +48,7 @@ public class ProjectileControl : MonoBehaviour
         yield return new WaitForSeconds(projectileLifeTime);
 
         // 총알 제거
-        Destroy(transform.root.gameObject);
+        Destroy(gameObject);
     }
 
 

@@ -89,7 +89,8 @@ public abstract class OrcManager : MonsterManager
         }
         if(other.gameObject.layer == LayerMask.NameToLayer("TowerProjectile"))
         {
-            ProjectileControl projectileControl = other.gameObject.GetComponent<ProjectileControl>();
+            // 플레이어의 무기 데미지를 받아오는과정 (자식에게 collider가, 부모에게 script가 달려있음)
+            ProjectileControl projectileControl = other.gameObject.transform.root.GetComponent<ProjectileControl>();
             if(projectileControl != null)
             {
                 float damage = projectileControl.damage;

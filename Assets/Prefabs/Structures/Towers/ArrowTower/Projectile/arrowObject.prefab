@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8985421117165734262}
   - component: {fileID: 1166882187149642311}
+  - component: {fileID: 548674568243616467}
   m_Layer: 0
   m_Name: arrowObject
   m_TagString: Untagged
@@ -60,6 +61,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &548674568243616467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371757673885707070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a44a63b432ff4e4a9a4b5df5d471d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 70
+  projectileLifeTime: 10
 --- !u!1001 &7964509358463441076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,9 +150,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8415842835630187777, guid: 8fcb8522ab3a2564c9e969037e0a5366, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7261638562797927032}
-    - targetCorrespondingSourceObject: {fileID: 8415842835630187777, guid: 8fcb8522ab3a2564c9e969037e0a5366, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6338426685976343005}
   m_SourcePrefab: {fileID: 100100000, guid: 8fcb8522ab3a2564c9e969037e0a5366, type: 3}
 --- !u!4 &1895042822516220309 stripped
 Transform:
@@ -172,17 +184,3 @@ CapsuleCollider:
   m_Height: 1.2397746
   m_Direction: 1
   m_Center: {x: -0.00451513, y: -0.5916421, z: -0.00030656354}
---- !u!114 &6338426685976343005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895042822516260277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a44a63b432ff4e4a9a4b5df5d471d7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 70
-  projectileLifeTime: 10
