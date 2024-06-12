@@ -9790,7 +9790,7 @@ GameObject:
   - component: {fileID: 3091773303755028797}
   - component: {fileID: 7424601452276283425}
   - component: {fileID: 6612380160054706339}
-  m_Layer: 17
+  m_Layer: 16
   m_Name: BombExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

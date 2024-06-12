@@ -60,7 +60,7 @@ public class StructureManager : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         Hp = Hp - damage;
-        Debug.Log(Hp);
+        //Debug.Log(Hp);
         if (Hp < 0)
         {
             SoundController.Instance.PlaySound2D("Building_destroy");

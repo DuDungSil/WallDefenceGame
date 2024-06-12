@@ -12,6 +12,9 @@ public class HpBarManager : MonoBehaviour
     [SerializeField]
     private GameObject currentHpObject;
     private Vector3 currentScale;
+    public Material redMaterial;
+    public Material greenMaterial;
+    public Renderer currentHpRenderer;
     void Start() 
     {
         if(rootObject != null)
@@ -20,6 +23,10 @@ public class HpBarManager : MonoBehaviour
             Debug.Log("One of Structures is null");
         lastHp = rootStructureManager.Hp;
         maxHp = rootStructureManager.MaxHp;
+        if(lastHp == maxHp)
+            currentHpRenderer.material = greenMaterial;
+        else
+            currentHpRenderer.material = redMaterial;
     }
     // Update is called once per frame
     void Update()
@@ -30,6 +37,7 @@ public class HpBarManager : MonoBehaviour
             currentScale.y = rootStructureManager.Hp / maxHp;
             currentHpObject.transform.localScale = currentScale;
             lastHp = rootStructureManager.Hp;
+            currentHpRenderer.material = redMaterial;
         }
     }
 }

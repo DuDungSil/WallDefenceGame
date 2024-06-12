@@ -14,7 +14,7 @@ public abstract class OrcManager : MonsterManager
             {
                 Hp = Hp - damage + m_armor;
                 Debug.Log(Hp);
-                if(Hp < 0)
+                if(Hp <= 0)
                 {
                     IsDeath = true;
                     StartCoroutine(Death());
@@ -50,7 +50,7 @@ public abstract class OrcManager : MonsterManager
             }
             else
             {
-                Debug.Log("Error : projectileControl is null");
+                Debug.Log("Error : PlayerProjectileControl is null");
             }
         }
         if(other.gameObject.layer == LayerMask.NameToLayer("PlayerMeleeWeapon") && meleeAtackActivate )
@@ -66,6 +66,19 @@ public abstract class OrcManager : MonsterManager
                 Debug.Log(Hp);
                 StartCoroutine(MeleeAtackDelay());  
             }       
+        }
+        if(other.gameObject.layer == LayerMask.NameToLayer("TowerProjectile"))
+        {
+            ProjectileControl projectileControl = other.gameObject.GetComponent<ProjectileControl>();
+            if(projectileControl != null)
+            {
+                float damage = projectileControl.damage;
+                TakeDamage(damage);
+            }
+            else
+            {
+                Debug.Log("Error : TowerProjectileControl is null");
+            }
         }
     }
     protected IEnumerator MeleeAtackDelay()

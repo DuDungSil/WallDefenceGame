@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootObject: {fileID: 0}
   currentHpObject: {fileID: 7483586986334357433}
+  redMaterial: {fileID: 2100000, guid: 8765eb16fddb0a4489f985be5401835f, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 59bb8204b2506fc49b3f90a3be94f87d, type: 2}
+  currentHpRenderer: {fileID: 2022711328607195010}
 --- !u!1 &7483586986334357433
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,14 +24,14 @@ TagManager:
   - MonsterWeapon
   - MonsterProjectile
   - PlayerEquipment
-  - TowerProjectil
+  - TowerProjectile
   - PlayerProjectile
   - PlayerTool
   - PlayerHand
   - Player
   - PlayerMeleeWeapon
   - MoveRestrict
-  - 
+  - InvisibleWall
   - 
   - 
   - 
