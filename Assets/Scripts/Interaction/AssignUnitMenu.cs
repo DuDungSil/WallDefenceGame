@@ -19,7 +19,7 @@ public class AssignUnitMenu : MonoBehaviour
     {
 
     }
-    public void SetAlreadyAssignUI(StructureManager structureManager) // structure를 select했을 때 실행되는 함수(선택된 structure에 맞는 값들로 UI구성 및 해당 객체에 대한 버튼 리스너)
+    public void SetAlreadyAssignUI(AssignUnitStructureManager structureManager) // structure를 select했을 때 실행되는 함수(선택된 structure에 맞는 값들로 UI구성 및 해당 객체에 대한 버튼 리스너)
     {
         removeBtn.gameObject.SetActive(true);
         assignUnitsImg.SetActive(true);
@@ -33,7 +33,7 @@ public class AssignUnitMenu : MonoBehaviour
         removeBtn.onClick.AddListener(structureManager.AssignedChange);
         removeBtn.onClick.AddListener(() => SetNeedAssignUI(structureManager));
     }
-    public void SetNeedAssignUI(StructureManager structureManager) // structure를 select했을 때 실행되는 함수(선택된 structure에 맞는 값들로 UI구성 및 해당 객체에 대한 버튼 리스너)
+    public void SetNeedAssignUI(AssignUnitStructureManager structureManager) // structure를 select했을 때 실행되는 함수(선택된 structure에 맞는 값들로 UI구성 및 해당 객체에 대한 버튼 리스너)
     {
         assignBtn.gameObject.SetActive(true);
         readyUnitsImg.SetActive(true);

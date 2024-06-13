@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class TowerManager : StructureManager
+public class TowerManager : AssignUnitStructureManager
 {
     public GameObject shootingPoint; // 투사체 생성 지점
     public GameObject launchingPad; // 발사대 

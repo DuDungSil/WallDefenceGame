@@ -6,6 +6,7 @@ public class MonsterSpawnController : Singleton<MonsterSpawnController>
 {
     // Start is called before the first frame update
     public GameObject[] m_MonsterSpawnPoint;
+    public GameObject[] m_Portals;
     private int currentRound;
     private float[] MonsterSpawnCDF; // 몬스터 소환 누적확률분포
     private int avgMonsterNum; //한 웨이브에 소환될 몬스터 수의 평균
@@ -29,6 +30,10 @@ public class MonsterSpawnController : Singleton<MonsterSpawnController>
 
     IEnumerator MonsterSpawn()
     {
+        for(int i = 0; i < m_Portals.Length; i++)
+        {
+            m_Portals[i].SetActive(true);
+        }
         currentRound = TimeController.Instance.currentRound - 1; //currentRound를 0부터 시작하는 코드에 맞게 실제 라운드에서 -1을 해줌
         int count = (int)(rounds[currentRound].Data.RoundNightTime / rounds[currentRound].Data.RespawnTime); // 밤시간 / 리스폰 대기시간 을 하여 몇번 몬스터를 스폰해야하는지 계산
         avgMonsterNum = rounds[currentRound].Data.MaxSpawnNum / count;
@@ -71,6 +76,10 @@ public class MonsterSpawnController : Singleton<MonsterSpawnController>
             }
             //리스폰 타임 기다리기
             yield return new WaitForSeconds(rounds[currentRound].Data.RespawnTime);
+        }
+        for(int i = 0; i < m_Portals.Length; i++)
+        {
+            m_Portals[i].GetComponent<ParticleSystem>().Stop();
         }
     }
 

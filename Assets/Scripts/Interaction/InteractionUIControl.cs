@@ -57,18 +57,21 @@ public class InteractionUIControl : MonoBehaviour
         StructureManager structureManager = selectedObject.GetComponent<StructureManager>();
 
         defaultImage.SetActive(false);
-        AssignUnitMenu.SetActive(true);
         DestroyMenu.SetActive(true);
         UpgradeMenu.SetActive(true);
 
-        // 유닛 할당 버튼
-        if(structureManager.IsAssigned) // structure에 이미 유닛이 할당되어 있을 때
+        if(structureManager is AssignUnitStructureManager)
         {
-            AssignUnitMenu.GetComponent<AssignUnitMenu>().SetAlreadyAssignUI(structureManager);
-        }
-        else
-        {
-            AssignUnitMenu.GetComponent<AssignUnitMenu>().SetNeedAssignUI(structureManager);
+            if(((AssignUnitStructureManager)structureManager).IsAssigned) // structure에 이미 유닛이 할당되어 있을 때
+            {
+                AssignUnitMenu.SetActive(true);
+                AssignUnitMenu.GetComponent<AssignUnitMenu>().SetAlreadyAssignUI(((AssignUnitStructureManager)structureManager));
+            }
+            else
+            {
+                AssignUnitMenu.SetActive(true);
+                AssignUnitMenu.GetComponent<AssignUnitMenu>().SetNeedAssignUI(((AssignUnitStructureManager)structureManager));
+            }
         }
 
         // 디스트로이 버튼

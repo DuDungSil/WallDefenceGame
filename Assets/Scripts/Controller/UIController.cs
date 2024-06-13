@@ -195,8 +195,30 @@ public class UIController : Singleton<UIController>
     }
     public void OpenGameover()
     {
+        if(isOnCrafting)
+        {
+            OffCrafting();
+        }
+        if(isOpenCrafting)
+        {
+            CloseCrafting();
+        }
+        if(isOpenQuick)
+        {
+            CloseQuick();
+        }
+        if(isOpenSetting)
+        {
+            CloseSetting();
+        }
+        if(isOpenInteraction)
+        {
+            CloseInteraction();
+        }
+
         HandController.Instance.DeleteEquipObject();
         HandController.Instance.SetUIController();
+
         DisplayUI(m_GameoverCanvas);
     }  
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.OpenXR.Features.Interactions;
 
-public class WallManager : StructureManager
+public class WallManager : AssignUnitStructureManager
 {
     protected override void Start()
     {
