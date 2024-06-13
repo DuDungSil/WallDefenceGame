@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.IMGUI.Controls;
-using UnityEngine;
 
 public class GameController : Singleton<GameController>
 {
@@ -11,6 +7,8 @@ public class GameController : Singleton<GameController>
 
     void Start()
     {
+        OptionManager.Instance.InitAudioMixer();
+
         for(int i = 0; i < starterKit.Length; i++)
         {
             EquipmentDatabase.Instance.AddItem((EquipmentItem)starterKit[i].CreateItem(), 3);

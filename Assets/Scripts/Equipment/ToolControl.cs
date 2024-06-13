@@ -1,24 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class ToolControl : MonoBehaviour
 {
 
     public float value;
-    [HideInInspector]
-    public float magnitude; // 속도의 크기
+    public float coolTime;
+    public float magnitudeThreshold;
 
+    private float magnitude; // 속도의 크기
+    private bool isCoolTime = false;
     private Vector3 previousPosition;
     private float deltaTime;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // 현재 위치 계산
         Vector3 currentPosition = transform.position;
@@ -33,6 +30,27 @@ public class ToolControl : MonoBehaviour
         previousPosition = currentPosition;
 
         magnitude = velocity.magnitude;
+
+    }
+
+    public bool Repair()
+    {
+        if(magnitude > magnitudeThreshold && !isCoolTime)
+        {
+            isCoolTime = true;
+            StartCoroutine(ActivateCooltime());
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    protected IEnumerator ActivateCooltime()
+    {
+        yield return new WaitForSeconds(coolTime);
+        isCoolTime = false;
     }
 
     // 벽이나 타워 수리

@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public abstract class DistanceWeanponControl : MonoBehaviour
 {
@@ -13,7 +11,6 @@ public abstract class DistanceWeanponControl : MonoBehaviour
     public float range;
     public float coolTime;
     public bool useAmmo;
-    [ShowIf("useAmmo")]
     public int maxAmmo;
     [HideInInspector]
     public int remainAmmo;

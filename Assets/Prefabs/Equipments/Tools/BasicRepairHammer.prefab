@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0.1
-  magnitude: 0
+  coolTime: 1
 --- !u!1001 &8823416804682096833
 PrefabInstance:
   m_ObjectHideFlags: 0

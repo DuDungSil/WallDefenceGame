@@ -113,8 +113,9 @@ public class SoundController : Singleton<SoundController>
     }
 
     //씬이 로드될 때 옵션 매니저에의해 모든 사운드 불륨을 저장된 옵션의 크기로 초기화시키는 함수.
-    public void InitVolumes(float bgm, float effect)
+    public void InitVolumes(float master, float bgm, float effect)
     {
+        SetVolume(SoundType.Master, master);
         SetVolume(SoundType.BGM, bgm);
         SetVolume(SoundType.SFX, effect);
     }

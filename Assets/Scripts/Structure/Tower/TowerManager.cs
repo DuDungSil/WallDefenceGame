@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class TowerManager : AssignUnitStructureManager
+public abstract class TowerManager : AssignUnitStructureManager
 {
     public GameObject shootingPoint; // 투사체 생성 지점
     public GameObject launchingPad; // 발사대 
@@ -90,23 +90,8 @@ public class TowerManager : AssignUnitStructureManager
             }
         }
     }
-    public virtual void Shoot(GameObject target)
-    {
-        //투사체 방향 설정
-        Vector3 monsterPos = target.transform.position;
-        Vector3 monsterDirection = (monsterPos - shootingPoint.transform.position).normalized;
-        launchingPad.transform.rotation = Quaternion.LookRotation(monsterDirection); // 발사대 방향 설정
-        // 투사체 소환
-        GameObject spawnedProjectile = Instantiate(projectile, shootingPoint.transform.position, shootingPoint.transform.rotation);
-        /* 발사체를 일정 속도로 돌리기
-        Quaternion rotation = Quaternion.LookRotation(monsterPos);
-        launchingPad.transform.rotation = Quaternion.Lerp(launchingPad.transform.rotation, rotation, 10f * Time.deltaTime);
-        */
-        spawnedProjectile.transform.rotation = Quaternion.LookRotation(monsterDirection); // 발사체 방향 설정
-        // 물리속성 설정
-        Rigidbody r = spawnedProjectile.GetComponent<Rigidbody>();
-        r.AddForce(monsterDirection * m_projectileSpeed, ForceMode.Impulse);
-    }
+    
+    public abstract void Shoot(GameObject target);
 
     protected IEnumerator ShootDelay()
     {

@@ -22,6 +22,7 @@ public class Craft : Singleton<Craft>
     private int[] needitem_count;
 
     // 제어 변수
+    private Quaternion savedLastRotation;
     private bool isPreviewActivated = false; // 미리 보기 활성화 상태
     private GameObject go_Preview; // 미리 보기 프리팹을 담을 변수
     private Vector3 reticlePosition; // 레이 위치
@@ -37,7 +38,7 @@ public class Craft : Singleton<Craft>
         rayInteractor.TryGetHitInfo(out reticlePosition, out _, out _, out _);
         InitialRayPosition = reticlePosition;
         isInitialRayPosition = true;
-        go_Preview = Instantiate(craft_Preview, reticlePosition, Quaternion.identity);
+        go_Preview = Instantiate(craft_Preview, reticlePosition, savedLastRotation);
         go_Preview.SetActive(false);
         
         
@@ -66,9 +67,15 @@ public class Craft : Singleton<Craft>
             Cancel();
 
         if (isPreviewActivated && LeftGribButtonAction.action.WasPerformedThisFrame())
+        {
             go_Preview.transform.Rotate(0f, +15f, 0f);
+            savedLastRotation = go_Preview.transform.rotation;
+        }
         else if (isPreviewActivated && RightGribButtonAction.action.WasPerformedThisFrame())
+        {
             go_Preview.transform.Rotate(0f, -15f, 0f);
+            savedLastRotation = go_Preview.transform.rotation;
+        }
 
     }
 

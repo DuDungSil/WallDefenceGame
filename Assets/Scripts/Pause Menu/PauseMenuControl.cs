@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuControl : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class PauseMenuControl : MonoBehaviour
 
     public void ClcikExitBtn()
     {
-        // 게임 시작 씬으로 이동
+        SceneManager.LoadScene("TitleScene");
     }
 
     public void ClcikBackBtn()

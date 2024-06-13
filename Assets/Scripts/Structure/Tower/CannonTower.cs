@@ -12,7 +12,7 @@ public class CannonTower : TowerManager
 
     public override void Shoot(GameObject target)
     {
-        // // 투사체 방향 설정
+        // 런칭패드 방향 설정
         Vector3 monsterPos = target.transform.position;
         Vector3 monsterDirection = (monsterPos - shootingPoint.transform.position).normalized;
         monsterDirection.y = 0;
@@ -24,7 +24,7 @@ public class CannonTower : TowerManager
         launchingPad.transform.rotation = Quaternion.LookRotation(monsterDirection);
 
 
-        // // 투사체 소환
+        // 투사체 소환
         GameObject spawnedProjectile = Instantiate(projectile, shootingPoint.transform.position, shootingPoint.transform.rotation);
         Rigidbody rb = spawnedProjectile.GetComponent<Rigidbody>();
 

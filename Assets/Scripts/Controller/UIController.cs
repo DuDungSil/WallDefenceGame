@@ -17,7 +17,8 @@ public class UIController : Singleton<UIController>
     public GameObject m_SettingCanvas;
     public GameObject m_InteractionMenuCanvas;
     public GameObject m_swapper;
-    public GameObject m_GameoverCanvas;
+    public GameObject m_GameOverCanvas;
+    public GameObject m_GameClearCanvas;
     public GameObject m_RightHand;
     public Transform m_mainCamera;
     public Transform m_UIPos;
@@ -29,7 +30,6 @@ public class UIController : Singleton<UIController>
     private bool isOpenSetting = false;
     private bool isOpenQuick = false;
     private bool isOpenInteraction = false;
-    private bool isCollisionToInteractionObject = false;
 
     void Start()
     {
@@ -219,8 +219,37 @@ public class UIController : Singleton<UIController>
         HandController.Instance.DeleteEquipObject();
         HandController.Instance.SetUIController();
 
-        DisplayUI(m_GameoverCanvas);
+        DisplayUI(m_GameOverCanvas);
     }  
+
+    public void OpenGameClear()
+    {
+        if(isOnCrafting)
+        {
+            OffCrafting();
+        }
+        if(isOpenCrafting)
+        {
+            CloseCrafting();
+        }
+        if(isOpenQuick)
+        {
+            CloseQuick();
+        }
+        if(isOpenSetting)
+        {
+            CloseSetting();
+        }
+        if(isOpenInteraction)
+        {
+            CloseInteraction();
+        }
+
+        HandController.Instance.DeleteEquipObject();
+        HandController.Instance.SetUIController();
+
+        DisplayUI(m_GameClearCanvas);
+    }
 
     public void DisplayUI(GameObject canvas)
     {

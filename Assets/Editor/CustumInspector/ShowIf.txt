@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class ShowIfAttribute : PropertyAttribute
@@ -13,7 +13,8 @@ public class ShowIfAttribute : PropertyAttribute
     }
 }
 
-[CustomPropertyDrawer(typeof(ShowIfAttribute))]
+#if UNITY_EDITOR
+[CustomPropertyDrawer(typeof(DistanceWeanponControl))]
 public class ShowIf : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -52,3 +53,4 @@ public class ShowIf : PropertyDrawer
         }
     }
 }
+#endif

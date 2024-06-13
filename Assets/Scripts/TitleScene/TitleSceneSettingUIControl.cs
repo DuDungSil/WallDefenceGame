@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingMenu : MonoBehaviour
+public class TitleSceneSettingUIControl : MonoBehaviour
 {
-
     public Slider MasterVol;
     public Slider BGMVol;
     public Slider SFXVol;

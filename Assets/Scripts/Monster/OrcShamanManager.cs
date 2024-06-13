@@ -36,19 +36,14 @@ public class OrcShamanManager : OrcManager
                 Debug.Log("Error : projectileControl is null");
             }
         }
-        if(other.gameObject.layer == LayerMask.NameToLayer("PlayerMeleeWeapon") && meleeAtackActivate )
+        if(other.gameObject.layer == LayerMask.NameToLayer("PlayerMeleeWeapon"))
         {
-            meleeAtackActivate = false;
-            Debug.Log("오크가 근접 공격 당함");
-            float damage = other.GetComponentInParent<MeleeWeaponControl>().damage; // 플레이어의 무기 데미지를 받아오는것.
-            float magnitude = other.GetComponentInParent<MeleeWeaponControl>().magnitude;
-            if(magnitude > 0.5f)
+            MeleeWeaponControl meleeWeaponControl = other.GetComponentInParent<MeleeWeaponControl>();
+            if(meleeWeaponControl.Attack())
             {
-                TakeDamage(damage);
-                Debug.Log(magnitude);
-                Debug.Log(Hp);
-                StartCoroutine(MeleeAtackDelay());  
-            }       
+                Debug.Log("오크가 근접 공격 당함");
+                TakeDamage(meleeWeaponControl.damage);
+            }     
         }
     }
     public override IEnumerator Attacking() //벽 혹은 타워를 공격중일 때 호출

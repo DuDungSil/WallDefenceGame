@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4aa1d4bd349d5a54abaaf152c6c2ee33, type: 3}
   m_Name: BuildingBOM_ArrowTower_Tear1
   m_EditorClassIdentifier: Assembly-CSharp::BuildingBOMData
   craftName: Arrow Tower
@@ -17,5 +17,5 @@ MonoBehaviour:
   prefab: {fileID: 1146152988196608019, guid: bdeb845a198634748a3bdf2751844e2e, type: 3}
   PreviewPrefab: {fileID: 1146152988196608019, guid: 186e06bc40d408647a2aaed61b198483, type: 3}
   craftNeedItemDatas:
-  - {fileID: 11400000, guid: e56a9a7090868d14ab5c033ee85505df, type: 2}
+  - {fileID: 11400000, guid: e3aa78af6e8f2ef43b7c589a25825ad1, type: 2}
   craftNeedItemCount: 01000000

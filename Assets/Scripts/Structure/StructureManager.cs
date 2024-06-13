@@ -42,7 +42,7 @@ public class StructureManager : MonoBehaviour
             if(other.gameObject.tag == "RepairTool")
             {
                 ToolControl toolControl = other.gameObject.GetComponentInParent<ToolControl>();
-                Repair(MaxHp * toolControl.value);
+                if(toolControl.Repair()) Repair(MaxHp * toolControl.value);
             } 
         }
     }

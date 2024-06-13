@@ -5,18 +5,15 @@ using UnityEngine;
 public class MeleeWeaponControl : MonoBehaviour
 {
     public float damage;
-    [HideInInspector]
-    public float magnitude; // 속도의 크기
+    public float coolTime;
+    public float magnitudeThreshold;
 
+    private float magnitude; // 속도의 크기
+    private bool isCoolTime = false;
     private Vector3 previousPosition;
     private float deltaTime;
 
-    void Start()
-    {
-
-    }
-
-    void Update()
+    void FixedUpdate()
     {
         // 현재 위치 계산
         Vector3 currentPosition = transform.position;
@@ -32,7 +29,25 @@ public class MeleeWeaponControl : MonoBehaviour
 
         magnitude = velocity.magnitude;
 
-        //Debug.Log(magnitude);
+    }
+    public bool Attack()
+    {
+        if(magnitude > magnitudeThreshold && !isCoolTime)
+        {
+            isCoolTime = true;
+            StartCoroutine(ActivateCooltime());
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    protected IEnumerator ActivateCooltime()
+    {
+        yield return new WaitForSeconds(coolTime);
+        isCoolTime = false;
     }
 
 }

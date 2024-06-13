@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 70
-  projectileLifeTime: 10
+  projectileLifeTime: 6
 --- !u!1001 &7964509358463441076
 PrefabInstance:
   m_ObjectHideFlags: 0

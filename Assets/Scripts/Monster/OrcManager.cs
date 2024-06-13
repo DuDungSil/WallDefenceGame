@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class OrcManager : MonsterManager
 {
     protected Coroutine attackCoroutine = null;
-    protected bool meleeAtackActivate = true;
     public float m_armor;
     public override void TakeDamage(float damage)
     {
@@ -73,19 +72,14 @@ public abstract class OrcManager : MonsterManager
                 Debug.Log("Error : PlayerProjectileControl is null");
             }
         }
-        if(other.gameObject.layer == LayerMask.NameToLayer("PlayerMeleeWeapon") && meleeAtackActivate )
+        if(other.gameObject.layer == LayerMask.NameToLayer("PlayerMeleeWeapon"))
         {
-            meleeAtackActivate = false;
-            Debug.Log("오크가 근접 공격 당함");
-            float damage = other.GetComponentInParent<MeleeWeaponControl>().damage; // 플레이어의 무기 데미지를 받아오는것.
-            float magnitude = other.GetComponentInParent<MeleeWeaponControl>().magnitude;
-            if(magnitude > 0.5f)
+            MeleeWeaponControl meleeWeaponControl = other.GetComponentInParent<MeleeWeaponControl>();
+            if(meleeWeaponControl.Attack())
             {
-                TakeDamage(damage);
-                Debug.Log(magnitude);
-                Debug.Log(Hp);
-                StartCoroutine(MeleeAtackDelay());  
-            }       
+                Debug.Log("오크가 근접 공격 당함");
+                TakeDamage(meleeWeaponControl.damage);
+            }     
         }
         if(other.gameObject.layer == LayerMask.NameToLayer("TowerProjectile"))
         {
@@ -102,9 +96,5 @@ public abstract class OrcManager : MonsterManager
             }
         }
     }
-    protected IEnumerator MeleeAtackDelay()
-    {
-        yield return new WaitForSeconds(1f);
-        meleeAtackActivate = true;
-    }
+
 }
