@@ -12,6 +12,7 @@ public class UpgradeMenu : MonoBehaviour
     public int numOfMaterialSlots = 6;
 
     public GameObject upgradeBtn;
+    public GameObject maxText;
 
     private BuildingBOM bom;
 
@@ -21,10 +22,17 @@ public class UpgradeMenu : MonoBehaviour
     }
 
 
+    public void SetUpgradeUI(StructureManager structureManager)
+    {
+        bom = structureManager.nextUpgrade;
+        UIUpdate();
+    }
+
     private void UIUpdate()
     {
         if(bom.Data == null)
         {
+            maxText.SetActive(true);
             upgradeBtn.SetActive(false);
             UpgradeMaterialSlotsClear();
         }
@@ -38,7 +46,7 @@ public class UpgradeMenu : MonoBehaviour
             {
                 upgradeBtn.SetActive(false);
             }
-
+            maxText.SetActive(false);
             // 재료 슬롯 업데이트
             UpgradeMaterialSlotsUpdate();
 
@@ -70,12 +78,6 @@ public class UpgradeMenu : MonoBehaviour
         {
             upgradeMaterialSlots[i].gameObject.SetActive(false);       
         }
-    }
-
-    public void SetUpgradeUI(StructureManager structureManager)
-    {
-        bom = structureManager.nextUpgrade;
-        UIUpdate();
     }
 
     // 만들 수 있는지?

@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e217edf81cef7347ab5d2d27518c2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  structureName: House
   grade: 1
   maxHp: 20
   nextUpgrade:

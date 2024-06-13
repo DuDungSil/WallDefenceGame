@@ -46,12 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22213d09c1cb06f4385994eafde73aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Units: {fileID: 0}
+  structureName: Wall
   grade: 0
-  neededUnits: 0
-  hp: 0
+  maxHp: 0
   nextUpgrade:
     Data: {fileID: 0}
+  Units: {fileID: 0}
+  neededUnits: 0
 --- !u!114 &2948933410643088061
 MonoBehaviour:
   m_ObjectHideFlags: 0

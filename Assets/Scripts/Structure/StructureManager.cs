@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class StructureManager : MonoBehaviour
 {
     private XRSimpleInteractable interactable;
+    public string structureName;
     public int grade;
 
     [SerializeField]

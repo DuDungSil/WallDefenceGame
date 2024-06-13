@@ -76,12 +76,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fbc900031d0b244ad587d596ed889e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Units: {fileID: 6193631873473543476}
+  structureName: Attow Tower
   grade: 1
-  neededUnits: 1
   maxHp: 200
   nextUpgrade:
     Data: {fileID: 0}
+  Units: {fileID: 6193631873473543476}
+  neededUnits: 1
   shootingPoint: {fileID: 4742960497059464175}
   launchingPad: {fileID: 341748094996303221}
   projectile: {fileID: 3371757673885707070, guid: 25c3c4e332cfc894c81a27b0d8d434fb, type: 3}
@@ -674,7 +675,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 15
+  m_Radius: 24
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1221214076400266480
 PrefabInstance:

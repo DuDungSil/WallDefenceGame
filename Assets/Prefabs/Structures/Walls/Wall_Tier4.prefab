@@ -189,12 +189,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22213d09c1cb06f4385994eafde73aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Units: {fileID: 8304146771187279467, guid: 50b00d2ec08b1d74f81e0996cdf5c27f, type: 3}
+  structureName: Wall
   grade: 4
-  neededUnits: 1
-  maxHp: 400
+  maxHp: 2000
   nextUpgrade:
     Data: {fileID: 11400000, guid: 9352604d0f82c4c489b608f97a5848e4, type: 2}
+  Units: {fileID: 8304146771187279467, guid: 50b00d2ec08b1d74f81e0996cdf5c27f, type: 3}
+  neededUnits: 1
 --- !u!1001 &2615133684283016518
 PrefabInstance:
   m_ObjectHideFlags: 0

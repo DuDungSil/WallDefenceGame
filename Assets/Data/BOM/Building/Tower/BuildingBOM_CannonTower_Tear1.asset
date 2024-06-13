@@ -15,7 +15,7 @@ MonoBehaviour:
   craftName: Cannon Tower
   buildingImage: {fileID: 21300000, guid: f04223020abc7a641b2bec2dc3643356, type: 3}
   prefab: {fileID: 718433148593771475, guid: 12d36c2dd4230534183a85101ff86884, type: 3}
-  PreviewPrefab: {fileID: 718433148593771475, guid: f3221cfb33a48a645ad3306ff0587a8f, type: 3}
+  PreviewPrefab: {fileID: 718433148593771475, guid: a2537e77d63dc8642801676d24fdaa0d, type: 3}
   craftNeedItemDatas:
   - {fileID: 11400000, guid: e3aa78af6e8f2ef43b7c589a25825ad1, type: 2}
   craftNeedItemCount: 01000000

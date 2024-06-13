@@ -74,10 +74,10 @@ public class InteractionUIControl : MonoBehaviour
             }
         }
 
-        // 디스트로이 버튼
-        //DestroyMenu.GetComponent<DestroyMenu>().SetDestroyUI(structureManager);
+        // 디스트로이 메뉴
+        DestroyMenu.GetComponent<DestroyMenu>().SetDestroyUI(structureManager);
 
-        // 업그레이드 버튼
+        // 업그레이드 메뉴
         UpgradeMenu.GetComponent<UpgradeMenu>().SetUpgradeUI(structureManager);
         
     }
