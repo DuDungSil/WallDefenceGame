@@ -19,7 +19,7 @@ public abstract class MonsterManager : MonoBehaviour
         set { hp = value; }
     }
     //public StructureManager structureManager;
-    public bool IsDeath = false;
+    public bool isDeath = false;
     protected bool coroutineStarted = false; // Attacking 코루틴 제어용
     [SerializeField]
     protected float deathTime = 5f;
@@ -54,12 +54,12 @@ public abstract class MonsterManager : MonoBehaviour
     }
     public virtual void TakeDamage(float damage) //몬스터가 공격받았을 때에 데미지를 받는 함수, 하위 클래스에서 몬스터 특성에 따라 오버라이딩 가능
     {
-        if(!IsDeath)
+        if(!isDeath)
         {
             Hp = Hp - damage;
             if (Hp < 0 )
             {
-                IsDeath = true;
+                isDeath = true;
                 StartCoroutine(Death());
             }
         }
@@ -83,7 +83,7 @@ public abstract class MonsterManager : MonoBehaviour
     }
     void Update()
     {
-        if (!isAttack)
+        if (!isAttack && !isDeath)
         {
             // 목표 지점을 바라보게 함
             Vector3 direction = nexusPoint.transform.position - transform.position;

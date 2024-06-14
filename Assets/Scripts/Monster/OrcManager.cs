@@ -10,13 +10,13 @@ public abstract class OrcManager : MonsterManager
     {
         if(m_armor < damage) // 방어력이 데미지보다 큰경우는 제외
         {
-            if(!IsDeath)
+            if(!isDeath)
             {
                 Hp = Hp - damage + m_armor;
                 Debug.Log(Hp);
                 if(Hp <= 0)
                 {
-                    IsDeath = true;
+                    isDeath = true;
                     StartCoroutine(Death());
                 }
             }

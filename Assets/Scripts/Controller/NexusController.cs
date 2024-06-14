@@ -6,11 +6,18 @@ public class NexusController : Singleton<NexusController>
 {
     public GameObject[] attackPoint;
     [SerializeField]
-    protected float hp;
+    private float maxHp;
+    private float hp;
+    private Vector3 currentScale;
+    public GameObject hpBar;
     public float Hp
     {
         get { return hp; }
         private set { hp = value; }
+    }
+    void Start()
+    {
+        Hp = maxHp;
     }
     public void TakeDamage(float damage)
     {
@@ -22,6 +29,9 @@ public class NexusController : Singleton<NexusController>
             UIController.Instance.OpenGameover();
             Debug.Log("GameOver");
         }
+        currentScale = hpBar.transform.localScale;
+        currentScale.y = Hp / maxHp;
+        hpBar.transform.localScale = currentScale;
     }
     public void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("MonsterWeapon"))

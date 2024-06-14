@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damage: 50
+  projectileLifeTime: 5
 --- !u!1 &7440247507021327845
 GameObject:
   m_ObjectHideFlags: 0

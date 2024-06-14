@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4446567030750935561}
   - component: {fileID: 5526856463380481708}
   m_Layer: 0
-  m_Name: HpBar
+  m_Name: HpBar_Structure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

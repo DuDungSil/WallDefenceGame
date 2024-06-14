@@ -26,6 +26,27 @@ public class StructureManager : MonoBehaviour
     [SerializeField]
     public BuildingBOM nextUpgrade;
 
+    protected virtual void Start()
+    {
+        interactable = GetComponent<XRSimpleInteractable>();
+        if(InteractionManager.Instance != null && interactable != null)
+        {
+            interactable.selectEntered.AddListener((args) => InteractionManager.Instance.forBuildingInteraction(args));
+        }
+        else
+        {
+            if(InteractionManager.Instance == null)
+            {
+                Debug.LogWarning("InteractionUIControl is null");
+            }
+            if(interactable == null)
+            {
+                Debug.LogWarning("XRSimpleInteractable can't find");
+            }
+        }
+        
+    }
+
     public virtual void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("MonsterWeapon"))
         {
@@ -50,7 +71,7 @@ public class StructureManager : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         Hp = Hp - damage;
-        //Debug.Log(Hp);
+        Debug.Log(Hp);
         if (Hp <= 0)
         {
             Debug.Log(Hp);
@@ -62,7 +83,10 @@ public class StructureManager : MonoBehaviour
     
     public void Repair(float recovery)
     {
-        Hp = Hp + recovery;
+        if(Hp + recovery > MaxHp)
+            Hp = MaxHp;
+        else
+            Hp = Hp + recovery;
         OnStatusChanged();
     }
 
@@ -73,26 +97,6 @@ public class StructureManager : MonoBehaviour
         {
             nextUpgrade.Init();
         }
-    }
-    protected virtual void Start()
-    {
-        interactable = GetComponent<XRSimpleInteractable>();
-        if(InteractionManager.Instance != null && interactable != null)
-        {
-            interactable.selectEntered.AddListener((args) => InteractionManager.Instance.forBuildingInteraction(args));
-        }
-        else
-        {
-            if(InteractionManager.Instance == null)
-            {
-                Debug.LogWarning("InteractionUIControl is null");
-            }
-            if(interactable == null)
-            {
-                Debug.LogWarning("XRSimpleInteractable can't find");
-            }
-        }
-        
     }
     public virtual void Selfdestroy() // DestroyBtn의 이벤트함수
     {

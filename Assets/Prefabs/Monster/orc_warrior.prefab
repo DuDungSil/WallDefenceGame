@@ -1004,7 +1004,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 2.2
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &3098852841051337583
 GameObject:
@@ -1578,7 +1578,7 @@ MonoBehaviour:
   isAttack: 0
   nexusPoint: {fileID: 0}
   hp: 200
-  IsDeath: 0
+  isDeath: 0
   deathTime: 5
   attackTime: 2.267
   m_animator: {fileID: 5934363845922898857}
@@ -2724,29 +2724,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6531914101202471351, guid: a216a171257d27b48a5faf20c2a67475, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1080570098502435455}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a216a171257d27b48a5faf20c2a67475, type: 3}
---- !u!1 &1082332726698185964 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6531914101202471351, guid: a216a171257d27b48a5faf20c2a67475, type: 3}
-  m_PrefabInstance: {fileID: 6170831599184764251}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1080570098502435455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082332726698185964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7a32737d77d7cb4e8fab707febe0f33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_damage: 10
 --- !u!4 &4151951320572057653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7799534300944172398, guid: a216a171257d27b48a5faf20c2a67475, type: 3}
