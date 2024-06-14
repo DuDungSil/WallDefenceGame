@@ -555,7 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 120
   speed: 40
-  range: 800
+  range: 400
   coolTime: 0
   useAmmo: 0
   maxAmmo: 0
@@ -565,7 +565,7 @@ MonoBehaviour:
   lastCoolTime: 0
   arrow: {fileID: 1972412340145350611, guid: c96e9e44c00fcd34787ae6d781344276, type: 3}
   notch: {fileID: 1839543692531987200}
-  arrowSpawnDelay: 1
+  arrowSpawnDelay: 0.8
   additionalTime: 2
 --- !u!1 &4703505284261762673
 GameObject:

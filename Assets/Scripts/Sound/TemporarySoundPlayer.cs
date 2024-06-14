@@ -24,9 +24,8 @@ public class TemporarySoundPlayer : MonoBehaviour
     {
         mAudioSource.outputAudioMixerGroup = audioMixer;
         mAudioSource.loop = isLoop;
-        mAudioSource.Play();
-
-        if (!isLoop) { StartCoroutine(COR_DestroyWhenFinish(mAudioSource.clip.length)); }
+        
+        StartCoroutine(COR_PlayWithDelay(delay, isLoop));
     }
 
     public void InitSound2D(AudioClip clip)
@@ -41,6 +40,18 @@ public class TemporarySoundPlayer : MonoBehaviour
         mAudioSource.rolloffMode = AudioRolloffMode.Linear;
         mAudioSource.minDistance = minDistance;
         mAudioSource.maxDistance = maxDistance;
+    }
+
+    private IEnumerator COR_PlayWithDelay(float delay, bool isLoop)
+    {
+        yield return new WaitForSeconds(delay);
+
+        mAudioSource.Play();
+
+        if (!isLoop)
+        {
+            StartCoroutine(COR_DestroyWhenFinish(mAudioSource.clip.length));
+        }
     }
 
     private IEnumerator COR_DestroyWhenFinish(float clipLength)

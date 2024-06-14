@@ -8,16 +8,40 @@ public class NexusController : Singleton<NexusController>
     [SerializeField]
     private float maxHp;
     private float hp;
+    [SerializeField]
+    private float recoveryAmount;
+    [SerializeField]
+    private float recoveryTime;  
     private Vector3 currentScale;
     public GameObject hpBar;
+    public Material redMaterial;
+    public Material greenMaterial;
+    public Renderer currentHpRenderer;
+
+    // 제어변수
+    private bool isRecoveryCooltime = false;
+
     public float Hp
     {
         get { return hp; }
-        private set { hp = value; }
+        private set { hp = Mathf.Min(value, maxHp); }
     }
     void Start()
     {
         Hp = maxHp;
+    }
+    void Update()
+    {
+        // 자연치유 코드
+        if(hp < maxHp)
+        {
+            if(!isRecoveryCooltime)
+            {
+                Recovery(recoveryAmount);
+                isRecoveryCooltime = true;
+                StartCoroutine(ActivateRecoveryCooltime());
+            }
+        }
     }
     public void TakeDamage(float damage)
     {
@@ -29,11 +53,19 @@ public class NexusController : Singleton<NexusController>
             UIController.Instance.OpenGameover();
             Debug.Log("GameOver");
         }
-        currentScale = hpBar.transform.localScale;
-        currentScale.y = Hp / maxHp;
-        hpBar.transform.localScale = currentScale;
+        UpdateHpBar();
     }
-    public void OnTriggerEnter(Collider other) {
+    public void Recovery(float recovery)
+    {
+        if(Hp + recovery > maxHp)
+            Hp = maxHp;
+        else
+            Hp = Hp + recovery;
+        Debug.Log(Hp);
+        UpdateHpBar();
+    }
+    public void OnTriggerEnter(Collider other) 
+    {
         if(other.gameObject.layer == LayerMask.NameToLayer("MonsterWeapon"))
         {
             MonsterWeaponDamage monsterWeaponDamage = other.GetComponent<MonsterWeaponDamage>();
@@ -44,5 +76,26 @@ public class NexusController : Singleton<NexusController>
             MonsterWeaponDamage monsterWeaponDamage = other.gameObject.transform.root.GetComponent<MonsterWeaponDamage>();
             TakeDamage(monsterWeaponDamage.m_damage);
         }
+    }
+
+    void UpdateHpBar()
+    {
+        currentScale = hpBar.transform.localScale;
+        currentScale.y = Hp / maxHp;
+        hpBar.transform.localScale = currentScale;
+        if(hp != maxHp) setColor(currentHpRenderer, "Red");
+        else setColor(currentHpRenderer, "Green");
+    }
+
+    void setColor(Renderer _renderer, string _color)
+    {
+        if(_color.Equals("Red")) _renderer.material = redMaterial;
+        else if (_color.Equals("Green")) _renderer.material = greenMaterial;
+    }
+
+    protected IEnumerator ActivateRecoveryCooltime()
+    {
+        yield return new WaitForSeconds(recoveryTime);
+        isRecoveryCooltime = false;
     }
 }

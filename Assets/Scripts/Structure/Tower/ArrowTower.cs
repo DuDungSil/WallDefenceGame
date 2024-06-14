@@ -29,5 +29,7 @@ public class ArrowTower : TowerManager
         // 물리속성 설정
         Rigidbody r = spawnedProjectile.GetComponent<Rigidbody>();
         r.AddForce(monsterDirection * m_projectileSpeed, ForceMode.Impulse);
+
+        SoundController.Instance.PlaySound3D("ArrowTower_shoot", gameObject.transform);
     }
 }

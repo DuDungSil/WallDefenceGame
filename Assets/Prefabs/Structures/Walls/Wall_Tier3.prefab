@@ -192,7 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structureName: Wall
   grade: 3
-  maxHp: 1200
+  maxHp: 800
   nextUpgrade:
     Data: {fileID: 11400000, guid: 1acc327d4be08024cb9cf2d8028d34ce, type: 2}
   Units: {fileID: 1602095654906207831}

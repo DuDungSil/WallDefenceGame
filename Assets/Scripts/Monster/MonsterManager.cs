@@ -25,6 +25,15 @@ public abstract class MonsterManager : MonoBehaviour
     protected float deathTime = 5f;
     [SerializeField]
     protected float attackTime = 2.267f;
+
+    // 아이템 드롭 관련
+    [SerializeField] 
+    protected ResourceItemData[] dropItems;
+    [SerializeField] 
+    protected float[] dropItemChances;
+    private float[] cumulativeProbabilities;
+    private float totalProbability;
+
     protected GameObject encounteredStructure; //몬스터의 사거리 내에 들어온 벽 혹은 타워
     //protected StructureManager structureManager;
     public Animator m_animator;
@@ -60,6 +69,7 @@ public abstract class MonsterManager : MonoBehaviour
             if (Hp < 0 )
             {
                 isDeath = true;
+                DropItem();
                 StartCoroutine(Death());
             }
         }
@@ -67,6 +77,7 @@ public abstract class MonsterManager : MonoBehaviour
     public IEnumerator Death() //몬스터가 죽는 코루틴, 몬스터의 사망 애니메이션의 길이에 따라 deathTime을 조절하면 될듯.
     {
         m_animator.SetTrigger("DeathTrigger");
+        SoundController.Instance.PlaySound3D("Monster_death", gameObject.transform);
         yield return new WaitForSeconds(deathTime);
         Destroy(gameObject);
     }
@@ -74,6 +85,8 @@ public abstract class MonsterManager : MonoBehaviour
 
     void Start()
     {
+        CalculateProbabilities();
+
         if(nexusPoint != null)
         {
             transform.LookAt(nexusPoint.transform.position); // 몬스터 생성시 넥서스 위치를 바라보도록 함
@@ -100,4 +113,32 @@ public abstract class MonsterManager : MonoBehaviour
         }
     }
 
+    public void DropItem()
+    {
+        float randomValue = UnityEngine.Random.Range(0f, 1f);
+        float adjustedRandomValue = randomValue * (totalProbability + (1 - totalProbability) * 0.7f);
+
+        for (int i = 0; i < dropItems.Length; i++)
+        {
+            if (adjustedRandomValue < cumulativeProbabilities[i])
+            {
+                // 아이템 드롭 o
+                ResourceDatabase.Instance.AddItem((ResourceItem)dropItems[i].CreateItem(), 1);
+            }
+        }
+
+        // 아이템 드롭 x
+    }
+
+    protected void CalculateProbabilities()
+    {
+        cumulativeProbabilities = new float[dropItems.Length];
+        totalProbability = 0f;
+
+        for (int i = 0; i < dropItems.Length; i++)
+        {
+            totalProbability += dropItemChances[i];
+            cumulativeProbabilities[i] = totalProbability;
+        }
+    }
 }

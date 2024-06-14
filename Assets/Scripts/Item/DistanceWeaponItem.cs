@@ -12,7 +12,7 @@ public abstract class DistanceWeaponItem : WeaponItem
     // 마지막 슛 시간
     public float lastShootTime;
     // 마지막 쿨타임 시간
-    public float lastTime;
+    public float lastCoolTime;
     // 장착 해제시 쿨타임이었는지
     public bool isCoolTime;
 
@@ -21,7 +21,7 @@ public abstract class DistanceWeaponItem : WeaponItem
         distanceWeaponData = data;
         remainAmmo = -1;
         lastShootTime = 0f;
-        lastTime = 0f;
+        lastCoolTime = 0f;
         isCoolTime = false;
     }
     

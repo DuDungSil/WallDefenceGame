@@ -59,8 +59,6 @@ public class AssignUnitStructureManager : StructureManager
         GameObject upgradeObj = Instantiate(nextUpgrade.Data.prefab, gameObject.transform.position, gameObject.transform.rotation);
         ResourceDatabase.Instance.DecreaseResource(nextUpgrade.craftNeedItems, nextUpgrade.Data.craftNeedItemCount);
         // 할당된 unit을 UnitController에 돌려주는 코드
-        if(isAssigned)
-            UnitController.Instance.RemoveUnits(NeededUnits);
 
         
         return upgradeObj;

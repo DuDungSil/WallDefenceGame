@@ -337,10 +337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9f5dd26311d824c8e7dd85ef934ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 150
   speed: 30
   range: 60
-  coolTime: 5
+  coolTime: 4
   useAmmo: 0
   maxAmmo: 0
   remainAmmo: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   lastCoolTime: 0
   firePos: {fileID: 8249401582007798126}
   MagicProjectile: {fileID: 2140198449576399939, guid: a4ea93c75d9ce564a8219addb377a0c3, type: 3}
-  maxChargingTime: 3
+  maxChargingTime: 4
   minPower: 0
 --- !u!1001 &4362617642560072305
 PrefabInstance:

@@ -9,6 +9,7 @@ public class ToolControl : MonoBehaviour
     public float value;
     public float coolTime;
     public float magnitudeThreshold;
+    public string toolSound;
 
     private float magnitude; // 속도의 크기
     private bool isCoolTime = false;
@@ -39,6 +40,8 @@ public class ToolControl : MonoBehaviour
         {
             isCoolTime = true;
             StartCoroutine(ActivateCooltime());
+
+            SoundController.Instance.PlaySound3D(toolSound, gameObject.transform);
             return true;
         }
         else

@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoltCointol : ProjectileControl
+public class BoltContol : ProjectileControl
 {
     // 회전 속도
+    public bool isCollision = false;
     public float rotationSpeed = 10f;
+    private int maxPierces = 1; // Maximum number of targets the bullet can pierce through
+    private int currentPierces = 0; // Current number of targets pierced through
 
     void Start()
     {
@@ -20,5 +23,42 @@ public class BoltCointol : ProjectileControl
 
         // 오브젝트를 회전시킵니다
         transform.Rotate(randomAxis, rotationSpeed * Time.deltaTime);
+    }
+
+    public void SetMaxPierces(int num)
+    {
+        maxPierces = num;
+    }
+    public void SetCollision(bool b)
+    {
+        isCollision = b;
+    }
+
+    new void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        {
+            if(isCollision) Destroy(gameObject);
+        }
+        if(other.gameObject.layer == LayerMask.NameToLayer("Monster"))
+        {
+            if(isCollision)
+            {
+                currentPierces++;
+
+                SoundController.Instance.PlaySound3D("Bolt_hit", gameObject.transform, 0f, false, SoundType.SFX, false);
+
+                if (currentPierces >= maxPierces)
+                {
+                    Destroy(gameObject);
+                    return;
+                }   
+
+            }
+        }
+        if(other.gameObject.layer == LayerMask.NameToLayer("Bulidable"))
+        {
+            if(isCollision) Destroy(gameObject);
+        }  
     }
 }

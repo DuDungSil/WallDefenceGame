@@ -17,5 +17,6 @@ MonoBehaviour:
   prefab: {fileID: 4652906109305257286, guid: 4bb2f4080f46a6f47869738876eb676f, type: 3}
   PreviewPrefab: {fileID: 0}
   craftNeedItemDatas:
+  - {fileID: 11400000, guid: e56a9a7090868d14ab5c033ee85505df, type: 2}
   - {fileID: 11400000, guid: e3aa78af6e8f2ef43b7c589a25825ad1, type: 2}
-  craftNeedItemCount: 01000000
+  craftNeedItemCount: 0a0000000a000000

@@ -25,8 +25,9 @@ public class Staff : DistanceWeanponControl
     // 실제 생성 프리팹
     // 범위 프리팹
 
-    void Start()
+    new void Start()
     {
+        base.Start();
         _spellRange = Instantiate(spellRange, gameObject.transform.position, Quaternion.identity);
         _spellRange.SetActive(false);
         canCastSpell = false;

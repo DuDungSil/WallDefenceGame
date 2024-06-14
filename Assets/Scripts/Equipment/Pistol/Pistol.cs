@@ -20,7 +20,6 @@ public class Pistol : DistanceWeanponControl
             if(remainAmmo < maxAmmo)
             {
                 Reload();
-                OnStatusChanged();
             }
 
         }

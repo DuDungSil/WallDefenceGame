@@ -18,10 +18,11 @@ public class Bow : DistanceWeanponControl
     private GameObject _currentArrow = null;
 
 
-    void Start()
+    new void Start()
     {
-            _bow = GetComponent<XRGrabInteractable>();
-            PullInteraction.PullActionReleased += NotchEmpty;    
+        base.Start();
+        _bow = GetComponent<XRGrabInteractable>();
+        PullInteraction.PullActionReleased += NotchEmpty;    
     }
 
     private void OnDestroy()
@@ -74,5 +75,7 @@ public class Bow : DistanceWeanponControl
 
         // 투사체 제거 시간 ( 사거리 / 속도 )
         _currentArrow.GetComponent<ArrowControl>().additionalTime = additionalTime;
+
+        SoundController.Instance.PlaySound3D("Arrow_spawn", gameObject.transform);
     }
 }

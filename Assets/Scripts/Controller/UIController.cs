@@ -219,7 +219,7 @@ public class UIController : Singleton<UIController>
         HandController.Instance.DeleteEquipObject();
         HandController.Instance.SetUIController();
 
-        DisplayUI(m_GameOverCanvas);
+        m_GameOverCanvas.SetActive(true);
     }  
 
     public void OpenGameClear()
@@ -248,7 +248,7 @@ public class UIController : Singleton<UIController>
         HandController.Instance.DeleteEquipObject();
         HandController.Instance.SetUIController();
 
-        DisplayUI(m_GameClearCanvas);
+        m_GameClearCanvas.SetActive(true);
     }
 
     public void DisplayUI(GameObject canvas)

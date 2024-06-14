@@ -10,8 +10,7 @@ public class UnitController : Singleton<UnitController>
     public TextMeshProUGUI maxUnitTxt;
     public TextMeshProUGUI assignedUnitTxt;
     void Start()
-    {
-        
+    {      
     }
 
     // Update is called once per frame

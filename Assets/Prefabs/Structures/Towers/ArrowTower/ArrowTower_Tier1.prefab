@@ -117,8 +117,8 @@ MonoBehaviour:
   shootingPoint: {fileID: 4742960497059464175}
   launchingPad: {fileID: 4509086395675354434}
   projectile: {fileID: 3371757673885707070, guid: 25c3c4e332cfc894c81a27b0d8d434fb, type: 3}
-  shootDelay: 3
-  m_projectileSpeed: 20
+  shootDelay: 2
+  m_projectileSpeed: 30
 --- !u!65 &2158994094866910375
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -29,6 +29,8 @@ public class CannonTower : TowerManager
         Rigidbody rb = spawnedProjectile.GetComponent<Rigidbody>();
 
         rb.velocity = GetVelocity(shootingPoint.transform.position, monsterPos, 0f);
+
+        SoundController.Instance.PlaySound3D("CannonTower_shoot", gameObject.transform);
     }
 
     public Vector3 GetVelocity(Vector3 player, Vector3 target, float initialAngle)

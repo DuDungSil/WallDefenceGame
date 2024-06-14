@@ -14,9 +14,9 @@ public class ResourceDatabase : Singleton<ResourceDatabase>
 
     void Start()
     {
-        AddItem((ResourceItem)wood.CreateItem(), 30);
-        AddItem((ResourceItem)stone.CreateItem(), 30);
-        //AddItem((ResourceItem)iron.CreateItem(), 30);
+        AddItem((ResourceItem)wood.CreateItem(), 100);
+        AddItem((ResourceItem)stone.CreateItem(), 100);
+        AddItem((ResourceItem)iron.CreateItem(), 4);
     }
 
     void Update()

@@ -94,6 +94,8 @@ public class ArrowControl : ProjectileControl
                 body.AddForce(_rigidbody.velocity, ForceMode.Impulse);
             }
             Stop();
+
+            if(hitlayer == 8) SoundController.Instance.PlaySound3D("Arrow_hit", gameObject.transform, 0, false, SoundType.SFX, true, 0, 50);
         }
     }
 
@@ -121,12 +123,24 @@ public class ArrowControl : ProjectileControl
     {
         _inAir = false;
         SetPhysics(false);
-        damage = 0;
+        DisableCollider();
     }
 
     private void SetPhysics(bool usePhysics)
     {
         _rigidbody.useGravity = usePhysics;
         _rigidbody.isKinematic = !usePhysics;
+    }
+
+    private void DisableCollider()
+    {
+        foreach (Transform child in gameObject.transform)
+        {
+            Collider collider = child.GetComponent<Collider>();
+            if (collider != null)
+            {
+                collider.enabled = true;
+            }
+        }
     }
 }

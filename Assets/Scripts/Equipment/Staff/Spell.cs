@@ -18,6 +18,7 @@ public class Spell : ProjectileControl
         
         StartCoroutine(TickDelay());
         
+        SoundController.Instance.PlaySound3D("Spell_meteor", gameObject.transform, 0.5f, true, SoundType.SFX, true, 50, 100);
     }
 
     // Update is called once per frame

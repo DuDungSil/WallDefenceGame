@@ -53,17 +53,15 @@ public class HandController : Singleton<HandController>
             if(equipItem is DistanceWeaponItem)
             {
                 // 장착중인 장비의 쿨타임, 탄환 수 저장하는 코드 추가 필요
-                DistanceWeanponControl rangedWeaponControl = equipObj.GetComponent<DistanceWeanponControl>();
-                ((DistanceWeaponItem)equipItem).remainAmmo = rangedWeaponControl.remainAmmo;
-                ((DistanceWeaponItem)equipItem).lastShootTime = rangedWeaponControl.lastShootTime;
-                ((DistanceWeaponItem)equipItem).lastTime = rangedWeaponControl.lastCoolTime;
-                ((DistanceWeaponItem)equipItem).isCoolTime = rangedWeaponControl.isCoolTime;
+                DistanceWeanponControl distanceWeaponControl = equipObj.GetComponent<DistanceWeanponControl>();
+                ((DistanceWeaponItem)equipItem).remainAmmo = distanceWeaponControl.remainAmmo;
+                ((DistanceWeaponItem)equipItem).lastShootTime = distanceWeaponControl.lastShootTime;
+                ((DistanceWeaponItem)equipItem).lastCoolTime = distanceWeaponControl.lastCoolTime;
+                ((DistanceWeaponItem)equipItem).isCoolTime = distanceWeaponControl.isCoolTime;
                 QuickSlotsDatabase.Instance.saveQuickslotsItem(quickIndex, equipItem);
             }
 
 
-
-            // HUD를 끄는 코드 추가 필요 (equipObj객체 정보를 넘겨줌)
             Destroy(equipObj);
         }
     }
@@ -96,7 +94,8 @@ public class HandController : Singleton<HandController>
             DistanceWeanponControl ditanceWeaponControl = equipObj.GetComponent<DistanceWeanponControl>();
             ditanceWeaponControl.lastShootTime = ((DistanceWeaponItem)equipItem).lastShootTime;
             ditanceWeaponControl.isCoolTime = ((DistanceWeaponItem)equipItem).isCoolTime;
-            ditanceWeaponControl.LoadData(((DistanceWeaponItem)equipItem).lastTime, ((DistanceWeaponItem)equipItem).remainAmmo);
+            ditanceWeaponControl.lastCoolTime = ((DistanceWeaponItem)equipItem).lastCoolTime;
+            ditanceWeaponControl.remainAmmo = ((DistanceWeaponItem)equipItem).remainAmmo;
         }
 
         if(equipItem is ToolItem)
@@ -104,6 +103,5 @@ public class HandController : Singleton<HandController>
 
         }    
 
-        // HUD를 키는 코드 추가 필요 (equipObj객체 정보를 넘겨줌)
     }
 }

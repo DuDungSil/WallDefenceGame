@@ -426,10 +426,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396ed139064173d429d7a0ad851ae56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 300
   speed: 0
   range: 100
-  coolTime: 10
+  coolTime: 20
   useAmmo: 0
   maxAmmo: 0
   remainAmmo: 0

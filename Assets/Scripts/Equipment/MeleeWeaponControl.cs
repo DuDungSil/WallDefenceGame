@@ -7,6 +7,7 @@ public class MeleeWeaponControl : MonoBehaviour
     public float damage;
     public float coolTime;
     public float magnitudeThreshold;
+    public string hitSound;
 
     private float magnitude; // 속도의 크기
     private bool isCoolTime = false;
@@ -36,6 +37,7 @@ public class MeleeWeaponControl : MonoBehaviour
         {
             isCoolTime = true;
             StartCoroutine(ActivateCooltime());
+            SoundController.Instance.PlaySound3D(hitSound, gameObject.transform);
             return true;
         }
         else

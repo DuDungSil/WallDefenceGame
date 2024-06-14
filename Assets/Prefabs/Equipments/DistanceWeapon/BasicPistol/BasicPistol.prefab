@@ -327,19 +327,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714143fb9141e1c4c93c1c3890bd4303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
   speed: 30
   range: 120
   coolTime: 3
   useAmmo: 1
-  maxAmmo: 5
+  maxAmmo: 10
   remainAmmo: 0
   lastShootTime: 0
   isCoolTime: 0
   lastCoolTime: 0
   firePos: {fileID: 4301522439257950146}
   bullet: {fileID: 696698505540791595, guid: 272992b6e9954334daca6c1e3cc9bea4, type: 3}
-  shootDelay: 0.2
+  shootDelay: 0.15
 --- !u!1 &8830091185625508440
 GameObject:
   m_ObjectHideFlags: 0

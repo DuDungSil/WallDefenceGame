@@ -17,6 +17,7 @@ public abstract class OrcManager : MonsterManager
                 if(Hp <= 0)
                 {
                     isDeath = true;
+                    DropItem();
                     StartCoroutine(Death());
                 }
             }

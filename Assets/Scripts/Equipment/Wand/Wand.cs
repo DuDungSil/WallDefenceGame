@@ -18,8 +18,9 @@ public class Wand : DistanceWeanponControl
     private bool isCharging;
     private float ChargingStartTime;
 
-    void Start()
+    new void Start()
     {
+        base.Start();
         isCharging = false;
     }
 
@@ -39,6 +40,7 @@ public class Wand : DistanceWeanponControl
                 isCharging = false;
                 isCoolTime = true;
                 StartCoroutine(ActivateCooldown(coolTime));
+                SoundController.Instance.StopLoopSound("Wand_casting");
             }
             else
             {
@@ -71,6 +73,9 @@ public class Wand : DistanceWeanponControl
             _MagicProjectile = Instantiate(MagicProjectile, firePos.transform.position, Quaternion.identity);
             _MagicProjectile.transform.localScale = new Vector3(Power, Power, Power);
             // 투사체 컨트롤 스크립트
+            _MagicProjectile.GetComponent<BoltContol>().SetCollision(false);
+
+            SoundController.Instance.PlaySound3D("Wand_casting", gameObject.transform, 0f, true);
         }
     }
 
@@ -86,11 +91,19 @@ public class Wand : DistanceWeanponControl
             // 투사체 제거 시간 ( 사거리 / 속도 )
             _MagicProjectile.GetComponent<ProjectileControl>().setLifeTime(range / speed);
 
+            if(Power == 1) _MagicProjectile.GetComponent<BoltContol>().SetMaxPierces(3);
+            else _MagicProjectile.GetComponent<BoltContol>().SetMaxPierces(1);
+
+            _MagicProjectile.GetComponent<BoltContol>().SetCollision(true);
+
             // 물리속성 설정 ( 발사 )
             Rigidbody r = _MagicProjectile.GetComponent<Rigidbody>();
             r.AddForce(firePos.forward * speed, ForceMode.Impulse);
 
             StartCoroutine(ActivateCooldown(coolTime));
+
+            SoundController.Instance.StopLoopSound("Wand_casting");
+            SoundController.Instance.PlaySound3D("Wand_fire", gameObject.transform);
         }
     }
 }

@@ -1577,10 +1577,14 @@ MonoBehaviour:
   speed: 3
   isAttack: 0
   nexusPoint: {fileID: 0}
-  hp: 200
+  hp: 180
   isDeath: 0
   deathTime: 5
   attackTime: 2.267
+  dropItems:
+  - {fileID: 11400000, guid: 9dc714b865597ad4db540bda53dbe809, type: 2}
+  dropItemChances:
+  - 0.2
   m_animator: {fileID: 5934363845922898857}
   m_armor: 0
 --- !u!114 &7127383567922966760

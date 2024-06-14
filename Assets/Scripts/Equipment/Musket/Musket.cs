@@ -19,11 +19,6 @@ public class Musket : DistanceWeanponControl
     private bool shootActivate = true;
 
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         float timeSinceLastShot = Time.time - lastShootTime;
@@ -32,7 +27,6 @@ public class Musket : DistanceWeanponControl
             if(remainAmmo < maxAmmo)
             {
                 Reload();
-                OnStatusChanged();
             }
         }
     }
