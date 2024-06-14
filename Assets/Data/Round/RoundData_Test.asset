@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _roundNum: 0
   _monsters:
-  - {fileID: 9222033505249894238, guid: 2adc1236ef5c4c84183bbef2b44ac683, type: 3}
+  - {fileID: 3261378889428465889, guid: decff0d8bb09c8e4982f0e409daab54f, type: 3}
   _monstersWeights:
   - 1
   _eliteMonsters:
