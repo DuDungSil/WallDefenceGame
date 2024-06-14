@@ -9,14 +9,24 @@ public class ResourceDatabase : Singleton<ResourceDatabase>
     public ResourceItemData wood;
     public ResourceItemData stone;
     public ResourceItemData iron;
+    public ResourceItemData manadust;
 
+    [Range(0,9999)]
+    public int startWood;
+    [Range(0,9999)]
+    public int startStone;
+    [Range(0,9999)]
+    public int startIron;
+    [Range(0,9999)]
+    public int startManadust;
     List<ResourceItem> resources = new List<ResourceItem>();
 
     void Start()
     {
-        AddItem((ResourceItem)wood.CreateItem(), 100);
-        AddItem((ResourceItem)stone.CreateItem(), 100);
-        AddItem((ResourceItem)iron.CreateItem(), 4);
+        if(startWood != 0) AddItem((ResourceItem)wood.CreateItem(), startWood);
+        if(startStone != 0) AddItem((ResourceItem)stone.CreateItem(), startStone);
+        if(startIron != 0) AddItem((ResourceItem)iron.CreateItem(), startIron);
+        if(startManadust != 0) AddItem((ResourceItem)manadust.CreateItem(), startManadust);
     }
 
     void Update()

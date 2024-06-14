@@ -15,5 +15,5 @@ MonoBehaviour:
   craftName: Wand
   itemdata: {fileID: 11400000, guid: c483db6911e9a6044879d9241c3b2bc9, type: 2}
   craftNeedItemDatas:
-  - {fileID: 11400000, guid: e3aa78af6e8f2ef43b7c589a25825ad1, type: 2}
+  - {fileID: 11400000, guid: 270de74a91a1234468d4de37f1e12950, type: 2}
   craftNeedItemCount: 01000000

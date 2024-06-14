@@ -427,6 +427,11 @@ MonoBehaviour:
   wood: {fileID: 11400000, guid: e56a9a7090868d14ab5c033ee85505df, type: 2}
   stone: {fileID: 11400000, guid: e3aa78af6e8f2ef43b7c589a25825ad1, type: 2}
   iron: {fileID: 11400000, guid: 9dc714b865597ad4db540bda53dbe809, type: 2}
+  manadust: {fileID: 11400000, guid: 270de74a91a1234468d4de37f1e12950, type: 2}
+  startWood: 100
+  startStone: 100
+  startIron: 2
+  startManadust: 2
 --- !u!114 &22372342
 MonoBehaviour:
   m_ObjectHideFlags: 0
