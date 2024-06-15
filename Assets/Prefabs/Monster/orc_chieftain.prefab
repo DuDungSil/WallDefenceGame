@@ -1967,7 +1967,7 @@ MonoBehaviour:
   nexusPoint: {fileID: 0}
   hp: 100
   isDeath: 0
-  deathTime: 4
+  deathTime: 5
   attackTime: 2
   dropItems:
   - {fileID: 11400000, guid: 9dc714b865597ad4db540bda53dbe809, type: 2}

@@ -48,19 +48,34 @@ public class TimeController : Singleton<TimeController>
     private void UpdateDayNight()
     {
         if(IsNight)
+        {
+            currentRound++;
+            if(currentRound > rounds.Length)
             {
-                currentRound++;
+                UIController.Instance.OpenGameover();
+            }
+            else
+            {
                 time = rounds[currentRound - 1].Data.RoundDayTime;
                 IsNight = false;
                 sunLight.transform.rotation = Quaternion.Euler(50.0f,-30.0f,0);
                 m_dayNightImage.sprite = m_sprites[0];
             }
-            else{
+        }
+        else
+        {
+            if(currentRound == rounds.Length)
+            {
+                UIController.Instance.OpenGameover();
+            }
+            else
+            {
                 time = rounds[currentRound - 1].Data.RoundNightTime;
                 NightActivate();
                 IsNight = true;
                 sunLight.transform.rotation = Quaternion.Euler(270.0f,-30.0f,0);
                 m_dayNightImage.sprite = m_sprites[1];
             }
+        }
     }
 }
