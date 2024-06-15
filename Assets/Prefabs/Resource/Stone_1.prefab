@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceData: {fileID: 11400000, guid: e3aa78af6e8f2ef43b7c589a25825ad1, type: 2}
-  getResourceNum: 3
+  getResourceNum: 5
   resourceGetTime: 10
 --- !u!114 &9125493122112419940
 MonoBehaviour:

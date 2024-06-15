@@ -192,13 +192,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structureName: Wall
   grade: 4
-  maxHp: 800
+  maxHp: 1600
   nextUpgrade:
     Data: {fileID: 11400000, guid: 9352604d0f82c4c489b608f97a5848e4, type: 2}
   Units: {fileID: 3143408476469469087}
   neededUnits: 1
-  repairTime: 0
-  repairAmount: 0
+  repairTime: 5
+  repairAmount: 160
 --- !u!1001 &1799708290882533246
 PrefabInstance:
   m_ObjectHideFlags: 0

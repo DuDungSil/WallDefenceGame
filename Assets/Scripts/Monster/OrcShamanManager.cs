@@ -68,7 +68,7 @@ public class OrcShamanManager : OrcManager
                 yield break; //코루틴 종료
             }
             magicCircle.GetComponent<Collider>().enabled = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
             magicCircle.GetComponent<Collider>().enabled = false;
             yield return new WaitForSeconds(attackTime);
             

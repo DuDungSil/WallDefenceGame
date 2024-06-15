@@ -431,7 +431,7 @@ MonoBehaviour:
   startWood: 150
   startStone: 150
   startIron: 4
-  startManadust: 3
+  startManadust: 0
 --- !u!114 &22372342
 MonoBehaviour:
   m_ObjectHideFlags: 0

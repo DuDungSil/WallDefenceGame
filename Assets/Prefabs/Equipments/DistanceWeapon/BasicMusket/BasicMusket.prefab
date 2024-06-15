@@ -310,7 +310,7 @@ MonoBehaviour:
   bullet: {fileID: 696698505540791595, guid: 272992b6e9954334daca6c1e3cc9bea4, type: 3}
   shootDelay: 0.4
   pelletCount: 20
-  spreadAngle: 7
+  spreadAngle: 6
 --- !u!1 &3561801874895584729
 GameObject:
   m_ObjectHideFlags: 0

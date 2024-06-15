@@ -15,5 +15,6 @@ MonoBehaviour:
   craftName: FireStaff
   itemdata: {fileID: 11400000, guid: 064306fae83273343af46c7e067516bc, type: 2}
   craftNeedItemDatas:
+  - {fileID: 11400000, guid: e56a9a7090868d14ab5c033ee85505df, type: 2}
   - {fileID: 11400000, guid: 270de74a91a1234468d4de37f1e12950, type: 2}
-  craftNeedItemCount: 02000000
+  craftNeedItemCount: 0a00000002000000
