@@ -24,7 +24,7 @@ MonoBehaviour:
   _eliteMonsters:
   - {fileID: 2164376215466303795, guid: a0a4c1549a0fe774690262b6d9102080, type: 3}
   _respawnTime: 5
-  _roundDayTime: 180
+  _roundDayTime: 240
   _roundNightTime: 120
   _maxSpawnNum: 80
   _monsterNumVariable: 2

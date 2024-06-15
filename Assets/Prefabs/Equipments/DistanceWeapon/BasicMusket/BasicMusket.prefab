@@ -299,7 +299,7 @@ MonoBehaviour:
   damage: 150
   speed: 30
   range: 60
-  coolTime: 4
+  coolTime: 3.5
   useAmmo: 1
   maxAmmo: 2
   remainAmmo: 0
