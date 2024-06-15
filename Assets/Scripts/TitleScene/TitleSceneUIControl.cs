@@ -17,8 +17,8 @@ public class TitleSceneUIControl : MonoBehaviour
 
     public void GameStart()
     {
-        SceneManager.LoadScene("MainScene");
         Time.timeScale = 1;
+        LoadingSceneManager.LoadScene("MainScene");
     }
 
     public void ClickSettingBtn()
