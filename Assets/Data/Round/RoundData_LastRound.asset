@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 485f2fa1ac7b2f6429a47e86ffa69294, type: 3}
-  m_Name: RoundData_round1
+  m_Name: RoundData_LastRound
   m_EditorClassIdentifier: 
-  _roundNum: 1
-  _monsters:
-  - {fileID: 9222033505249894238, guid: 2adc1236ef5c4c84183bbef2b44ac683, type: 3}
-  _monstersWeights:
-  - 1
+  _roundNum: 4
+  _monsters: []
+  _monstersWeights: []
   _eliteMonsters: []
-  _respawnTime: 5
-  _roundDayTime: 120
-  _roundNightTime: 60
-  _maxSpawnNum: 20
-  _monsterNumVariable: 2
+  _respawnTime: 0
+  _roundDayTime: 180
+  _roundNightTime: 0
+  _maxSpawnNum: 0
+  _monsterNumVariable: 0

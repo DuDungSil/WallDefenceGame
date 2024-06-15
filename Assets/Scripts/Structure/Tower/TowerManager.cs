@@ -33,7 +33,7 @@ public abstract class TowerManager : AssignUnitStructureManager
                 }
                 else
                 {
-                    if(target == null)
+                    if(target == null || target.GetComponent<MonsterManager>().isDeath == true) // target이 죽어도 변경하도록
                     {
                         if(monsterQueue.Count > 0)
                         {

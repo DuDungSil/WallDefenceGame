@@ -428,10 +428,10 @@ MonoBehaviour:
   stone: {fileID: 11400000, guid: e3aa78af6e8f2ef43b7c589a25825ad1, type: 2}
   iron: {fileID: 11400000, guid: 9dc714b865597ad4db540bda53dbe809, type: 2}
   manadust: {fileID: 11400000, guid: 270de74a91a1234468d4de37f1e12950, type: 2}
-  startWood: 100
-  startStone: 100
-  startIron: 2
-  startManadust: 2
+  startWood: 150
+  startStone: 150
+  startIron: 4
+  startManadust: 3
 --- !u!114 &22372342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13686,9 +13686,10 @@ MonoBehaviour:
   IsNight: 0
   sunLight: {fileID: 705507994}
   rounds:
-  - Data: {fileID: 11400000, guid: e62296fde9698d54a81ee35d3b4915fa, type: 2}
   - Data: {fileID: 11400000, guid: beae53e8d93674a4c9c4812c9e300cb6, type: 2}
   - Data: {fileID: 11400000, guid: 43e6a10638cb14e4ea5020830b40e667, type: 2}
+  - Data: {fileID: 11400000, guid: dd81593b6d846284cacf5d86c27b0bdb, type: 2}
+  - Data: {fileID: 11400000, guid: ee875c1d2696a274e925454b684e06e5, type: 2}
 --- !u!4 &1204529662
 Transform:
   m_ObjectHideFlags: 0
@@ -14600,9 +14601,10 @@ MonoBehaviour:
   - {fileID: 39245709}
   - {fileID: 723108022}
   rounds:
-  - Data: {fileID: 11400000, guid: e62296fde9698d54a81ee35d3b4915fa, type: 2}
   - Data: {fileID: 11400000, guid: beae53e8d93674a4c9c4812c9e300cb6, type: 2}
   - Data: {fileID: 11400000, guid: 43e6a10638cb14e4ea5020830b40e667, type: 2}
+  - Data: {fileID: 11400000, guid: dd81593b6d846284cacf5d86c27b0bdb, type: 2}
+  - Data: {fileID: 11400000, guid: ee875c1d2696a274e925454b684e06e5, type: 2}
 --- !u!1 &1252580426
 GameObject:
   m_ObjectHideFlags: 0

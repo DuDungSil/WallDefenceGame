@@ -18,6 +18,7 @@ public abstract class OrcManager : MonsterManager
                 {
                     isDeath = true;
                     DropItem();
+                    characterController.enabled = false;
                     StartCoroutine(Death());
                 }
             }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485f2fa1ac7b2f6429a47e86ffa69294, type: 3}
   m_Name: RoundData_round2
   m_EditorClassIdentifier: 
-  _roundNum: 1
+  _roundNum: 2
   _monsters:
   - {fileID: 9222033505249894238, guid: 2adc1236ef5c4c84183bbef2b44ac683, type: 3}
   - {fileID: 4589878141263692568, guid: 0ca7033102576694e8f7ade115b28f35, type: 3}
@@ -21,8 +21,7 @@ MonoBehaviour:
   - 6
   - 2
   - 2
-  _eliteMonsters:
-  - {fileID: 9222033505249894238, guid: 2adc1236ef5c4c84183bbef2b44ac683, type: 3}
+  _eliteMonsters: []
   _respawnTime: 5
   _roundDayTime: 180
   _roundNightTime: 120

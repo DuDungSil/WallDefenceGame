@@ -2040,7 +2040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc344e44ed97974bb5efde8166cc825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OrcController: {fileID: 61353662471259817}
+  m_monsterCharacterController: {fileID: 61353662471259817}
   m_groundCheck: {fileID: 3296710787132015872}
   m_radius: 0.04
   m_groundMask:

@@ -49,6 +49,25 @@ public class MonsterSpawnController : Singleton<MonsterSpawnController>
             else if(i == count - 1) //마지막 웨이브에는 남은 모든 몬스터가 소환됨
             {
                 currentWaveMonsterNum = rounds[currentRound].Data.MaxSpawnNum - currentSpawnedMonsterNum;
+                if(rounds[currentRound].Data.EliteMonsters.Length >= 1)
+                {
+                    for(int k = 0; k < rounds[currentRound].Data.EliteMonsters.Length; k++)
+                    {
+                        // 엘리트 몬스터 소환 위치는 가운데 다리로 정함(바꿔도 됨)
+                        selectedSpawnPoint = 1;
+                        // 엘리트 몬스터 소환
+                        GameObject monster = (GameObject)Instantiate(rounds[currentRound].Data.EliteMonsters[k], SelectSpawnPosition(m_MonsterSpawnPoint[selectedSpawnPoint * 2],m_MonsterSpawnPoint[selectedSpawnPoint * 2 + 1]), Quaternion.identity);
+                        // 소환한 몬스터에게 nexusPoint(공격할 대상)을 주기 위함.
+                        monsterManager = monster.GetComponent<MonsterManager>(); 
+                        if(monsterManager != null)
+                        {
+                            nexusPointNum = Random.Range(0,6);
+                            monsterManager.nexusPoint = NexusController.Instance.attackPoint[nexusPointNum];
+                        }
+                        else
+                            Debug.Log("Error : monsterManager is null");
+                    }
+                }
             }
             else if(i > count/2) //밤 시간이 절반이상 지나갔다면 몬스터를 조금 많이 소환
             {

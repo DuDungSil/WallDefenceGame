@@ -69,6 +69,7 @@ public abstract class MonsterManager : MonoBehaviour
             if (Hp < 0 )
             {
                 isDeath = true;
+                characterController.enabled = false;
                 DropItem();
                 StartCoroutine(Death());
             }

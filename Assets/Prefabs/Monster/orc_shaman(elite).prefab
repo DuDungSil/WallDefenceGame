@@ -1105,9 +1105,11 @@ MonoBehaviour:
   isAttack: 0
   nexusPoint: {fileID: 0}
   hp: 0
-  IsDeath: 0
+  isDeath: 0
   deathTime: 5
   attackTime: 2.267
+  dropItems: []
+  dropItemChances: []
   m_animator: {fileID: 1520138230610351043}
   m_armor: 0
   magicCircle: {fileID: 7742260536891281432}
@@ -1176,7 +1178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc344e44ed97974bb5efde8166cc825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OrcController: {fileID: 7102120432081527075}
+  m_monsterCharacterController: {fileID: 7102120432081527075}
   m_groundCheck: {fileID: 6472080694781107724}
   m_radius: 0.04
   m_groundMask:
