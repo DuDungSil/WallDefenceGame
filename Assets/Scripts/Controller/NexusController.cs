@@ -46,7 +46,7 @@ public class NexusController : Singleton<NexusController>
     public void TakeDamage(float damage)
     {
         Hp = Hp - damage;
-        Debug.Log(Hp);
+        //Debug.Log(Hp);
         if (Hp <= 0)
         {
             //GameOver시 수행할 코드

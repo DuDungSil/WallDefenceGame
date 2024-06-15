@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ArrowTower : TowerManager
 {
+    public float y_offset;
     public override void Shoot(GameObject target)
     {
         // 런칭패드 방향 설정
         Vector3 monsterPos = target.transform.position;
+        monsterPos.y += y_offset;
         Vector3 monsterDirection = (monsterPos - shootingPoint.transform.position).normalized;
 
         Vector3 launchingPadMonsterDirection = monsterDirection;

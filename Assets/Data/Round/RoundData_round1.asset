@@ -19,7 +19,7 @@ MonoBehaviour:
   - 1
   _eliteMonsters: []
   _respawnTime: 5
-  _roundDayTime: 120
+  _roundDayTime: 10
   _roundNightTime: 60
   _maxSpawnNum: 20
-  _monsterNumVariable: 2
+  _monsterNumVariable: 1

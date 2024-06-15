@@ -45,6 +45,20 @@ public class OrcShamanManager : OrcManager
                 TakeDamage(meleeWeaponControl.damage);
             }     
         }
+        if(other.gameObject.layer == LayerMask.NameToLayer("TowerProjectile"))
+        {
+            // 플레이어의 무기 데미지를 받아오는과정 (자식에게 collider가, 부모에게 script가 달려있음)
+            ProjectileControl projectileControl = other.gameObject.transform.root.GetComponent<ProjectileControl>();
+            if(projectileControl != null)
+            {
+                float damage = projectileControl.damage;
+                TakeDamage(damage);
+            }
+            else
+            {
+                Debug.Log("Error : TowerProjectileControl is null");
+            }
+        }
     }
     public override IEnumerator Attacking() //벽 혹은 타워를 공격중일 때 호출
     {
