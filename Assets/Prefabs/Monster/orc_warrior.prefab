@@ -1583,7 +1583,7 @@ MonoBehaviour:
   attackTime: 2.267
   dropItems:
   - {fileID: 11400000, guid: 9dc714b865597ad4db540bda53dbe809, type: 2}
-  - {fileID: 11400000, guid: 9dc714b865597ad4db540bda53dbe809, type: 2}
+  - {fileID: 11400000, guid: 270de74a91a1234468d4de37f1e12950, type: 2}
   dropItemChances:
   - 0.18
   - 0.1

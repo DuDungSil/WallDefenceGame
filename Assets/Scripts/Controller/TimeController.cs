@@ -9,6 +9,8 @@ public class TimeController : Singleton<TimeController>
 {
     public delegate IEnumerator NightStart(); //밤에 할게 몬스터 생성밖에 없으니 IEnumerator 형식으로 선언해도 상관 없을듯
     public event NightStart nightActionDelegate;
+    public Material daySkybox;
+    public Material nightSkybox;
     public void NightActivate()
     {
         if(nightActionDelegate != null)
@@ -29,6 +31,9 @@ public class TimeController : Singleton<TimeController>
     void Start()
     {
         time = rounds[0].Data.RoundDayTime;
+        SoundController.Instance.PlaySound2D("daySound",0,true,SoundType.BGM);
+        RenderSettings.skybox = daySkybox;
+        DynamicGI.UpdateEnvironment();
     }
 
     // Update is called once per frame
@@ -56,6 +61,10 @@ public class TimeController : Singleton<TimeController>
             }
             else
             {
+                RenderSettings.skybox = daySkybox;
+                DynamicGI.UpdateEnvironment();
+                SoundController.Instance.StopLoopSound("nightSound");
+                SoundController.Instance.PlaySound2D("daySound",0,true,SoundType.BGM);
                 time = rounds[currentRound - 1].Data.RoundDayTime;
                 IsNight = false;
                 sunLight.transform.rotation = Quaternion.Euler(50.0f,-30.0f,0);
@@ -70,10 +79,14 @@ public class TimeController : Singleton<TimeController>
             }
             else
             {
+                RenderSettings.skybox = nightSkybox;
+                DynamicGI.UpdateEnvironment();
+                SoundController.Instance.StopLoopSound("daySound");
+                SoundController.Instance.PlaySound2D("nightSound",0,true,SoundType.BGM);
                 time = rounds[currentRound - 1].Data.RoundNightTime;
                 NightActivate();
                 IsNight = true;
-                sunLight.transform.rotation = Quaternion.Euler(270.0f,-30.0f,0);
+                sunLight.transform.rotation = Quaternion.Euler(150.0f,-30.0f,0);
                 m_dayNightImage.sprite = m_sprites[1];
             }
         }
