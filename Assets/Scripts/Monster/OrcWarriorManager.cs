@@ -46,7 +46,7 @@ public class OrcWarriorManager : OrcManager
             ProjectileControl projectileControl = other.gameObject.transform.root.GetComponent<ProjectileControl>();
             if(projectileControl != null)
             {
-                float damage = projectileControl.damage;
+                float damage = projectileControl.GetDamage();
                 TakeDamage(damage);
             }
             else

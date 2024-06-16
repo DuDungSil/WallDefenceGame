@@ -16,11 +16,13 @@ public abstract class OrcManager : MonsterManager
                 //Debug.Log(Hp);
                 if(Hp <= 0)
                 {
+                    Hp = 0;
                     isDeath = true;
                     DropItem();
                     characterController.enabled = false;
                     StartCoroutine(Death());
                 }
+                OnStatusChanged();
             }
         }
     }
@@ -66,7 +68,7 @@ public abstract class OrcManager : MonsterManager
             ProjectileControl projectileControl = other.gameObject.transform.root.GetComponent<ProjectileControl>();
             if(projectileControl != null)
             {
-                float damage = projectileControl.damage;
+                float damage = projectileControl.GetDamage();
                 TakeDamage(damage);
             }
             else

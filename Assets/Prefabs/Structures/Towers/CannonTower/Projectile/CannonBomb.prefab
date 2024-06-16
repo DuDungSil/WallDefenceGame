@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8003886724916739186}
   - component: {fileID: 5717694549505934732}
   - component: {fileID: 5745364437903089817}
-  m_Layer: 16
+  m_Layer: 24
   m_Name: CannonBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   projectileLifeTime: 10
+  hitSound: 
   bombEffect: {fileID: 7516420010026733506, guid: 2ae5aeed149b58e40935f761387e31fb, type: 3}
 --- !u!33 &7253574241045902863
 MeshFilter:

@@ -18,7 +18,7 @@ public class AssignUnitStructureManager : StructureManager
         protected set{ neededUnits = value;}
     }
 
-    public void AssignedChange() //AssignBtn과 RemoveBtn의 이벤트함수
+    public virtual void AssignedChange() //AssignBtn과 RemoveBtn의 이벤트함수
     {
         if(isAssigned) //RemoveBtn listener
         {

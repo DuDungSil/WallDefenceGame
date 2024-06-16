@@ -95,7 +95,6 @@ public class ArrowControl : ProjectileControl
             }
             Stop();
 
-            if(hitlayer == 8) SoundController.Instance.PlaySound3D("Arrow_hit", gameObject.transform, 0, false, SoundType.SFX, true, 0, 50);
         }
     }
 

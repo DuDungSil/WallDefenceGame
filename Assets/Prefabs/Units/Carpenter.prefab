@@ -128,10 +128,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400022, guid: 337f91b7b78f3a446ad06c47e8efcd6a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7769384068348851276}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100062, guid: 337f91b7b78f3a446ad06c47e8efcd6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5401539481687534548}
   m_SourcePrefab: {fileID: 100100000, guid: 337f91b7b78f3a446ad06c47e8efcd6a, type: 3}
 --- !u!4 &7305848444584311442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400022, guid: 337f91b7b78f3a446ad06c47e8efcd6a, type: 3}
   m_PrefabInstance: {fileID: 7305848444584697860}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7305848444584601306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100062, guid: 337f91b7b78f3a446ad06c47e8efcd6a, type: 3}
+  m_PrefabInstance: {fileID: 7305848444584697860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5401539481687534548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305848444584601306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590fbd25edfc3cb4e8ccd3007467734a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationLength: 3.466
+  workSoundDelay: 2.1
+  workSoundDistance: 25
+  workSound: Work_carpenter

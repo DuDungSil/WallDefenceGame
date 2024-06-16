@@ -197,7 +197,7 @@ MonoBehaviour:
     Data: {fileID: 11400000, guid: 1acc327d4be08024cb9cf2d8028d34ce, type: 2}
   Units: {fileID: 1602095654906207831}
   neededUnits: 1
-  repairTime: 5
+  repairTime: 4
   repairAmount: 80
 --- !u!1001 &2692503863435163318
 PrefabInstance:

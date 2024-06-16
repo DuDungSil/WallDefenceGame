@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d212dbcfa69a3b643808c2bc01084efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0.1
+  value: 0.2
   coolTime: 1
   magnitudeThreshold: 0.5
   toolSound: RepairHammer_repair

@@ -27,13 +27,6 @@ public abstract class DistanceWeanponControl : MonoBehaviour
         Init();
     }
 
-    protected IEnumerator ActivateCooldown(float _time)
-    {
-        lastCoolTime = Time.time;
-        yield return new WaitForSeconds(_time);
-        isCoolTime = false;
-        OnStatusChanged();
-    }
 
     public void Init()
     {
@@ -53,6 +46,14 @@ public abstract class DistanceWeanponControl : MonoBehaviour
         SoundController.Instance.PlaySound3D("Gun_reload", gameObject.transform);
         OnStatusChanged();
     } 
+
+    protected IEnumerator ActivateCooldown(float _time)
+    {
+        lastCoolTime = Time.time;
+        yield return new WaitForSeconds(_time);
+        isCoolTime = false;
+        OnStatusChanged();
+    }
 
     public delegate void StatusChanged();
     public event StatusChanged onStatusChanged;

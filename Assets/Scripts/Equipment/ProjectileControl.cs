@@ -8,6 +8,7 @@ public class ProjectileControl : MonoBehaviour
     public float damage;
     //[HideInInspector]
     public float projectileLifeTime = 0;
+    public string hitSound;
 
     void Start()
     {
@@ -36,13 +37,23 @@ public class ProjectileControl : MonoBehaviour
         }          
     }
 
+    public float GetDamage()
+    {
+        if(hitSound != "")
+        {
+            SoundController.Instance.PlaySound3D(hitSound, gameObject.transform, 0f, false, SoundType.SFX, true, 0f, 50f);
+        }
+
+        return damage;
+    }
+
     public void setLifeTime(float _time)
     {
         projectileLifeTime = _time;
         StartCoroutine(DestroyAfterTime());
     }
 
-    IEnumerator DestroyAfterTime()
+    protected IEnumerator DestroyAfterTime()
     {
         // lifetime 만큼 대기
         yield return new WaitForSeconds(projectileLifeTime);

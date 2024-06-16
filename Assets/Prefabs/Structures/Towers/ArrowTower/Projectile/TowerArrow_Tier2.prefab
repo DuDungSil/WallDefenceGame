@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1166882187149642311}
   - component: {fileID: 548674568243616467}
   m_Layer: 0
-  m_Name: TowerArrow
+  m_Name: TowerArrow_Tier2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,8 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a44a63b432ff4e4a9a4b5df5d471d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 90
-  projectileLifeTime: 6
+  damage: 150
+  projectileLifeTime: 3
+  hitSound: 
 --- !u!1001 &7964509358463441076
 PrefabInstance:
   m_ObjectHideFlags: 0

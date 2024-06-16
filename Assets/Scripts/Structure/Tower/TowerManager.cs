@@ -14,12 +14,16 @@ public abstract class TowerManager : AssignUnitStructureManager
     public float shootDelay;
     public float m_projectileSpeed;
 
+    public GameObject assignedMark;
+
+    // 공격 딜레이
     private bool shootActivate = true;
     protected Queue<GameObject> monsterQueue = new Queue<GameObject>();
 
     protected override void Start()
     {
         base.Start();
+        assignedMark.SetActive(!isAssigned);
     }
     protected virtual void Update() 
     {
@@ -46,6 +50,34 @@ public abstract class TowerManager : AssignUnitStructureManager
                         shootActivate = false;
                         StartCoroutine(ShootDelay());
                     }
+                }
+            }
+        }
+    }
+
+    public override void AssignedChange() //AssignBtn과 RemoveBtn의 이벤트함수
+    {
+        if(isAssigned) //RemoveBtn listener
+        {
+            if(UnitController.Instance.RemoveUnits(NeededUnits))
+            {
+                isAssigned = false;
+                if(Units != null)
+                {
+                    assignedMark.SetActive(true);
+                    Units.SetActive(false);
+                }
+            }
+        }
+        else //AssignBtn listener
+        {
+            if(UnitController.Instance.AssignUnits(NeededUnits))
+            {
+                isAssigned = true;
+                if(Units != null)
+                {
+                    assignedMark.SetActive(false);
+                    Units.SetActive(true);
                 }
             }
         }
@@ -98,4 +130,5 @@ public abstract class TowerManager : AssignUnitStructureManager
         yield return new WaitForSeconds(shootDelay);
         shootActivate = true;
     }
+
 }

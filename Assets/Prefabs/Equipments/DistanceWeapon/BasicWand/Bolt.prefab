@@ -75,6 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   projectileLifeTime: 0
+  hitSound: Bolt_hit
+  isCollision: 0
   rotationSpeed: 1000
 --- !u!1 &3931403459895204288
 GameObject:

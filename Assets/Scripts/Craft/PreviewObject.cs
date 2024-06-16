@@ -38,32 +38,38 @@ public class PreviewObject : MonoBehaviour
 
     }
 
-    private void SetColorRecursive(Transform parent, Material mat)
+private void SetColorRecursive(Transform parent, Material mat)
+{
+    // 부모의 자식들을 모두 순회합니다.
+    foreach (Transform tf_Child in parent)
     {
-        // 부모의 자식들을 모두 순회합니다.
-        foreach (Transform tf_Child in parent)
+        // 오브젝트가 특정 태그를 가지고 있는지 확인합니다.
+        if (tf_Child.CompareTag("ExcludeColorChange"))
         {
-            Renderer renderer = tf_Child.GetComponent<Renderer>();
+            continue;
+        }
 
-            if (renderer != null)
+        Renderer renderer = tf_Child.GetComponent<Renderer>();
+
+        if (renderer != null)
+        {
+            Material[] newMaterials = new Material[renderer.materials.Length];
+
+            for (int i = 0; i < newMaterials.Length; i++)
             {
-                Material[] newMaterials = new Material[renderer.materials.Length];
-
-                for (int i = 0; i < newMaterials.Length; i++)
-                {
-                    newMaterials[i] = mat;
-                }
-
-                renderer.materials = newMaterials;
+                newMaterials[i] = mat;
             }
 
-            // 하위 오브젝트가 있으면 재귀적으로 호출하여 그 하위 오브젝트의 자식들도 모두 순회합니다.
-            if (tf_Child.childCount > 0)
-            {
-                SetColorRecursive(tf_Child, mat);
-            }
+            renderer.materials = newMaterials;
+        }
+
+        // 하위 오브젝트가 있으면 재귀적으로 호출하여 그 하위 오브젝트의 자식들도 모두 순회합니다.
+        if (tf_Child.childCount > 0)
+        {
+            SetColorRecursive(tf_Child, mat);
         }
     }
+}
 
     private void SetColor(Material mat)
     {

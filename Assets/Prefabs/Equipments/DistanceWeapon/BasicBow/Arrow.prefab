@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   projectileLifeTime: 0
+  hitSound: Arrow_hit
   tip: {fileID: 5355213809429848812}
   notchPos: {fileID: 2754584230941540430}
   maxDamage: 0

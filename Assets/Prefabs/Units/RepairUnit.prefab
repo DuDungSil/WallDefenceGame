@@ -1171,6 +1171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4815440418569690986}
   - component: {fileID: 2396670071520790418}
+  - component: {fileID: -8644095749650544934}
   m_Layer: 0
   m_Name: RepairUnit
   m_TagString: Untagged
@@ -1220,6 +1221,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8644095749650544934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703780222203259105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590fbd25edfc3cb4e8ccd3007467734a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationLength: 2.267
+  workSoundDelay: 0.8
+  workSoundDistance: 20
+  workSound: Work_repairunit
 --- !u!1 &3741155299536333054
 GameObject:
   m_ObjectHideFlags: 0

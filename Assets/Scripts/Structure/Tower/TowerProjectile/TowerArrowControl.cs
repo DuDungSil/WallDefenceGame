@@ -9,7 +9,8 @@ public class TowerArrowControl : ProjectileControl
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        StartCoroutine(RotateWithVelocity());    
+        StartCoroutine(RotateWithVelocity());
+        StartCoroutine(DestroyAfterTime());    
     }
 
 

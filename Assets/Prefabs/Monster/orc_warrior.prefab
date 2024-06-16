@@ -1585,7 +1585,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9dc714b865597ad4db540bda53dbe809, type: 2}
   - {fileID: 11400000, guid: 9dc714b865597ad4db540bda53dbe809, type: 2}
   dropItemChances:
-  - 0.15
+  - 0.18
   - 0.1
   m_animator: {fileID: 5934363845922898857}
   m_armor: 0

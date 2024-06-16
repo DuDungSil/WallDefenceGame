@@ -197,7 +197,7 @@ MonoBehaviour:
     Data: {fileID: 0}
   Units: {fileID: 4187235608389059930}
   neededUnits: 1
-  repairTime: 5
+  repairTime: 4
   repairAmount: 320
 --- !u!1001 &682986819363499451
 PrefabInstance:

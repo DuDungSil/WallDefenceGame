@@ -78,7 +78,7 @@ public class SoundController : Singleton<SoundController>
     /// 2D 사운드로 재생한다. 거리에 상관 없이 같은 소리 크기로 들린다.
     /// <param name="clipName">오디오 클립 이름</param>
     /// <param name="type">오디오 유형(BGM, EFFECT 등.)</param>
-    public void PlaySound2D(string clipName, float delay = 0f, bool isLoop = false, SoundType type = SoundType.SFX)
+    public GameObject PlaySound2D(string clipName, float delay = 0f, bool isLoop = false, SoundType type = SoundType.SFX)
     {
         GameObject obj = new GameObject("TemporarySoundPlayer 2D");
         TemporarySoundPlayer soundPlayer = obj.AddComponent<TemporarySoundPlayer>();
@@ -88,6 +88,8 @@ public class SoundController : Singleton<SoundController>
 
         soundPlayer.InitSound2D(GetClip(clipName));
         soundPlayer.Play(mAudioMixer.FindMatchingGroups(type.ToString())[0], delay, isLoop);
+
+        return obj;
     }
 
     /// 3D 사운드로 재생한다.
@@ -97,7 +99,7 @@ public class SoundController : Singleton<SoundController>
     /// <param name="attachToTarget"></param>
     /// <param name="minDistance"></param>
     /// <param name="maxDistance"></param>
-    public void PlaySound3D(string clipName, Transform audioTarget, float delay = 0f, bool isLoop = false, SoundType type = SoundType.SFX, bool attachToTarget = true, float minDistance = 0.0f, float maxDistance = 50.0f)
+    public GameObject PlaySound3D(string clipName, Transform audioTarget, float delay = 0f, bool isLoop = false, SoundType type = SoundType.SFX, bool attachToTarget = true, float minDistance = 0.0f, float maxDistance = 50.0f)
     {
         GameObject obj = new GameObject("TemporarySoundPlayer 3D");
         obj.transform.localPosition = audioTarget.transform.position;
@@ -110,6 +112,8 @@ public class SoundController : Singleton<SoundController>
 
         soundPlayer.InitSound3D(GetClip(clipName), minDistance, maxDistance);
         soundPlayer.Play(mAudioMixer.FindMatchingGroups(type.ToString())[0], delay, isLoop);
+
+        return obj;
     }
 
     //씬이 로드될 때 옵션 매니저에의해 모든 사운드 불륨을 저장된 옵션의 크기로 초기화시키는 함수.

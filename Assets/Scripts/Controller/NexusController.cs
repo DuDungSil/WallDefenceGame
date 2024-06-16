@@ -18,8 +18,12 @@ public class NexusController : Singleton<NexusController>
     public Material greenMaterial;
     public Renderer currentHpRenderer;
 
+    // 넥서스 공격받는 메세지
+    public GameObject messagePanel;
+
     // 제어변수
     private bool isRecoveryCooltime = false;
+    private bool isMessageCooltime = false;
 
     public float Hp
     {
@@ -28,6 +32,7 @@ public class NexusController : Singleton<NexusController>
     }
     void Start()
     {
+        messagePanel.SetActive(false);
         Hp = maxHp;
     }
     void Update()
@@ -46,13 +51,22 @@ public class NexusController : Singleton<NexusController>
     public void TakeDamage(float damage)
     {
         Hp = Hp - damage;
+
         //Debug.Log(Hp);
         if (Hp <= 0)
         {
+            Hp = 0;
+            UpdateHpBar();
             //GameOver시 수행할 코드
             UIController.Instance.OpenGameover();
             Debug.Log("GameOver");
         }
+
+        if(!isMessageCooltime)
+        {
+            StartCoroutine(ActivateMessageCooltime());
+        }
+        
         UpdateHpBar();
     }
     public void Recovery(float recovery)
@@ -98,4 +112,15 @@ public class NexusController : Singleton<NexusController>
         yield return new WaitForSeconds(recoveryTime);
         isRecoveryCooltime = false;
     }
+
+    protected IEnumerator ActivateMessageCooltime()
+    {
+        messagePanel.SetActive(true);
+        isMessageCooltime = true;
+        SoundController.Instance.PlaySound2D("Alarm_nexus");
+        yield return new WaitForSeconds(2f);
+        messagePanel.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        isMessageCooltime = false;
+    }   
 }

@@ -83,7 +83,7 @@ MonoBehaviour:
     Data: {fileID: 11400000, guid: 00b21a31197d8024fb5af4dcc75e714b, type: 2}
   Units: {fileID: 2343287180600008138}
   neededUnits: 1
-  repairTime: 5
+  repairTime: 4
   repairAmount: 50
 --- !u!114 &9106071992204787193
 MonoBehaviour:

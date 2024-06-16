@@ -46,8 +46,6 @@ public class BoltContol : ProjectileControl
             {
                 currentPierces++;
 
-                SoundController.Instance.PlaySound3D("Bolt_hit", gameObject.transform, 0f, false, SoundType.SFX, false);
-
                 if (currentPierces >= maxPierces)
                 {
                     Destroy(gameObject);

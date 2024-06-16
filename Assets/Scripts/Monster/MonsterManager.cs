@@ -78,7 +78,7 @@ public abstract class MonsterManager : MonoBehaviour
     public virtual IEnumerator Death() //몬스터가 죽는 코루틴, 몬스터의 사망 애니메이션의 길이에 따라 deathTime을 조절하면 될듯.
     {
         m_animator.SetTrigger("DeathTrigger");
-        SoundController.Instance.PlaySound3D("Monster_death", gameObject.transform);
+        SoundController.Instance.PlaySound3D("Monster_death", gameObject.transform, 0.5f);
         yield return new WaitForSeconds(deathTime);
         Destroy(gameObject);
     }
@@ -141,5 +141,15 @@ public abstract class MonsterManager : MonoBehaviour
             totalProbability += dropItemChances[i];
             cumulativeProbabilities[i] = totalProbability;
         }
+    }
+
+    public delegate void StatusChanged();
+    public event StatusChanged onStatusChanged;
+
+    // 스트럭쳐 hp 변경 이벤트 호출 메서드
+    protected void OnStatusChanged()
+    {
+        if (onStatusChanged != null)
+            onStatusChanged.Invoke();
     }
 }
