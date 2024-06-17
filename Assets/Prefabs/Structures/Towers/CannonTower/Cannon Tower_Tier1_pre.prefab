@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 668144209358947854}
-  - component: {fileID: 7543430022851858763}
   - component: {fileID: -7756841117616126596}
   m_Layer: 9
   m_Name: Cannon Tower_Tier1_pre
@@ -36,27 +35,6 @@ Transform:
   - {fileID: 1433504080023255589}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7543430022851858763
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 718433148593771475}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.8, y: 8, z: 4.5}
-  m_Center: {x: 0, y: 3.7, z: 0}
 --- !u!114 &-7756841117616126596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,7 +561,6 @@ GameObject:
   - component: {fileID: 8578362403945238864}
   - component: {fileID: 8605701909417403013}
   - component: {fileID: 4402327654962643215}
-  - component: {fileID: 7014683868029518580}
   m_Layer: 12
   m_Name: attackRange
   m_TagString: ExcludeColorChange
@@ -656,27 +633,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6356218201394306588}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &7014683868029518580
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6356218201394306588}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6943293304114166528
 GameObject:
   m_ObjectHideFlags: 0
