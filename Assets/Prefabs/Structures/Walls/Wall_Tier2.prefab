@@ -84,7 +84,7 @@ MonoBehaviour:
   Units: {fileID: 2343287180600008138}
   neededUnits: 1
   repairTime: 4
-  repairAmount: 50
+  repairAmount: 25
 --- !u!114 &9106071992204787193
 MonoBehaviour:
   m_ObjectHideFlags: 0

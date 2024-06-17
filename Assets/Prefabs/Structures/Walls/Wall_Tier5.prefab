@@ -198,7 +198,7 @@ MonoBehaviour:
   Units: {fileID: 4187235608389059930}
   neededUnits: 1
   repairTime: 4
-  repairAmount: 320
+  repairAmount: 160
 --- !u!1001 &682986819363499451
 PrefabInstance:
   m_ObjectHideFlags: 0
