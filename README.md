@@ -10,9 +10,9 @@
 
 ## Developer
 
-|<img width="200" alt="image" src="" />||<img width="200" alt="image" src="" />|
-|:--:||:--:|
-|[오민석(DuDungSil)](https://github.com/DuDungSil)||[이재상(DuDungSil)](https://github.com/DuDungSil)|
+|<img width="200" alt="image" src="" />|<img width="200" alt="image" src="" />|
+|:--:|:--:|
+|[오민석(DuDungSil)](https://github.com/DuDungSil)|[이재상(B-JoCharm)](https://github.com/B-JoCharm)|
 
 <br>
 
